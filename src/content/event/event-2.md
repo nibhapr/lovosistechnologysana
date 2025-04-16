@@ -3,7 +3,7 @@ id: 2
 name: "INTERSEC 2025"
 title: "Uniview Technologies Ltd. & Lovosis Technology L.L.C at Intersec Dubai 2025"
 subTitle: "Uniview Technologies Ltd. & Lovosis Technology L.L.C  are proud to showcase the latest advancements in security solutions at Intersec Dubai 2025. Visit stal No:SA-E30  to explore innovative products and technologies designed to enhance safety and efficiency in security systems."
-description: "Uniview Technologies Ltd. & Lovosis Technology L.L.C are proud to showcase the latest advancements in security solutions at Intersec Dubai 2025. Visit stal No:SA-E30 to explore innovative products and technologies designed to enhance safety and efficiency in security systems. Don't miss the opportunity to engage with our experts and discover how our solutions can meet your security needs."
+description: "Uniview Technologies Ltd. & Lovosis Technology L.L.C are proud to showcase the latest advancements in security solutions at Intersec Dubai 2025. Visit Stall No: SA-E30 to explore innovative products and technologies designed to enhance safety, reliability, and efficiency in security systems. Don't miss the opportunity to engage with our experts."
 location: "Dubai World Trade Centre"
 authorImage: "/public/pictures/gitex234.png"
 authorImageAlt: "Avatar Description"
