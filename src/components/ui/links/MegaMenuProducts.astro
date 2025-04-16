@@ -32,8 +32,8 @@ import personWorking from "@images/person-working.avif";
   </button>
 
   <div
-    class="hs-dropdown-menu start-0 top-full z-10 hidden w-full min-w-60 rounded-2xl bg-neutral-50 py-2 opacity-0 transition-[opacity,margin] duration-[0.1ms] before:absolute before:-top-5 before:start-0 before:h-5 before:w-full hs-dropdown-open:opacity-100 dark:divide-neutral-700 dark:bg-neutral-800 md:top-16 md:p-4 md:shadow-2xl md:duration-[0.1s]"
-  >
+  class="hs-dropdown-menu start-0 top-full z-10 hidden w-full min-w-60 rounded-2xl bg-neutral-50 py-2 opacity-0 transition-all duration-300 ease-in-out before:absolute before:-top-5 before:start-0 before:h-5 before:w-full hs-dropdown-open:opacity-100 dark:divide-neutral-700 dark:bg-neutral-800 md:top-16 md:p-4 md:shadow-2xl"
+>
     <div class="items-center gap-4 md:grid md:grid-cols-1 lg:grid-cols-1">
       <!--Link area -->
       <div class="mx-1 flex flex-wrap gap-3 md:mx-0">
@@ -233,4 +233,26 @@ import personWorking from "@images/person-working.avif";
     document.getElementById("products-img").src = proSrc;
     document.getElementById("products-title").textContent = proTitle;
   }
+  
 </script>
+<style is:inline>
+  .hs-dropdown-menu {
+    transform: translateY(10px);
+    will-change: transform, opacity;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .hs-dropdown-menu.hs-dropdown-open {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .hs-dropdown-menu a {
+    transition: all 0.2s ease;
+  }
+
+  .hs-dropdown-menu a:hover {
+    transform: translateY(-2px);
+  }
+</style>
+
