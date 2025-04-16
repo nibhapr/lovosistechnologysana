@@ -1,0 +1,294 @@
+---
+import { getCollection } from "astro:content";
+import MainLayout from "@/layouts/MainLayout.astro";
+import PrimaryCTA from "@/components/ui/buttons/PrimaryCTA.astro";
+import { dahuanewData } from "@/data/camera";
+interface Card {
+  id: number
+  title: string;
+  desc: string;
+  img: string;
+  alt: string;
+  author: string;
+  reviewBody:string;
+  ratingValue:number;
+  slug: string;
+  features?: string[];
+  publishedTime: string;
+}
+
+const content = await getCollection("dahua");
+const cards: Card[] = content.map((item) => ({
+  id: item.data.id,
+  title: item.data.title,
+  desc: item.data.desc,
+  img: item.data.img.src,
+  alt: item.data.alt,
+  author: item.data.author,
+  reviewBody: item.data.reviewBody,
+  ratingValue: item.data.ratingValue,
+  slug: item.slug,
+  features: item.data.features,
+  publishedTime: item.data.publishedTime
+}));
+
+const pageTitle: string =
+  "Dahua distributor in Dubai | Lovosis Technology L.L.C";
+const description =
+  "Buy top-quality Dahua security cameras, DVRs, NVRs & IP Cameras from Dubai's leading dealer. Expert installation, advanced tech & professional support for homes & businesses. Secure your property today";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+  {
+      "@type": "Organization",
+      name: "Lovosis Technology L.L.C",
+      url: "https://lovosis.com",
+      logo: "https://lovosis.come.com/pictures/logo.png",
+      description: description,
+      sameAs: [
+        "https://www.facebook.com/p/LOVOSIS-TECHNOLOGY-100083060600975/",
+        "https://www.instagram.com/_lovosis_group_of_companies_/reels/",
+      ],
+      email: "sales@lovosis.com",
+      telephone: "+971552929644",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress:
+          "Satellite Market Naif Deira,Baghlaf Building Showroom No.5",
+        addressLocality: "Dubai",
+        addressCountry: "AE",
+        addressRegion: "Dubai,United Arab Emirates",
+        postalCode: "123421",
+      },
+    },
+    {
+      "@type": "WebPage",
+      name: "Dahua | Lovosis Technology",
+      url: "https://lovosis.com/alhua",
+      description: description,
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://lovosis.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Alhua",
+          "item": "https://lovosis.com/alhua"
+        }
+      
+      ]
+    },
+    {
+      "hasOfferCatalog": {
+      "@type": "ItemList",
+      "itemListElement": cards.map((card) => {
+        return {
+          "@type": "ListItem",
+          
+          "position": card.id,
+          "item": {
+            "@type": "Product",
+            "name": card.title,
+            "image": `${Astro.url.origin}/${card.img}`,
+          
+            "description": card.desc,
+            "brand": {
+              "@type": "Brand",
+              "name": "Alhua"
+            },
+            "url": `${Astro.url.origin}/alhua/${card.slug}`,
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "reviewCount": "50"
+            }
+          }
+        };
+      })
+    }
+  }
+  ]
+};
+
+---
+
+<MainLayout title={pageTitle} description={description} sd={structuredData}>
+  <div>
+
+    <div>
+   
+      <div class="flex-item-center grid justify-center gap-5 lg:grid-cols-2 mt-16">
+        <div class="flex flex-col justify-center">
+          <img
+            src="/pictures/dahuabanner.jpg"
+            alt="billboard image"
+            class="rounded-lg"
+            width="600"
+            height="500"
+            loading="lazy"
+          />
+        </div>
+        <div class="order-1 mt-16 items-start lg:order-2">
+          <h1
+            class="text-2xl font-bold text-neutral-800 dark:text-gray-200 md:text-4xl"
+          >
+          Dahua distributor in Dubai | Lovosis Technology L.L.C
+          </h1>
+          <p class="mt-2 line-clamp-8 text-base/relaxed text-gray-500 dark:text-gray-400">
+            <strong>Dahua Technology</strong> stands out as a top global provider of video surveillance solutions.
+             Their cameras are recognized for delivering high-quality images, cutting-edge technologies,
+            and strong security features. If you're aiming to craft engaging content on 
+            why <strong>Dahua cameras</strong> are a great option, here’s an outline 
+            highlighting key benefits, innovative technologies, and reasons to choose <strong>Dahua cameras</strong>.
+            
+          </p>
+          <div class="mt-8 grid w-full sm:inline-flex">
+            <PrimaryCTA title="Contact Us" url="https://lovosis.com/contact/" />
+          </div>
+        </div>
+      </div>
+      <h2 class="m-12 text-center text-3xl font-bold">Why choose Dahua cctv camera</h2>
+      <div class="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-8  py-10   lg:py-14 h-auto ">
+        
+        {
+            dahuanewData.map((item) => (
+      <article class="overflow-hidden rounded-lg shadow-sm transition hover:shadow-lg dark:shadow-gray-700/25">
+      <img
+        alt={item.title}
+        src= {item.image}
+        class="h-56 w-full object-cover"
+      />
+    
+      <div class="bg-white p-4 sm:p-6 dark:bg-gray-900">
+     
+    
+        <a href="#">
+          <h3 class="mt-0.5 text-lg text-gray-900 dark:text-white">
+            {item.title}
+          </h3>
+        </a>
+    
+        <p class="mt-2 line-clamp-3 text-base/relaxed text-gray-500 dark:text-gray-400">
+       {item.description}
+        </p>
+      </div>
+     </article>))}
+    </div>
+
+    <section class="mx-auto max-w-[1400px] px-4 pt-8">
+      <div class="mx-auto mb-12 max-w-2xl">
+        <h2 class="mb-6 text-center text-3xl font-bold">Populor Products</h2>
+        <div class="relative">
+          <input
+            type="text"
+            id="search"
+            class="focus:border-blue-500 focus:ring-blue-500 w-full rounded-lg border border-gray-300 px-4 py-3 pl-12 text-base shadow-sm focus:outline-none focus:ring-1"
+            placeholder="Search tutorials..."
+          />
+          <svg
+            class="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </div>
+      </div>
+      <section class="mx-auto max-w-[1400px] px-4 pb-8">
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+        
+          {
+            cards.map((card) => (
+              <div class="transform overflow-hidden rounded-lg bg-white shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
+                <img
+                  src={card.img}
+                  alt={card.alt}
+                  class="product-image h-56 w-full object-cover"
+                />
+                <div class="flex flex-col items-center p-6">
+                  <h3 class="text-xl font-semibold">{card.title}</h3>
+                  <p class="mb-4 mt-3 text-gray-600">{card.desc}</p>
+                  <a href={`/alhua/${card.slug}`} class="read-more-btn">
+                    Read More
+                  </a>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+    <p
+      id="no-results"
+      class="mx-4 my-6 hidden rounded-lg bg-gray-50 py-8 text-center text-xl font-medium text-gray-600 shadow-inner"
+    >
+      <span class="mb-2 block text-3xl">🔍</span>
+      No matching results found
+    </p>
+  </div>
+</MainLayout>
+<style>
+  /* Hero Section Styles */
+  .hero-section {
+    @apply bg-cover bg-center py-16 text-center text-white;
+    background-image: url("/public/pictures/unv/unvbanner.png");
+  }
+  .hero-content {
+    @apply bg-black bg-opacity-50 px-4 py-16;
+  }
+  /* Read More Button Styles */
+  .read-more-btn {
+    @apply relative transform overflow-hidden rounded-lg border-2 border-transparent bg-blue-600 px-6 py-3 font-bold text-white transition-all duration-300;
+  }
+  .read-more-btn:hover {
+    @apply -translate-y-1 border-blue-600 bg-white text-blue-600 shadow-xl;
+  }
+  .read-more-btn:active {
+    @apply scale-95;
+  }
+  .read-more-btn::before {
+    @apply absolute left-0 top-0 -z-10 h-full w-full origin-left scale-x-0 bg-white transition-transform duration-300;
+    content: "";
+  }
+  .read-more-btn:hover::before {
+    @apply scale-x-100;
+  }
+</style>
+<script>
+  // Client-side search functionality
+  const searchInput = document.getElementById("search");
+  const cards = document.querySelectorAll(".grid > div");
+  const noResults = document.getElementById("no-results");
+  searchInput?.addEventListener("input", (e) => {
+    const searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
+    let hasVisibleCards = false;
+    cards.forEach((card) => {
+      const title = card.querySelector("h3")?.textContent?.toLowerCase() || "";
+      const desc = card.querySelector("p")?.textContent?.toLowerCase() || "";
+      if (title.includes(searchTerm) || desc.includes(searchTerm)) {
+        card.classList.remove("hidden");
+        hasVisibleCards = true;
+      } else {
+        card.classList.add("hidden");
+      }
+    });
+    // Toggle no results message
+    if (noResults) {
+      noResults.classList.toggle("hidden", hasVisibleCards);
+    }
+  });
+</script>
+

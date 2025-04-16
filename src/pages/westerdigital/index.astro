@@ -1,0 +1,278 @@
+---
+import { getCollection } from "astro:content";
+import MainLayout from "@/layouts/MainLayout.astro";
+import PrimaryCTA from "@/components/ui/buttons/PrimaryCTA.astro";
+
+interface Card {
+  id: number;
+  title: string;
+  desc: string;
+  img: string;
+  alt: string;
+  author: string;
+  reviewBody: string;
+  ratingValue: number;
+  slug: string;
+  features?: string[];
+  publishedTime: string;
+}
+
+const content = await getCollection("westerdigital");
+const cards: Card[] = content.map((item) => ({
+  id: item.data.id,
+  title: item.data.title,
+  desc: item.data.desc,
+  img: item.data.img.src,
+  alt: item.data.alt,
+  author: item.data.author,
+  reviewBody: item.data.reviewBody,
+  ratingValue: item.data.ratingValue,
+  slug: item.slug,
+  features: item.data.features,
+  publishedTime: item.data.publishedTime,
+}));
+
+// console.log("Cards data:", cards);
+
+const pageTitle = "Western Digital Surveillance Hard Drives | Official Distributor UAE";
+const description = "Buy Western Digital Surveillance Hard Drives with 3-year warranty. Official distributor in UAE, Saudi Arabia, Dubai & Middle East. 24/7 reliability, high storage capacity.";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "Western Digital Surveillance Hard Drives",
+  description: description,
+  brand: {
+    "@type": "Brand",
+    name: "Western Digital"
+  },
+  offers: {
+    "@type": "AggregateOffer",
+    availability: "https://schema.org/InStock",
+    areaServed: ["AE", "SA", "BH", "KW", "OM", "QA"],
+    seller: {
+      "@type": "Organization",
+      name: "Lovosis Technology L.L.C",
+      areaServed: "Middle East"
+    }
+  },
+  additionalProperty: [
+    {
+      "@type": "PropertyValue",
+      name: "Warranty",
+      value: "3 Years Replacement Warranty"
+    },
+    {
+      "@type": "PropertyValue",
+      name: "Features",
+      value: "24/7 Reliability, High Storage Capacity, Optimized for Surveillance"
+    }
+  ]
+};
+
+// Add these meta tags in your MainLayout component
+const metaTags = [
+  { name: "keywords", content: "Western Digital, surveillance hard drive, CCTV storage, security camera storage, WD Purple, UAE distributor, Saudi Arabia, Dubai, Middle East" },
+  { name: "robots", content: "index, follow" },
+  { property: "og:type", content: "product" },
+  { property: "og:locale", content: "en_AE" },
+  { property: "og:locale:alternate", content: "ar_AE" },
+  { name: "geo.region", content: "AE" },
+  { name: "geo.position", content: "25.276987;55.296249" },
+  { name: "ICBM", content: "25.276987, 55.296249" }
+];
+
+// Import MDX content
+const wdContent = await getCollection("westerdigital");
+---
+
+<MainLayout title={pageTitle} description={description} sd={structuredData} metaTags={metaTags}>
+  <main>
+    <section
+      class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+    >
+      <div class="grid justify-items-center gap-5 lg:grid-cols-2">
+        <div class="flex flex-col justify-center">
+          <img
+            src="/pictures/Brand Profile/8.jpg"
+            alt="billboard image"
+            class="rounded-lg"
+          />
+        </div>
+        <div class="fadeInRight order-1 lg:order-2">
+          <h2 class="text-3xl font-semibold text-gray-900 dark:text-gray-200">
+            Western Digital wholesale distributor
+          </h2>
+          <p class="text-md mt-4 dark:text-gray-300">
+            Western Digital thrives on innovation and diversity, impacting lives
+            through technology in pockets, homes, cars, and the cloud. As a
+            global leader, the company mirrors the diversity of its customers
+            and communities, believing it drives success. From pioneering the
+            first hard drive to advancing 3D NAND technology, Western Digital
+            continues to push boundaries, inspiring those who dare to think big.
+          </p>
+        </div>
+      </div>
+    </section>
+    <div
+      class="grid h-auto grid-cols-1 gap-4 py-10 lg:grid-cols-4 lg:gap-8 lg:py-14"
+    >
+      {
+        wdContent.map((entry) => (
+          <article class="overflow-hidden rounded-lg shadow-sm transition hover:shadow-lg dark:shadow-gray-700/25">
+            <img
+              alt={entry.data.alt}
+              src={entry.data.img.src}
+              class="h-56 w-full object-cover"
+            />
+            <div class="bg-white p-4 dark:bg-gray-900 sm:p-6">
+              <h3 class="mt-0.5 text-lg text-gray-900 dark:text-white">
+                {entry.data.title}
+              </h3>
+              <p class="mt-2 line-clamp-3 text-base/relaxed text-gray-500 dark:text-gray-400">
+                {entry.data.desc}
+              </p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </main>
+  <div class="flex-item-center mt-16 grid justify-center gap-5 lg:grid-cols-2">
+    <div class="flex flex-col justify-center">
+      <h3
+        class="text-2xl font-bold text-neutral-800 dark:text-gray-200 md:text-4xl"
+      >
+        Why Choose Toshiba Surveillance Hard Drives?
+      </h3>
+      <li class="mt-4 p-2 dark:text-gray-200">
+        24/7 Reliability for Continuous Recording
+      </li>
+      <li class="p-2 dark:text-gray-200">High Storage Capacity Options</li>
+      <li class="p-2 dark:text-gray-200">Optimized for Surveillance Systems</li>
+      <li class="p-2 dark:text-gray-200">3-Year Warranty Coverage</li>
+      <li class="p-2 dark:text-gray-200">Enhanced Durability</li>
+      <li class="p-2 dark:text-gray-200">Advanced Heat Management</li>
+      <div class="mt-8 grid w-full sm:inline-flex">
+        <PrimaryCTA title="Contact Us" url="https://lovosis.com/contact/" />
+      </div>
+    </div>
+    <div class="order-1 mt-16 justify-center lg:order-2">
+      <img
+        src="/pictures/Brand Profile/9.jpg"
+        alt="billboard image"
+        class="rounded-lg"
+        width="600"
+        height="500"
+        loading="lazy"
+      />
+    </div>
+  </div>
+  <section class="mx-auto max-w-[1400px] px-4 pt-8">
+    <div class="mx-auto mb-12 max-w-2xl">
+      <h2 class="mb-6 text-center text-3xl font-bold">Toshiba Products</h2>
+      <div class="relative">
+        <input
+          type="text"
+          id="search"
+          class="focus:border-blue-500 focus:ring-blue-500 w-full rounded-lg border border-gray-300 px-4 py-3 pl-12 text-base shadow-sm focus:outline-none focus:ring-1"
+          placeholder="Search tutorials..."
+        />
+        <svg
+          class="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+      </div>
+    </div>
+    <section class="mx-auto max-w-[1400px] px-4 pb-8">
+      <div>Test - This section is rendering</div>
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+        {
+          cards.map((card) => (
+            <div class="transform overflow-hidden rounded-lg bg-white shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
+              <img
+                src={card.img}
+                alt={card.alt}
+                class="product-image h-56 w-full object-cover"
+              />
+              <div class="flex flex-col items-center p-6">
+                <h3 class="text-xl font-semibold">{card.title}</h3>
+                <p class="mb-4 mt-3 text-gray-600">{card.desc}</p>
+                <a href={`/westerdigital/${card.slug}`} class="read-more-btn">
+                  Read More
+                </a>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+    <p
+      id="no-results"
+      class="mx-4 my-6 hidden rounded-lg bg-gray-50 py-8 text-center text-xl font-medium text-gray-600 shadow-inner"
+    >
+      <span class="mb-2 block text-3xl">🔍</span>
+      No matching results found
+    </p>
+  </section>
+</MainLayout>
+<style>
+  /* Hero Section Styles */
+  .hero-section {
+    @apply bg-cover bg-center py-16 text-center text-white;
+    background-image: url("/public/images/westerdigital/westerdigital.jpg");
+  }
+  .hero-content {
+    @apply bg-black bg-opacity-50 px-4 py-16;
+  }
+  /* Read More Button Styles */
+  .read-more-btn {
+    @apply relative transform overflow-hidden rounded-lg border-2 border-transparent bg-blue-600 px-6 py-3 font-bold text-white transition-all duration-300;
+  }
+  .read-more-btn:hover {
+    @apply -translate-y-1 border-blue-600 bg-white text-blue-600 shadow-xl;
+  }
+  .read-more-btn:active {
+    @apply scale-95;
+  }
+  .read-more-btn::before {
+    @apply absolute left-0 top-0 -z-10 h-full w-full origin-left scale-x-0 bg-white transition-transform duration-300;
+    content: "";
+  }
+  .read-more-btn:hover::before {
+    @apply scale-x-100;
+  }
+</style>
+<script>
+  // Client-side search functionality
+  const searchInput = document.getElementById("search");
+  const cards = document.querySelectorAll(".grid > div");
+  const noResults = document.getElementById("no-results");
+  searchInput?.addEventListener("input", (e) => {
+    const searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
+    let hasVisibleCards = false;
+    cards.forEach((card) => {
+      const title = card.querySelector("h3")?.textContent?.toLowerCase() || "";
+      const desc = card.querySelector("p")?.textContent?.toLowerCase() || "";
+      if (title.includes(searchTerm) || desc.includes(searchTerm)) {
+        card.classList.remove("hidden");
+        hasVisibleCards = true;
+      } else {
+        card.classList.add("hidden");
+      }
+    });
+    // Toggle no results message
+    if (noResults) {
+      noResults.classList.toggle("hidden", hasVisibleCards);
+    }
+  });
+</script>
