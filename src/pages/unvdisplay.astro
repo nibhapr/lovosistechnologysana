@@ -201,45 +201,101 @@ const structuredData = {
       </div>
     </div>
     <div class="mb-5 mt-32 rounded-2xl text-center">
-      <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-200">
-        Lovosis Technology LLC, Dubai, is the authorized distributor of UNV
-        Smart Interactive Panels
+      <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-200 animate-fade-in">
+        Lovosis Technology LLC, Dubai, is the authorized distributor of UNV Smart Interactive Panels
       </h2>
     </div>
     <div class="mx-auto max-w-7xl dark:text-gray-200">
-      <strong>UNV Smart Interactive Panels</strong> are designed to transform the
-      way you teach, learn, and collaborate. With advanced features like ultra-responsive
-      touch screen technology, crystal-clear interactive display, and seamless integration
-      with modern teaching tools,<strong>UNV panels</strong> are the ultimate solution
-      for educators and professionals alike.
+      <p class="animate-slide-in-left delay-100">
+        <strong>UNV Smart Interactive Panels</strong> are designed to transform the
+        way you teach, learn, and collaborate. With advanced features like ultra-responsive
+        touch screen technology, crystal-clear interactive display, and seamless integration
+        with modern teaching tools, <strong>UNV panels</strong> are the ultimate solution
+        for educators and professionals alike.
+      </p>
     </div>
+    
     <div class="mb-5 mt-16 rounded-2xl text-center">
-      <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-200">
+      <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-200 animate-fade-in">
         Why Choose UNV Smart Interactive Panels?
       </h2>
     </div>
     <div class="mx-auto max-w-7xl dark:text-gray-200">
-      <strong>1: High-Resolution Interactive Display:</strong>
-      <li>
+      <p class="animate-slide-in-left delay-100"><strong>1: High-Resolution Interactive Display:</strong></p>
+      <li class="animate-slide-in-left delay-200">
         Enjoy stunning visuals with 4K UHD resolution, perfect for engaging
         students or presenting detailed data
       </li>
-      <strong>2: Multi-Touch Capability</strong>
-      <li>
+      <p class="animate-slide-in-left delay-300"><strong>2: Multi-Touch Capability</strong></p>
+      <li class="animate-slide-in-left delay-400">
         Up to 20-point touch support for seamless collaboration and interaction.
       </li>
-      <strong>3: Built-In Android and Windows Compatibility</strong>
-      <li>Easily switch between platforms for maximum flexibility.</li>
-      <strong>Long-Lasting Durability</strong>
-      <li>
+      <p class="animate-slide-in-left delay-500"><strong>3: Built-In Android and Windows Compatibility</strong></p>
+      <li class="animate-slide-in-left delay-600">Easily switch between platforms for maximum flexibility.</li>
+      <p class="animate-slide-in-left delay-700"><strong>4: Long-Lasting Durability</strong></p>
+      <li class="animate-slide-in-left delay-800">
         Designed for heavy daily use, ensuring reliability for years to come
       </li>
-      <strong>Easy-to-Use Interface</strong>
-      <li>
+      <p class="animate-slide-in-left delay-900"><strong>5: Easy-to-Use Interface</strong></p>
+      <li class="animate-slide-in-left delay-1000">
         Intuitive controls make it simple for teachers and presenters to get
         started.
       </li>
     </div>
+    
+    <style>
+      /* Animation classes */
+      .animate-fade-in {
+        opacity: 0;
+        transition: opacity 0.6s ease-out;
+      }
+      
+      .animate-slide-in-left {
+        opacity: 0;
+        transform: translateX(-20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+      
+      /* Delay classes */
+      .delay-100 { transition-delay: 100ms; }
+      .delay-200 { transition-delay: 200ms; }
+      .delay-300 { transition-delay: 300ms; }
+      .delay-400 { transition-delay: 400ms; }
+      .delay-500 { transition-delay: 500ms; }
+      .delay-600 { transition-delay: 600ms; }
+      .delay-700 { transition-delay: 700ms; }
+      .delay-800 { transition-delay: 800ms; }
+      .delay-900 { transition-delay: 900ms; }
+      .delay-1000 { transition-delay: 1000ms; }
+      
+      /* When element is in view */
+      .in-view {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    </style>
+    
+    <script>
+      // Intersection Observer setup
+      document.addEventListener('DOMContentLoaded', function() {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+              // Optional: Unobserve after animation
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.1
+        });
+        
+        // Observe all animated elements
+        document.querySelectorAll('.animate-fade-in, .animate-slide-in-left').forEach(el => {
+          observer.observe(el);
+        });
+      });
+    </script>
     <div class="mx-auto mt-20 max-w-7xl px-4 sm:px-6 lg:px-8 lg:py-1">
       <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-200">
         <div class="mb-5 mt-16 rounded-2xl text-center">
