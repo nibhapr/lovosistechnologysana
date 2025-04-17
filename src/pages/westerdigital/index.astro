@@ -91,28 +91,74 @@ const wdContent = await getCollection("westerdigital");
     <section
       class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
     >
-      <div class="grid justify-items-center gap-5 lg:grid-cols-2">
-        <div class="flex flex-col justify-center">
-          <img
-            src="/pictures/Brand Profile/8.jpg"
-            alt="billboard image"
-            class="rounded-lg"
-          />
-        </div>
-        <div class="fadeInRight order-1 lg:order-2">
-          <h2 class="text-3xl font-semibold text-gray-900 dark:text-gray-200">
-            Western Digital wholesale distributor
-          </h2>
-          <p class="text-md mt-4 dark:text-gray-300">
-            Western Digital thrives on innovation and diversity, impacting lives
-            through technology in pockets, homes, cars, and the cloud. As a
-            global leader, the company mirrors the diversity of its customers
-            and communities, believing it drives success. From pioneering the
-            first hard drive to advancing 3D NAND technology, Western Digital
-            continues to push boundaries, inspiring those who dare to think big.
-          </p>
+    <div class="grid justify-items-center gap-5 lg:grid-cols-2">
+      <!-- Left Column (Image) -->
+      <div class="flex flex-col justify-center animate-fadeIn">
+        <img
+          src="/pictures/Brand Profile/8.jpg"
+          alt="Western Digital products"
+          class="rounded-lg"
+          width="600"
+          height="500"
+          loading="lazy"
+        />
+      </div>
+    
+      <!-- Right Column (Text Content) -->
+      <div class="order-1 lg:order-2 animate-fadeInRight">
+        <h2 class="text-3xl font-semibold text-gray-900 dark:text-gray-200">
+          Western Digital Wholesale Distributor in Dubai | Lovosis Technology L.L.C
+        </h2>
+        <p class="text-md mt-4 dark:text-gray-300 animate-fadeIn">
+          Western Digital thrives on innovation and diversity, impacting lives
+          through technology in pockets, homes, cars, and the cloud. As a
+          global leader, the company mirrors the diversity of its customers
+          and communities, believing it drives success. From pioneering the
+          first hard drive to advancing 3D NAND technology, Western Digital
+          continues to push boundaries, inspiring those who dare to think big.
+        </p>
+        <div class="mt-4 grid w-full sm:inline-flex animate-fadeIn">
+          <PrimaryCTA title="Contact Us" url="https://lovosis.com/contact/" />
         </div>
       </div>
+    </div>
+    
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+    
+      .animate-fadeIn {
+        animation: fadeIn 0.8s ease-out forwards;
+      }
+    
+      .animate-fadeInRight {
+        animation: fadeInRight 0.8s ease-out forwards;
+      }
+    
+      /* Smooth hover transitions for interactive elements */
+      a {
+        transition: all 0.3s ease;
+      }
+    </style>
     </section>
     <div
       class="grid h-auto grid-cols-1 gap-4 py-10 lg:grid-cols-4 lg:gap-8 lg:py-14"

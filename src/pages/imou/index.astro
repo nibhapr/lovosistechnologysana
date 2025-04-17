@@ -175,6 +175,22 @@ const structuredData = {
             transform: translateY(0);
         }
     }
+    .read-more-btn {
+    @apply relative transform overflow-hidden rounded-lg border-2 border-transparent bg-blue-600 px-6 py-3 font-bold text-white transition-all duration-300;
+  }
+  .read-more-btn:hover {
+    @apply -translate-y-1 border-blue-600 bg-white text-blue-600 shadow-xl;
+  }
+  .read-more-btn:active {
+    @apply scale-95;
+  }
+  .read-more-btn::before {
+    @apply absolute left-0 top-0 -z-10 h-full w-full origin-left scale-x-0 bg-white transition-transform duration-300;
+    content: "";
+  }
+  .read-more-btn:hover::before {
+    @apply scale-x-100;
+  }
 
 
 </style>
@@ -184,41 +200,82 @@ const structuredData = {
 <section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full">
 
   <div class="flex-item-center grid justify-center gap-5 lg:grid-cols-2 mt-16">
-    <div class="flex flex-col justify-center">
+    <!-- Left Column (Image) -->
+    <div class="flex flex-col justify-center animate-fadeIn">
       <img
         src="/pictures/Brand Profile/7.jpg"
-        alt="billboard image"
+        alt="IMOU security products"
         class="rounded-lg"
         width="600"
         height="500"
         loading="lazy"
       />
     </div>
+  
+    <!-- Right Column (Text Content) -->
     <div class="order-1 mt-4 items-start lg:order-2">
-      <h1
-        class="text-2xl font-bold text-neutral-800 dark:text-gray-200 md:text-4xl"
-      >
-      IMOU wholesale Distributor
+      <!-- H1 with fade-in from right -->
+      <h1 class="text-2xl font-bold text-neutral-800 dark:text-gray-200 md:text-4xl animate-fadeInRight">
+        IMOU Wholesale Distributor in Dubai | Lovosis Technology L.L.C
       </h1>
-      <p class="mt-2 line-clamp-8 text-base/relaxed text-gray-500 dark:text-gray-400">
+  
+      <p class="mt-2 line-clamp-8 text-base/relaxed text-gray-500 dark:text-gray-400 animate-fadeIn">
         Welcome to the premier destination for IMOU security solutions in Dubai. 
         As an authorized distributor, we are committed to delivering advanced surveillance technology tailored to the unique needs of our customers. 
         Experience unparalleled safety with our wide range of IMOU products designed for both home and business use.
         Our cutting-edge IMOU products are engineered to blend seamlessly into your Dubai lifestyle, 
         providing robust protection with features like advanced motion detection, night vision, and real-time alerts right to your mobile device. 
         As the leading Authorized IMOU Distributor in Dubai, 
-        we offer an extensive selection of IMOU’s latest releases, including the popular Bullet, Dome, and Ranger series, all designed to keep you connected and secure. 
-        Whether you’re safeguarding your residence or monitoring your business, IMOU’s reliable and user-friendly cameras are the smart choice for those who demand the best in security.
-        Shop now and join the IMOU family, ensuring peace of mind with technology that watches over you. 
+        we offer an extensive selection of IMOU's latest releases, including the popular Bullet, Dome, and Ranger series, all designed to keep you connected and secure. 
+        Whether you're safeguarding your residence or monitoring your business, IMOU's reliable and user-friendly cameras are the smart choice for those who demand the best in security.
+        Shop now and join the IMOU family, ensuring peace of mind with technology that watches over you.
       </p>
-      <div class="mt-4 grid w-full sm:inline-flex">
-      <PrimaryCTA title="Contact Us" url="https://lovosis.com/contact/" />
+  
+      <div class="mt-4 grid w-full sm:inline-flex animate-fadeIn">
+        <PrimaryCTA title="Contact Us" url="https://lovosis.com/contact/" />
       </div>
     </div>
   </div>
+  
+  <style>
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  
+    .animate-fadeIn {
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+  
+    .animate-fadeInRight {
+      animation: fadeInRight 0.8s ease-out forwards;
+    }
+  
+    /* Smooth hover transitions for interactive elements */
+    a {
+      transition: all 0.3s ease;
+    }
+  </style>
   <div class="text-center mt-32 rounded-2xl mb-5">
     <h2 class="text-balance animate-fade-in-left text-2xl md:text-4xl md:leading-tight font-bold tracking-tight text-neutral-800 dark:text-neutral-100">
-    IMOU Product Categories
+    IMOU Products
     </h2>
   </div>
 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 lg:py-8">
@@ -231,13 +288,13 @@ const structuredData = {
               alt={card.alt}
               class="product-image h-56 w-full object-cover"
             />
-            <div class="flex flex-col items-center p-6">
-              <h3 class="text-xl font-semibold">{card.title}</h3>
-              <p class="mb-4 mt-3 text-gray-600">{card.desc}</p>
-              <a href={`/imou/${card.slug}`} class="read-more-btn">
-                Read More
-              </a>
-            </div>
+           <div class="flex flex-col items-center p-6">
+                  <h3 class="text-xl font-semibold">{card.title}</h3>
+                  <p class="mb-4 mt-3 text-gray-600">{card.desc}</p>
+                  <a href={`/imou/${card.slug}`} class="read-more-btn">
+                    Read More
+                  </a>
+                </div>
           </div>
         ))
       }

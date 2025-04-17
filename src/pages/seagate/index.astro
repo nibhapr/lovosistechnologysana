@@ -103,28 +103,66 @@ const seagateContent = await getCollection("seagate");
     <section
       class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
     >
-      <div class="grid justify-items-center gap-5 lg:grid-cols-2">
-        <div class="flex flex-col justify-center">
-          <img
-            src="/pictures/Brand Profile/10.jpg"
-            alt="Seagate Skyhawk surveillance hard drive"
-            class="rounded-lg"
-          />
-        </div>
-        <div class="fadeInRight order-1 lg:order-2">
-          <h2 class="text-3xl font-semibold text-gray-900 dark:text-gray-200">
-            Seagate Skyhawk Surveillance Hard Drive Distributor
-          </h2>
-          <p class="text-md mt-4 dark:text-gray-300">
-            Seagate Skyhawk drives are engineered specifically for surveillance,
-            offering unparalleled reliability and performance for 24/7 security
-            systems. As a global leader in data storage solutions, Seagate's
-            Skyhawk series provides optimized write-intensive workloads,
-            enhanced ImagePerfect™ firmware, and advanced vibration protection,
-            making it the perfect choice for surveillance systems of any scale.
-          </p>
+    <div class="grid justify-items-center gap-5 lg:grid-cols-2">
+      <!-- Left Column (Image) -->
+      <div class="flex flex-col justify-center animate-fadeIn">
+        <img
+          src="/pictures/Brand Profile/10.jpg"
+          alt="Seagate Skyhawk surveillance hard drive"
+          class="rounded-lg"
+        />
+      </div>
+    
+      <!-- Right Column (Text Content) -->
+      <div class="fadeInRight order-1 lg:order-2 animate-fadeInRight">
+        <h2 class="text-3xl font-semibold text-gray-900 dark:text-gray-200">
+          Seagate Skyhawk Surveillance Hard Drive Distributor
+        </h2>
+        <p class="text-md mt-4 dark:text-gray-300 animate-fadeIn">
+          Seagate Skyhawk drives are engineered specifically for surveillance,
+          offering unparalleled reliability and performance for 24/7 security
+          systems. As a global leader in data storage solutions, Seagate's
+          Skyhawk series provides optimized write-intensive workloads,
+          enhanced ImagePerfect™ firmware, and advanced vibration protection,
+          making it the perfect choice for surveillance systems of any scale.
+        </p>
+        <div class="mt-8 grid w-full sm:inline-flex animate-fadeIn">
+          <PrimaryCTA title="Contact Us" url="https://lovosis.com/contact/" />
         </div>
       </div>
+    </div>
+    
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+    
+      .animate-fadeIn {
+        animation: fadeIn 0.8s ease-out forwards;
+      }
+    
+      .animate-fadeInRight {
+        animation: fadeInRight 0.8s ease-out forwards;
+      }
+    </style>
     </section>
     <div
       class="grid h-auto grid-cols-1 gap-4 py-10 lg:grid-cols-4 lg:gap-8 lg:py-14"

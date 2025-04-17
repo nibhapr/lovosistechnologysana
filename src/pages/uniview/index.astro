@@ -123,36 +123,74 @@ const structuredData = {
 <MainLayout title={pageTitle} description={description} sd={structuredData}>
   <div>
 
-    <div>
-   
-      <div class="flex-item-center grid justify-center gap-5 lg:grid-cols-2 mt-16">
-        <div class="flex flex-col justify-center">
-          <img
-            src="/pictures/unvhero.jpg"
-            alt="billboard image"
-            class="rounded-lg"
-            width="600"
-            height="500"
-            loading="lazy"
-          />
-        </div>
-        <div class="order-1 mt-16 items-start lg:order-2">
-          <h1
-            class="text-2xl font-bold text-neutral-800 dark:text-gray-200 md:text-4xl"
-          >
+    <div class="flex-item-center grid justify-center gap-5 lg:grid-cols-2 mt-16">
+      <!-- Left Column (Image) -->
+      <div class="flex flex-col justify-center animate-fadeIn">
+        <img
+          src="/pictures/unvhero.jpg"
+          alt="billboard image"
+          class="rounded-lg"
+          width="600"
+          height="500"
+          loading="lazy"
+        />
+      </div>
+    
+      <!-- Right Column (Text Content) -->
+      <div class="order-1 mt-16 items-start lg:order-2">
+        <!-- H1 with fade-in from right -->
+        <h1 class="text-2xl font-bold text-neutral-800 dark:text-gray-200 md:text-4xl animate-fadeInRight">
           Trusted UNV Security Cameras Distributor in UAE | Lovosis Technology L.L.C
-          </h1>
-          <p class="mt-2 line-clamp-8 text-base/relaxed text-gray-500 dark:text-gray-400">
-            Welcome to Lovosis Technology L.L.C., your trusted provider of advanced security systems in the Middle East. We are the official distributor of UNV products in the United Arab Emirates. We specialize in offering high-quality UNV CCTV cameras and security solutions designed to meet the increasing need for dependable surveillance in homes, businesses, and industrial areas.
-
-            Protect your property with the best surveillance technology on the market. Contact Lovosis Technology L.L.C. today for affordable UNV CCTV cameras in the UAE!
-            
-          </p>
-          <div class="mt-8 grid w-full sm:inline-flex">
-            <PrimaryCTA title="Contact Us" url="https://lovosis.com/contact/" />
-          </div>
+        </h1>
+    
+        <p class="mt-2 line-clamp-8 text-base/relaxed text-gray-500 dark:text-gray-400 animate-fadeIn">
+          Welcome to Lovosis Technology L.L.C., your trusted provider of advanced security systems in the Middle East. We are the official distributor of UNV products in the United Arab Emirates. We specialize in offering high-quality UNV CCTV cameras and security solutions designed to meet the increasing need for dependable surveillance in homes, businesses, and industrial areas.
+    
+          Protect your property with the best surveillance technology on the market. Contact Lovosis Technology L.L.C. today for affordable UNV CCTV cameras in the UAE!
+        </p>
+    
+        <div class="mt-8 grid w-full sm:inline-flex animate-fadeIn">
+          <PrimaryCTA title="Contact Us" url="https://lovosis.com/contact/" />
         </div>
       </div>
+    </div>
+    
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+    
+      .animate-fadeIn {
+        animation: fadeIn 0.8s ease-out forwards;
+      }
+    
+      .animate-fadeInRight {
+        animation: fadeInRight 0.8s ease-out forwards;
+      }
+    
+      /* Smooth hover transitions for interactive elements */
+      a {
+        transition: all 0.3s ease;
+      }
+    </style>
       <div class="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-8  py-10   lg:py-14 h-auto ">
         {
             unvData.map((item) => (

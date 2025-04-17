@@ -126,7 +126,8 @@ const structuredData = {
     <div>
    
       <div class="flex-item-center grid justify-center gap-5 lg:grid-cols-2 mt-16">
-        <div class="flex flex-col justify-center">
+        <!-- Left Column (Image) -->
+        <div class="flex flex-col justify-center animate-fadeIn">
           <img
             src="/pictures/dahuabanner.jpg"
             alt="billboard image"
@@ -136,25 +137,64 @@ const structuredData = {
             loading="lazy"
           />
         </div>
+      
+        <!-- Right Column (Text Content) -->
         <div class="order-1 mt-16 items-start lg:order-2">
-          <h1
-            class="text-2xl font-bold text-neutral-800 dark:text-gray-200 md:text-4xl"
-          >
-          Dahua distributor in Dubai | Lovosis Technology L.L.C
+          <!-- H1 with fade-in from right -->
+          <h1 class="text-2xl font-bold text-neutral-800 dark:text-gray-200 md:text-4xl animate-fadeInRight">
+            Dahua distributor in Dubai | Lovosis Technology L.L.C
           </h1>
-          <p class="mt-2 line-clamp-8 text-base/relaxed text-gray-500 dark:text-gray-400">
+      
+          <p class="mt-2 line-clamp-8 text-base/relaxed text-gray-500 dark:text-gray-400 animate-fadeIn">
             <strong>Dahua Technology</strong> stands out as a top global provider of video surveillance solutions.
-             Their cameras are recognized for delivering high-quality images, cutting-edge technologies,
+            Their cameras are recognized for delivering high-quality images, cutting-edge technologies,
             and strong security features. If you're aiming to craft engaging content on 
-            why <strong>Dahua cameras</strong> are a great option, here’s an outline 
+            why <strong>Dahua cameras</strong> are a great option, here's an outline 
             highlighting key benefits, innovative technologies, and reasons to choose <strong>Dahua cameras</strong>.
-            
           </p>
-          <div class="mt-8 grid w-full sm:inline-flex">
+      
+          <div class="mt-8 grid w-full sm:inline-flex animate-fadeIn">
             <PrimaryCTA title="Contact Us" url="https://lovosis.com/contact/" />
           </div>
         </div>
       </div>
+      
+      <style>
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      
+        @keyframes fadeInRight {
+          from {
+            opacity: 0;
+            transform: translateX(50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+      
+        .animate-fadeIn {
+          animation: fadeIn 0.8s ease-out forwards;
+        }
+      
+        .animate-fadeInRight {
+          animation: fadeInRight 0.8s ease-out forwards;
+        }
+      
+        /* Smooth hover transitions for interactive elements */
+        a {
+          transition: all 0.3s ease;
+        }
+      </style>
       <h2 class="m-12 text-center text-3xl font-bold">Why choose Dahua cctv camera</h2>
       <div class="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-8  py-10   lg:py-14 h-auto ">
         
@@ -185,7 +225,7 @@ const structuredData = {
 
     <section class="mx-auto max-w-[1400px] px-4 pt-8">
       <div class="mx-auto mb-12 max-w-2xl">
-        <h2 class="mb-6 text-center text-3xl font-bold">Populor Products</h2>
+        <h2 class="mb-6 text-center text-3xl font-bold">Popular Products</h2>
         <div class="relative">
           <input
             type="text"

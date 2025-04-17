@@ -98,7 +98,8 @@ const structuredData = {
       class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
     >
     <div class="flex-item-center grid justify-center gap-5 lg:grid-cols-2 mt-16">
-      <div class="flex flex-col justify-center">
+      <!-- Left Column (Image) -->
+      <div class="flex flex-col justify-center animate-fadeIn">
         <img
           src="/pictures/Brand Profile/2.jpg"
           alt="toshiba surviellance harddisk"
@@ -108,23 +109,62 @@ const structuredData = {
           loading="lazy"
         />
       </div>
+    
+      <!-- Right Column (Text Content) -->
       <div class="order-1 mt-16 items-start lg:order-2">
-        <h1
-          class="text-2xl font-bold text-neutral-800 dark:text-gray-200 md:text-4xl"
-        >
-        Toshiba Surveillance Hard Disk Distributor in Dubai - 3-Year Warranty | Lovosis Technology L.L.C
+        <!-- H1 with fade-in from right -->
+        <h1 class="text-2xl font-bold text-neutral-800 dark:text-gray-200 md:text-4xl animate-fadeInRight">
+          Toshiba Surveillance Hard Disk Distributor in Dubai - 3-Year Warranty | Lovosis Technology L.L.C
         </h1>
-        <p class="mt-2 line-clamp-8 text-base/relaxed text-gray-500 dark:text-gray-400">
+    
+        <p class="mt-2 line-clamp-8 text-base/relaxed text-gray-500 dark:text-gray-400 animate-fadeIn">
           Looking for reliable and high-performance surveillance hard drives in Dubai? Toshiba surveillance hard disks, available through Lovosis Technology L.L.C, are designed to meet the demands of 24/7 surveillance systems. With a 3-year warranty, these hard drives ensure durability, efficiency, and peace of mind for your security needs.
-
+    
           Whether you're setting up a new surveillance system or upgrading an existing one, Toshiba's advanced technology guarantees seamless performance and data protection. Trust Lovosis Technology L.L.C, a leading distributor in Dubai, to provide top-quality Toshiba surveillance hard drives tailored to your requirements.
-          
         </p>
-        <div class="mt-8 grid w-full sm:inline-flex">
+    
+        <div class="mt-8 grid w-full sm:inline-flex animate-fadeIn">
           <PrimaryCTA title="Contact Us" url="https://lovosis.com/contact/" />
         </div>
       </div>
     </div>
+    
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+    
+      .animate-fadeIn {
+        animation: fadeIn 0.8s ease-out forwards;
+      }
+    
+      .animate-fadeInRight {
+        animation: fadeInRight 0.8s ease-out forwards;
+      }
+    
+      /* Smooth hover transitions for interactive elements */
+      a {
+        transition: all 0.3s ease;
+      }
+    </style>
      
     </section>
     <div
