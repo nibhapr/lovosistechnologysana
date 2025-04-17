@@ -189,123 +189,211 @@ const structuredData = {
 
 <MainLayout title={pageTitle} sd={structuredData} description={descriptions}>
   <section
-    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
-  >
+      class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+    >
     <div class="grid justify-items-center gap-5 lg:grid-cols-2">
-      <div class="flex flex-col justify-center">
-        <img
-          src="/pictures/Brand Profile/5.jpg"
-          alt="billboard image"
-          class="rounded-lg"
+    <!-- Left Column (Image) -->
+    <div class="flex flex-col justify-center animate-fadeIn mr-12">
+      <img
+        src="/pictures/Brand Profile/5.jpg"
+        alt="billboard image"
+        class="rounded-lg"
+      
+      />
+    </div>
+  
+    <div class="order-1 lg:order-2 animate-fadeInRight">
+      <h1 class="text-3xl font-semibold text-gray-900 dark:text-gray-200">
+        Hikvision Security Solutions in Dubai
+      </h1>
+      
+      <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-200 animate-fadeInRight mt-4">
+        Overview of Hikvision:
+      </h2>
+      
+      <p class="mt-2 line-clamp-8 text-base/relaxed text-gray-500 dark:text-gray-400 animate-fadeIn">
+        Hikvision is a globally recognized leader in video surveillance
+        technology, offering cutting-edge security solutions that cater to
+        both commercial and residential needs. Known for its <strong>reliability, high-definition cameras, and advanced analytics,</strong> Hikvision provides a comprehensive range of products that include<strong>CCTV cameras, network video recorders (NVRs), digital video recorders (DVRs)</strong>, and much more.
+        <br /><br />
+        As a <strong>Wholesale Hikvision distributor in Dubai</strong>, we
+        bring you the best surveillance technology to protect your home,
+        office, or business premises. Our goal is to deliver <strong>superior security</strong> solutions with expert installation and after-sales support.
+      </p>
+  
+      <div class="mt-8 grid w-full sm:inline-flex animate-fadeIn">
+        <PrimaryCTA
+          title="Contact US"
+          url="https://lovosis.com/contact-us/"
         />
       </div>
-
-      <div class="fadeInRight order-1 lg:order-2">
-        <h1 class="text-4xl font-semibold text-gray-900 dark:text-gray-200">
-          Hikvision Security Solutions in Dubai
-        </h1>
-        <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-200">
-          Overview of Hikvision:
-        </h2>
-        <p class="text-md mt-4 dark:text-gray-300">
-          Hikvision is a globally recognized leader in video surveillance
-          technology, offering cutting-edge security solutions that cater to
-          both commercial and residential needs. Known for its <strong
-            >reliability, high-definition cameras, and advanced analytics,</strong
-          > Hikvision provides a comprehensive range of products that include<strong
-          >
-            CCTV cameras, network video recorders (NVRs), digital video
-            recorders (DVRs)</strong
-          >, and much more.
-          <br /><br />
-          As a <strong>Wholesale Hikvision distributor in Dubai</strong>, we
-          bring you the best surveillance technology to protect your home,
-          office, or business premises. Our goal is to deliver <strong
-            >superior security</strong
-          > solutions with expert installation and after-sales support.
-        </p><br />
-
-        <div class="mt-8 grid w-full sm:inline-flex">
-          <PrimaryCTA
-            title="Contact US"
-            url="https://lovosis.com/contact-us/"
-          />
-        </div>
-      </div>
+    </div>
+  </div>
+  
+  <style>
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  
+    .animate-fadeIn {
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+  
+    .animate-fadeInRight {
+      animation: fadeInRight 0.8s ease-out forwards;
+    }
+  
+    /* Smooth hover transitions for interactive elements */
+    a {
+      transition: all 0.3s ease;
+    }
+  </style>
     </div>
     <div class="mb-5 mt-32 rounded-2xl text-center">
-      <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-200">
+      <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-200 animate-fade-in">
         Why Choose Hikvision Products?
       </h2>
     </div>
     <div class="mx-auto max-w-7xl dark:text-gray-200">
-      <li>
-        High-Quality Video Surveillance: Hikvision’s CCTV cameras offer clear
+      <li class="animate-slide-in-left delay-100">
+        High-Quality Video Surveillance: Hikvision's CCTV cameras offer clear
         and sharp footage, with options for 4K resolution, night vision, and
         wide dynamic range for all-day protection.
       </li>
-      <li>
+      <li class="animate-slide-in-left delay-200">
         Advanced Technology: With features like motion detection, face
         recognition, smart analytics, and remote monitoring, Hikvision systems
         provide top-tier security for every situation.
       </li>
-      <li>
-        Scalability & Flexibility: Whether you’re looking to protect a small
+      <li class="animate-slide-in-left delay-300">
+        Scalability & Flexibility: Whether you're looking to protect a small
         residential property or a large enterprise, Hikvision has scalable
         solutions that can grow with your needs.
       </li>
-      <li>
+      <li class="animate-slide-in-left delay-400">
         Easy Integration: Hikvision systems are compatible with a wide variety
         of third-party devices and software, ensuring smooth integration into
         your existing security infrastructure
       </li>
     </div>
     <div class="mb-5 mt-5 rounded-2xl text-center">
-      <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-200">
+      <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-200 animate-fade-in">
         Our Hikvision Product Range
       </h2>
     </div>
     <div class="mx-auto max-w-7xl dark:text-gray-200">
-      <p>
+      <p class="animate-fade-in delay-100">
         At <strong>Lovosis Technology L.L.C</strong> we offer a full range of Hikvision
         surveillance products to meet your specific security needs:
       </p>
-      <h2 class="text xl"><strong>1: Hikvision CCTV Cameras:</strong></h2>
-      <p>
+      <h2 class="text xl animate-slide-in-left delay-200"><strong>1: Hikvision CCTV Cameras:</strong></h2>
+      <p class="animate-fade-in delay-300">
         We provide a wide selection of indoor and outdoor Hikvision cameras,
         including:
       </p>
-      <li>
+      <li class="animate-slide-in-left delay-400">
         <strong>Bullet Cameras:</strong> Ideal for long-distance viewing and outdoor
         use.
       </li>
-      <li>
+      <li class="animate-slide-in-left delay-500">
         <strong>Dome Cameras:</strong> Suitable for both indoor and outdoor installations
       </li>
-      <li>
+      <li class="animate-slide-in-left delay-600">
         <strong>PTZ (Pan-Tilt-Zoom) Cameras:</strong>For larger properties
         requiring flexible, high-definition surveillance.
       </li>
-      <li>
+      <li class="animate-slide-in-left delay-700">
         <strong>IP Cameras:</strong>Offering advanced features like remote
         viewing and integration with smart systems.
       </li>
-      <h2 class="text xl"><strong>2: NVR & DVR Systems:</strong></h2>
-      <li>
+      <h2 class="text xl animate-slide-in-left delay-800"><strong>2: NVR & DVR Systems:</strong></h2>
+      <li class="animate-slide-in-left delay-900">
         Network Video Recorders (NVRs): Perfect for IP camera systems, offering
         high-quality video storage and remote access.
       </li>
-      <li>
+      <li class="animate-slide-in-left delay-1000">
         Digital Video Recorders (DVRs): Reliable and cost-effective solutions
         for analog CCTV systems.
       </li>
-      <h2 class="text xl"><strong>3: Accessories:</strong></h2>
-      <li>
+      <h2 class="text xl animate-slide-in-left delay-1100"><strong>3: Accessories:</strong></h2>
+      <li class="animate-slide-in-left delay-1200">
         We also offer essential accessories like hard drives, power supplies,
         mounts, and cables to ensure smooth and efficient setup and operation of
         your Hikvision system.
       </li>
     </div>
+    
+    <style>
+      /* Animation classes */
+      .animate-fade-in {
+        opacity: 0;
+        transition: opacity 0.6s ease-out;
+      }
+      
+      .animate-slide-in-left {
+        opacity: 0;
+        transform: translateX(-20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+      
+      /* Delay classes */
+      .delay-100 { transition-delay: 100ms; }
+      .delay-200 { transition-delay: 200ms; }
+      .delay-300 { transition-delay: 300ms; }
+      .delay-400 { transition-delay: 400ms; }
+      .delay-500 { transition-delay: 500ms; }
+      .delay-600 { transition-delay: 600ms; }
+      .delay-700 { transition-delay: 700ms; }
+      .delay-800 { transition-delay: 800ms; }
+      .delay-900 { transition-delay: 900ms; }
+      .delay-1000 { transition-delay: 1000ms; }
+      .delay-1100 { transition-delay: 1100ms; }
+      .delay-1200 { transition-delay: 1200ms; }
+      
+      /* When element is in view */
+      .in-view {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    </style>
+    
+    <script>
+      // Intersection Observer setup
+      document.addEventListener('DOMContentLoaded', function() {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+            }
+          });
+        }, {
+          threshold: 0.1
+        });
+        
+        // Observe all animated elements
+        document.querySelectorAll('.animate-fade-in, .animate-slide-in-left').forEach(el => {
+          observer.observe(el);
+        });
+      });
+    </script>
     <div class="mb-5 mt-5 rounded-2xl text-center">
       <h2
         class="animate-fade-in-left text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-gray-200 md:text-4xl md:leading-tight"

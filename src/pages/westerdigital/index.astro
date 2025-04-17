@@ -34,8 +34,10 @@ const cards: Card[] = content.map((item) => ({
 
 // console.log("Cards data:", cards);
 
-const pageTitle = "Western Digital Surveillance Hard Drives | Official Distributor UAE";
-const description = "Buy Western Digital Surveillance Hard Drives with 3-year warranty. Official distributor in UAE, Saudi Arabia, Dubai & Middle East. 24/7 reliability, high storage capacity.";
+const pageTitle =
+  "Western Digital Surveillance Hard Drives | Official Distributor UAE";
+const description =
+  "Buy Western Digital Surveillance Hard Drives with 3-year warranty. Official distributor in UAE, Saudi Arabia, Dubai & Middle East. 24/7 reliability, high storage capacity.";
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -44,7 +46,7 @@ const structuredData = {
   description: description,
   brand: {
     "@type": "Brand",
-    name: "Western Digital"
+    name: "Western Digital",
   },
   offers: {
     "@type": "AggregateOffer",
@@ -53,112 +55,121 @@ const structuredData = {
     seller: {
       "@type": "Organization",
       name: "Lovosis Technology L.L.C",
-      areaServed: "Middle East"
-    }
+      areaServed: "Middle East",
+    },
   },
   additionalProperty: [
     {
       "@type": "PropertyValue",
       name: "Warranty",
-      value: "3 Years Replacement Warranty"
+      value: "3 Years Replacement Warranty",
     },
     {
       "@type": "PropertyValue",
       name: "Features",
-      value: "24/7 Reliability, High Storage Capacity, Optimized for Surveillance"
-    }
-  ]
+      value:
+        "24/7 Reliability, High Storage Capacity, Optimized for Surveillance",
+    },
+  ],
 };
 
 // Add these meta tags in your MainLayout component
 const metaTags = [
-  { name: "keywords", content: "Western Digital, surveillance hard drive, CCTV storage, security camera storage, WD Purple, UAE distributor, Saudi Arabia, Dubai, Middle East" },
+  {
+    name: "keywords",
+    content:
+      "Western Digital, surveillance hard drive, CCTV storage, security camera storage, WD Purple, UAE distributor, Saudi Arabia, Dubai, Middle East",
+  },
   { name: "robots", content: "index, follow" },
   { property: "og:type", content: "product" },
   { property: "og:locale", content: "en_AE" },
   { property: "og:locale:alternate", content: "ar_AE" },
   { name: "geo.region", content: "AE" },
   { name: "geo.position", content: "25.276987;55.296249" },
-  { name: "ICBM", content: "25.276987, 55.296249" }
+  { name: "ICBM", content: "25.276987, 55.296249" },
 ];
 
 // Import MDX content
 const wdContent = await getCollection("westerdigital");
 ---
 
-<MainLayout title={pageTitle} description={description} sd={structuredData} metaTags={metaTags}>
+<MainLayout
+  title={pageTitle}
+  description={description}
+  sd={structuredData}
+  metaTags={metaTags}
+>
   <main>
     <section
       class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
     >
-    <div class="grid justify-items-center gap-5 lg:grid-cols-2">
-      <!-- Left Column (Image) -->
-      <div class="flex flex-col justify-center animate-fadeIn">
-        <img
-          src="/pictures/Brand Profile/8.jpg"
-          alt="Western Digital products"
-          class="rounded-lg"
-          width="600"
-          height="500"
-          loading="lazy"
-        />
-      </div>
-    
-      <!-- Right Column (Text Content) -->
-      <div class="order-1 lg:order-2 animate-fadeInRight">
-        <h2 class="text-3xl font-semibold text-gray-900 dark:text-gray-200">
-          Western Digital Wholesale Distributor in Dubai | Lovosis Technology L.L.C
-        </h2>
-        <p class="text-md mt-4 dark:text-gray-300 animate-fadeIn">
-          Western Digital thrives on innovation and diversity, impacting lives
-          through technology in pockets, homes, cars, and the cloud. As a
-          global leader, the company mirrors the diversity of its customers
-          and communities, believing it drives success. From pioneering the
-          first hard drive to advancing 3D NAND technology, Western Digital
-          continues to push boundaries, inspiring those who dare to think big.
-        </p>
-        <div class="mt-4 grid w-full sm:inline-flex animate-fadeIn">
-          <PrimaryCTA title="Contact Us" url="https://lovosis.com/contact/" />
+      <div class="grid justify-items-center gap-5 lg:grid-cols-2">
+        <!-- Left Column (Image) -->
+        <div class="animate-fadeIn flex flex-col justify-center mr-12">
+          <img
+            src="/pictures/Brand Profile/8.jpg"
+            alt="Western Digital products"
+            class="rounded-lg"
+          
+          />
+        </div>
+
+        <!-- Right Column (Text Content) -->
+        <div class="animate-fadeInRight order-1 lg:order-2">
+          <h2 class="text-3xl font-semibold text-gray-900 dark:text-gray-200">
+            Western Digital Wholesale Distributor in Dubai | Lovosis Technology
+            L.L.C
+          </h2>
+          <p class="text-md animate-fadeIn mt-4 dark:text-gray-300">
+            Western Digital thrives on innovation and diversity, impacting lives
+            through technology in pockets, homes, cars, and the cloud. As a
+            global leader, the company mirrors the diversity of its customers
+            and communities, believing it drives success. From pioneering the
+            first hard drive to advancing 3D NAND technology, Western Digital
+            continues to push boundaries, inspiring those who dare to think big.
+          </p>
+          <div class="animate-fadeIn mt-4 grid w-full sm:inline-flex">
+            <PrimaryCTA title="Contact Us" url="https://lovosis.com/contact/" />
+          </div>
         </div>
       </div>
-    </div>
-    
-    <style>
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
+
+      <style>
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
-        to {
-          opacity: 1;
-          transform: translateY(0);
+
+        @keyframes fadeInRight {
+          from {
+            opacity: 0;
+            transform: translateX(50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
         }
-      }
-    
-      @keyframes fadeInRight {
-        from {
-          opacity: 0;
-          transform: translateX(50px);
+
+        .animate-fadeIn {
+          animation: fadeIn 0.8s ease-out forwards;
         }
-        to {
-          opacity: 1;
-          transform: translateX(0);
+
+        .animate-fadeInRight {
+          animation: fadeInRight 0.8s ease-out forwards;
         }
-      }
-    
-      .animate-fadeIn {
-        animation: fadeIn 0.8s ease-out forwards;
-      }
-    
-      .animate-fadeInRight {
-        animation: fadeInRight 0.8s ease-out forwards;
-      }
-    
-      /* Smooth hover transitions for interactive elements */
-      a {
-        transition: all 0.3s ease;
-      }
-    </style>
+
+        /* Smooth hover transitions for interactive elements */
+        a {
+          transition: all 0.3s ease;
+        }
+      </style>
     </section>
     <div
       class="grid h-auto grid-cols-1 gap-4 py-10 lg:grid-cols-4 lg:gap-8 lg:py-14"
@@ -184,29 +195,67 @@ const wdContent = await getCollection("westerdigital");
       }
     </div>
   </main>
-  <div class="flex-item-center mt-16 grid justify-center gap-5 lg:grid-cols-2">
+  <div class="flex-item-center scroll-animate mt-16 grid justify-center gap-5 lg:grid-cols-2">
+    <!-- Left Column (Text Content) -->
     <div class="flex flex-col justify-center">
       <h3
-        class="text-2xl font-bold text-neutral-800 dark:text-gray-200 md:text-4xl"
+        class="animate-on-scroll-right text-2xl font-bold text-neutral-800 dark:text-gray-200 md:text-4xl"
       >
         Why Choose Toshiba Surveillance Hard Drives?
       </h3>
-      <li class="mt-4 p-2 dark:text-gray-200">
-        24/7 Reliability for Continuous Recording
-      </li>
-      <li class="p-2 dark:text-gray-200">High Storage Capacity Options</li>
-      <li class="p-2 dark:text-gray-200">Optimized for Surveillance Systems</li>
-      <li class="p-2 dark:text-gray-200">3-Year Warranty Coverage</li>
-      <li class="p-2 dark:text-gray-200">Enhanced Durability</li>
-      <li class="p-2 dark:text-gray-200">Advanced Heat Management</li>
-      <div class="mt-8 grid w-full sm:inline-flex">
+      <ul class="features-list">
+        <li
+          class="animate-on-scroll-right mt-4 p-2 dark:text-gray-200"
+          style="--delay: 0.1s"
+        >
+          24/7 Reliability for Continuous Recording
+        </li>
+        <li
+          class="animate-on-scroll-right p-2 dark:text-gray-200"
+          style="--delay: 0.2s"
+        >
+          High Storage Capacity Options
+        </li>
+        <li
+          class="animate-on-scroll-right p-2 dark:text-gray-200"
+          style="--delay: 0.3s"
+        >
+          Optimized for Surveillance Systems
+        </li>
+        <li
+          class="animate-on-scroll-right p-2 dark:text-gray-200"
+          style="--delay: 0.4s"
+        >
+          3-Year Warranty Coverage
+        </li>
+        <li
+          class="animate-on-scroll-right p-2 dark:text-gray-200"
+          style="--delay: 0.5s"
+        >
+          Enhanced Durability
+        </li>
+        <li
+          class="animate-on-scroll-right p-2 dark:text-gray-200"
+          style="--delay: 0.6s"
+        >
+          Advanced Heat Management
+        </li>
+      </ul>
+      <div
+        class="animate-on-scroll-right mt-8 grid w-full sm:inline-flex"
+        style="--delay: 0.7s"
+      >
         <PrimaryCTA title="Contact Us" url="https://lovosis.com/contact/" />
       </div>
     </div>
-    <div class="order-1 mt-16 justify-center lg:order-2">
+  
+    <!-- Right Column (Image) -->
+    <div
+      class="animate-on-scroll-left order-1 mt-16 justify-center lg:order-2"
+    >
       <img
         src="/pictures/Brand Profile/9.jpg"
-        alt="billboard image"
+        alt="Toshiba surveillance hard drives"
         class="rounded-lg"
         width="600"
         height="500"
@@ -214,6 +263,7 @@ const wdContent = await getCollection("westerdigital");
       />
     </div>
   </div>
+  
   <section class="mx-auto max-w-[1400px] px-4 pt-8">
     <div class="mx-auto mb-12 max-w-2xl">
       <h2 class="mb-6 text-center text-3xl font-bold">Toshiba Products</h2>
@@ -270,55 +320,118 @@ const wdContent = await getCollection("westerdigital");
       No matching results found
     </p>
   </section>
-</MainLayout>
-<style>
-  /* Hero Section Styles */
-  .hero-section {
-    @apply bg-cover bg-center py-16 text-center text-white;
-    background-image: url("/public/images/westerdigital/westerdigital.jpg");
-  }
-  .hero-content {
-    @apply bg-black bg-opacity-50 px-4 py-16;
-  }
-  /* Read More Button Styles */
-  .read-more-btn {
-    @apply relative transform overflow-hidden rounded-lg border-2 border-transparent bg-blue-600 px-6 py-3 font-bold text-white transition-all duration-300;
-  }
-  .read-more-btn:hover {
-    @apply -translate-y-1 border-blue-600 bg-white text-blue-600 shadow-xl;
-  }
-  .read-more-btn:active {
-    @apply scale-95;
-  }
-  .read-more-btn::before {
-    @apply absolute left-0 top-0 -z-10 h-full w-full origin-left scale-x-0 bg-white transition-transform duration-300;
-    content: "";
-  }
-  .read-more-btn:hover::before {
-    @apply scale-x-100;
-  }
-</style>
-<script>
-  // Client-side search functionality
-  const searchInput = document.getElementById("search");
-  const cards = document.querySelectorAll(".grid > div");
-  const noResults = document.getElementById("no-results");
-  searchInput?.addEventListener("input", (e) => {
-    const searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
-    let hasVisibleCards = false;
-    cards.forEach((card) => {
-      const title = card.querySelector("h3")?.textContent?.toLowerCase() || "";
-      const desc = card.querySelector("p")?.textContent?.toLowerCase() || "";
-      if (title.includes(searchTerm) || desc.includes(searchTerm)) {
-        card.classList.remove("hidden");
-        hasVisibleCards = true;
-      } else {
-        card.classList.add("hidden");
-      }
-    });
-    // Toggle no results message
-    if (noResults) {
-      noResults.classList.toggle("hidden", hasVisibleCards);
+  
+  <style>
+    /* Animation Styles */
+    .animate-on-scroll-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 0.8s ease-out;
+      transition-delay: var(--delay, 0);
     }
-  });
-</script>
+  
+    .animate-on-scroll-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: all 0.8s ease-out;
+    }
+  
+    .scroll-animate.in-view .animate-on-scroll-right,
+    .scroll-animate.in-view .animate-on-scroll-left {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  
+    /* List item animation */
+    .features-list li {
+      opacity: 0;
+      transform: translateX(30px);
+      transition: all 0.5s ease-out;
+    }
+  
+    .scroll-animate.in-view .features-list li {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  
+    /* Delay for list items */
+    .features-list li:nth-child(1) {
+      transition-delay: 0.1s;
+    }
+    .features-list li:nth-child(2) {
+      transition-delay: 0.2s;
+    }
+    .features-list li:nth-child(3) {
+      transition-delay: 0.3s;
+    }
+    .features-list li:nth-child(4) {
+      transition-delay: 0.4s;
+    }
+    .features-list li:nth-child(5) {
+      transition-delay: 0.5s;
+    }
+    .features-list li:nth-child(6) {
+      transition-delay: 0.6s;
+    }
+  
+    /* Read More Button Styles */
+    .read-more-btn {
+      @apply relative transform overflow-hidden rounded-lg border-2 border-transparent bg-blue-600 px-6 py-3 font-bold text-white transition-all duration-300;
+    }
+    .read-more-btn:hover {
+      @apply -translate-y-1 border-blue-600 bg-white text-blue-600 shadow-xl;
+    }
+    .read-more-btn:active {
+      @apply scale-95;
+    }
+    .read-more-btn::before {
+      @apply absolute left-0 top-0 -z-10 h-full w-full origin-left scale-x-0 bg-white transition-transform duration-300;
+      content: "";
+    }
+    .read-more-btn:hover::before {
+      @apply scale-x-100;
+    }
+  </style>
+  
+  <script>
+    // Intersection Observer for scroll animations
+    document.addEventListener("DOMContentLoaded", function () {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in-view");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+  
+      document.querySelectorAll(".scroll-animate").forEach((section) => {
+        observer.observe(section);
+      });
+  
+      // Client-side search functionality
+      const searchInput = document.getElementById("search");
+      const cards = document.querySelectorAll(".grid > div");
+      const noResults = document.getElementById("no-results");
+      searchInput?.addEventListener("input", (e) => {
+        const searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
+        let hasVisibleCards = false;
+        cards.forEach((card) => {
+          const title = card.querySelector("h3")?.textContent?.toLowerCase() || "";
+          const desc = card.querySelector("p")?.textContent?.toLowerCase() || "";
+          if (title.includes(searchTerm) || desc.includes(searchTerm)) {
+            card.classList.remove("hidden");
+            hasVisibleCards = true;
+          } else {
+            card.classList.add("hidden");
+          }
+        });
+        // Toggle no results message
+        if (noResults) {
+          noResults.classList.toggle("hidden", hasVisibleCards);
+        }
+      });
+    });
+  </script>

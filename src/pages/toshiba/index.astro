@@ -93,27 +93,24 @@ const structuredData = {
   sd={structuredData}
 
 >
-  <main>
-    <section
-      class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
-    >
-    <div class="flex-item-center grid justify-center gap-5 lg:grid-cols-2 mt-16">
+<main>
+  <section
+    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+  >
+    <div class="grid justify-items-center gap-5 lg:grid-cols-2">
       <!-- Left Column (Image) -->
-      <div class="flex flex-col justify-center animate-fadeIn">
-        <img
+      <div class="flex flex-col justify-center animate-fadeIn mr-12">
+       <img
           src="/pictures/Brand Profile/2.jpg"
           alt="toshiba surviellance harddisk"
           class="rounded-lg"
-          width="600"
-          height="500"
-          loading="lazy"
+       
         />
       </div>
     
       <!-- Right Column (Text Content) -->
-      <div class="order-1 mt-16 items-start lg:order-2">
-        <!-- H1 with fade-in from right -->
-        <h1 class="text-2xl font-bold text-neutral-800 dark:text-gray-200 md:text-4xl animate-fadeInRight">
+      <div class="order-1 lg:order-2 animate-fadeInRight">
+        <h1 class="text-3xl font-semibold text-gray-900 dark:text-gray-200">
           Toshiba Surveillance Hard Disk Distributor in Dubai - 3-Year Warranty | Lovosis Technology L.L.C
         </h1>
     
@@ -189,29 +186,67 @@ const structuredData = {
       }
     </div>
   </main>
-  <div class="flex-item-center mt-16 grid justify-center gap-5 lg:grid-cols-2">
+  <div class="flex-item-center scroll-animate mt-16 grid justify-center gap-5 lg:grid-cols-2">
+    <!-- Left Column (Text Content) -->
     <div class="flex flex-col justify-center">
       <h3
-        class="text-2xl font-bold text-neutral-800 dark:text-gray-200 md:text-4xl"
+        class="animate-on-scroll-right text-2xl font-bold text-neutral-800 dark:text-gray-200 md:text-4xl"
       >
         Why Choose Toshiba Surveillance Hard Drives?
       </h3>
-      <li class="mt-4 p-2 dark:text-gray-200">
-        24/7 Reliability for Continuous Recording
-      </li>
-      <li class="p-2 dark:text-gray-200">High Storage Capacity Options</li>
-      <li class="p-2 dark:text-gray-200">Optimized for Surveillance Systems</li>
-      <li class="p-2 dark:text-gray-200">3-Year Warranty Coverage</li>
-      <li class="p-2 dark:text-gray-200">Enhanced Durability</li>
-      <li class="p-2 dark:text-gray-200">Advanced Heat Management</li>
-      <div class="mt-8 grid w-full sm:inline-flex">
+      <ul class="features-list">
+        <li
+          class="animate-on-scroll-right mt-4 p-2 dark:text-gray-200"
+          style="--delay: 0.1s"
+        >
+          24/7 Reliability for Continuous Recording
+        </li>
+        <li
+          class="animate-on-scroll-right p-2 dark:text-gray-200"
+          style="--delay: 0.2s"
+        >
+          High Storage Capacity Options
+        </li>
+        <li
+          class="animate-on-scroll-right p-2 dark:text-gray-200"
+          style="--delay: 0.3s"
+        >
+          Optimized for Surveillance Systems
+        </li>
+        <li
+          class="animate-on-scroll-right p-2 dark:text-gray-200"
+          style="--delay: 0.4s"
+        >
+          3-Year Warranty Coverage
+        </li>
+        <li
+          class="animate-on-scroll-right p-2 dark:text-gray-200"
+          style="--delay: 0.5s"
+        >
+          Enhanced Durability
+        </li>
+        <li
+          class="animate-on-scroll-right p-2 dark:text-gray-200"
+          style="--delay: 0.6s"
+        >
+          Advanced Heat Management
+        </li>
+      </ul>
+      <div
+        class="animate-on-scroll-right mt-8 grid w-full sm:inline-flex"
+        style="--delay: 0.7s"
+      >
         <PrimaryCTA title="Contact Us" url="https://lovosis.com/contact/" />
       </div>
     </div>
-    <div class="order-1 mt-16 justify-center lg:order-2">
+  
+    <!-- Right Column (Image) -->
+    <div
+      class="animate-on-scroll-left order-1 mt-16 justify-center lg:order-2"
+    >
       <img
         src="/pictures/Brand Profile/3.jpg"
-        alt="billboard image"
+        alt="Toshiba surveillance hard drives"
         class="rounded-lg"
         width="600"
         height="500"
@@ -219,6 +254,7 @@ const structuredData = {
       />
     </div>
   </div>
+  
   <section class="mx-auto max-w-[1400px] px-4 pt-8">
     <div class="mx-auto mb-12 max-w-2xl">
       <h2 class="mb-6 text-center text-3xl font-bold">Toshiba Products</h2>
@@ -274,55 +310,125 @@ const structuredData = {
       No matching results found
     </p>
   </section>
-</MainLayout>
-<style>
-  /* Hero Section Styles */
-  .hero-section {
-    @apply bg-cover bg-center py-16 text-center text-white;
-    background-image: url("/pictures/Brand Profile/3.jpg");
-  }
-  .hero-content {
-    @apply bg-black bg-opacity-50 px-4 py-16;
-  }
-  /* Read More Button Styles */
-  .read-more-btn {
-    @apply relative transform overflow-hidden rounded-lg border-2 border-transparent bg-blue-600 px-6 py-3 font-bold text-white transition-all duration-300;
-  }
-  .read-more-btn:hover {
-    @apply -translate-y-1 border-blue-600 bg-white text-blue-600 shadow-xl;
-  }
-  .read-more-btn:active {
-    @apply scale-95;
-  }
-  .read-more-btn::before {
-    @apply absolute left-0 top-0 -z-10 h-full w-full origin-left scale-x-0 bg-white transition-transform duration-300;
-    content: "";
-  }
-  .read-more-btn:hover::before {
-    @apply scale-x-100;
-  }
-</style>
-<script>
-  // Client-side search functionality
-  const searchInput = document.getElementById("search");
-  const cards = document.querySelectorAll(".grid > div");
-  const noResults = document.getElementById("no-results");
-  searchInput?.addEventListener("input", (e) => {
-    const searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
-    let hasVisibleCards = false;
-    cards.forEach((card) => {
-      const title = card.querySelector("h3")?.textContent?.toLowerCase() || "";
-      const desc = card.querySelector("p")?.textContent?.toLowerCase() || "";
-      if (title.includes(searchTerm) || desc.includes(searchTerm)) {
-        card.classList.remove("hidden");
-        hasVisibleCards = true;
-      } else {
-        card.classList.add("hidden");
+  
+  <style>
+    /* Animation Styles */
+    .animate-on-scroll-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 0.8s ease-out;
+      transition-delay: var(--delay, 0);
+    }
+  
+    .animate-on-scroll-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: all 0.8s ease-out;
+    }
+  
+    .scroll-animate.in-view .animate-on-scroll-right,
+    .scroll-animate.in-view .animate-on-scroll-left {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  
+    /* List item animation */
+    .features-list li {
+      opacity: 0;
+      transform: translateX(30px);
+      transition: all 0.5s ease-out;
+    }
+  
+    .scroll-animate.in-view .features-list li {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  
+    /* Delay for list items */
+    .features-list li:nth-child(1) {
+      transition-delay: 0.1s;
+    }
+    .features-list li:nth-child(2) {
+      transition-delay: 0.2s;
+    }
+    .features-list li:nth-child(3) {
+      transition-delay: 0.3s;
+    }
+    .features-list li:nth-child(4) {
+      transition-delay: 0.4s;
+    }
+    .features-list li:nth-child(5) {
+      transition-delay: 0.5s;
+    }
+    .features-list li:nth-child(6) {
+      transition-delay: 0.6s;
+    }
+  
+    /* Read More Button Styles */
+    .read-more-btn {
+      @apply relative transform overflow-hidden rounded-lg border-2 border-transparent bg-blue-600 px-6 py-3 font-bold text-white transition-all duration-300;
+    }
+    .read-more-btn:hover {
+      @apply -translate-y-1 border-blue-600 bg-white text-blue-600 shadow-xl;
+    }
+    .read-more-btn:active {
+      @apply scale-95;
+    }
+    .read-more-btn::before {
+      @apply absolute left-0 top-0 -z-10 h-full w-full origin-left scale-x-0 bg-white transition-transform duration-300;
+      content: "";
+    }
+    .read-more-btn:hover::before {
+      @apply scale-x-100;
+    }
+  </style>
+  
+  <script>
+    // Combined script for animations and search
+    document.addEventListener("DOMContentLoaded", function () {
+      // Intersection Observer for scroll animations
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in-view");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+  
+      document.querySelectorAll(".scroll-animate").forEach((section) => {
+        observer.observe(section);
+      });
+  
+      // Client-side search functionality
+      const searchInput = document.getElementById("search");
+      const cards = document.querySelectorAll(".grid > div");
+      const noResults = document.getElementById("no-results");
+      
+      if (searchInput) {
+        searchInput.addEventListener("input", (e) => {
+          const searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
+          let hasVisibleCards = false;
+          
+          cards.forEach((card) => {
+            const title = card.querySelector("h3")?.textContent?.toLowerCase() || "";
+            const desc = card.querySelector("p")?.textContent?.toLowerCase() || "";
+            
+            if (title.includes(searchTerm) || desc.includes(searchTerm)) {
+              card.classList.remove("hidden");
+              hasVisibleCards = true;
+            } else {
+              card.classList.add("hidden");
+            }
+          });
+          
+          // Toggle no results message
+          if (noResults) {
+            noResults.classList.toggle("hidden", hasVisibleCards);
+          }
+        });
       }
     });
-    // Toggle no results message
-    if (noResults) {
-      noResults.classList.toggle("hidden", hasVisibleCards);
-    }
-  });
-</script>
+  </script>

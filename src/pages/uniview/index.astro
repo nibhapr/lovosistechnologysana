@@ -4,14 +4,14 @@ import MainLayout from "@/layouts/MainLayout.astro";
 import PrimaryCTA from "@/components/ui/buttons/PrimaryCTA.astro";
 import { unvData } from "@/data/camera";
 interface Card {
-  id: number
+  id: number;
   title: string;
   desc: string;
   img: string;
   alt: string;
   author: string;
-  reviewBody:string;
-  ratingValue:number;
+  reviewBody: string;
+  ratingValue: number;
   slug: string;
   features?: string[];
   publishedTime: string;
@@ -29,7 +29,7 @@ const cards: Card[] = content.map((item) => ({
   ratingValue: item.data.ratingValue,
   slug: item.slug,
   features: item.data.features,
-  publishedTime: item.data.publishedTime
+  publishedTime: item.data.publishedTime,
 }));
 
 const pageTitle: string =
@@ -40,7 +40,7 @@ const description =
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
-  {
+    {
       "@type": "Organization",
       name: "Lovosis Technology L.L.C",
       url: "https://lovosis.com",
@@ -70,174 +70,220 @@ const structuredData = {
     },
     {
       "@type": "BreadcrumbList",
-      "itemListElement": [
+      itemListElement: [
         {
           "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://lovosis.com"
+          position: 1,
+          name: "Home",
+          item: "https://lovosis.com",
         },
         {
           "@type": "ListItem",
-          "position": 2,
-          "name": "Uniview",
-          "item": "https://lovosis.com/uniview"
-        }
-      
-      ]
+          position: 2,
+          name: "Uniview",
+          item: "https://lovosis.com/uniview",
+        },
+      ],
     },
     {
-      "hasOfferCatalog": {
-      "@type": "ItemList",
-      "itemListElement": cards.map((card) => {
-        return {
-          "@type": "ListItem",
-          
-          "position": card.id,
-          "item": {
-            "@type": "Product",
-            "name": card.title,
-            "image": `${Astro.url.origin}/${card.img}`,
-          
-            "description": card.desc,
-            "brand": {
-              "@type": "Brand",
-              "name": "Uniview"
-            },
-            "url": `${Astro.url.origin}/uniview/${card.slug}`,
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.9",
-              "reviewCount": "50"
-            }
-          }
-        };
-      })
-    }
-  }
-  ]
-};
+      hasOfferCatalog: {
+        "@type": "ItemList",
+        itemListElement: cards.map((card) => {
+          return {
+            "@type": "ListItem",
 
+            position: card.id,
+            item: {
+              "@type": "Product",
+              name: card.title,
+              image: `${Astro.url.origin}/${card.img}`,
+
+              description: card.desc,
+              brand: {
+                "@type": "Brand",
+                name: "Uniview",
+              },
+              url: `${Astro.url.origin}/uniview/${card.slug}`,
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: "4.9",
+                reviewCount: "50",
+              },
+            },
+          };
+        }),
+      },
+    },
+  ],
+};
 ---
 
 <MainLayout title={pageTitle} description={description} sd={structuredData}>
   <div>
+   
+    <section
+      class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+    >
+      <div class="grid justify-items-center gap-5 lg:grid-cols-2">
+        <!-- Left Column (Image) -->
+        <div class="animate-fadeIn flex flex-col justify-center mr-12">
+          <img
+            src="/pictures/unvhero.jpg"
+            alt="billboard image"
+            class="rounded-lg"
+        
+          />
+        </div>
 
-    <div class="flex-item-center grid justify-center gap-5 lg:grid-cols-2 mt-16">
-      <!-- Left Column (Image) -->
-      <div class="flex flex-col justify-center animate-fadeIn">
-        <img
-          src="/pictures/unvhero.jpg"
-          alt="billboard image"
-          class="rounded-lg"
-          width="600"
-          height="500"
-          loading="lazy"
-        />
-      </div>
-    
-      <!-- Right Column (Text Content) -->
-      <div class="order-1 mt-16 items-start lg:order-2">
-        <!-- H1 with fade-in from right -->
-        <h1 class="text-2xl font-bold text-neutral-800 dark:text-gray-200 md:text-4xl animate-fadeInRight">
-          Trusted UNV Security Cameras Distributor in UAE | Lovosis Technology L.L.C
-        </h1>
-    
-        <p class="mt-2 line-clamp-8 text-base/relaxed text-gray-500 dark:text-gray-400 animate-fadeIn">
-          Welcome to Lovosis Technology L.L.C., your trusted provider of advanced security systems in the Middle East. We are the official distributor of UNV products in the United Arab Emirates. We specialize in offering high-quality UNV CCTV cameras and security solutions designed to meet the increasing need for dependable surveillance in homes, businesses, and industrial areas.
-    
-          Protect your property with the best surveillance technology on the market. Contact Lovosis Technology L.L.C. today for affordable UNV CCTV cameras in the UAE!
-        </p>
-    
-        <div class="mt-8 grid w-full sm:inline-flex animate-fadeIn">
-          <PrimaryCTA title="Contact Us" url="https://lovosis.com/contact/" />
+        <!-- Right Column (Text Content) -->
+        <div class="animate-fadeInRight order-1 lg:order-2">
+          <h2 class="text-3xl font-semibold text-gray-900 dark:text-gray-200">
+            Trusted UNV Security Cameras Distributor in UAE | Lovosis Technology
+            L.L.C
+          </h2>
+          <p class="text-md animate-fadeIn mt-4 dark:text-gray-300">
+            Welcome to Lovosis Technology L.L.C., your trusted provider of
+            advanced security systems in the Middle East. We are the official
+            distributor of UNV products in the United Arab Emirates. We
+            specialize in offering high-quality UNV CCTV cameras and security
+            solutions designed to meet the increasing need for dependable
+            surveillance in homes, businesses, and industrial areas. Protect
+            your property with the best surveillance technology on the market.
+            Contact Lovosis Technology L.L.C. today for affordable UNV CCTV
+            cameras in the UAE!
+          </p>
+          <div class="animate-fadeIn mt-4 grid w-full sm:inline-flex">
+            <PrimaryCTA title="Contact Us" url="https://lovosis.com/contact/" />
+          </div>
         </div>
       </div>
+      <style>
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes fadeInRight {
+          from {
+            opacity: 0;
+            transform: translateX(50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        .animate-fadeIn {
+          animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .animate-fadeInRight {
+          animation: fadeInRight 0.8s ease-out forwards;
+        }
+
+        /* Smooth hover transitions for interactive elements */
+        a {
+          transition: all 0.3s ease;
+        }
+      </style>
+    </section>
+    <div
+      class="grid h-auto grid-cols-1 gap-4 py-10 lg:grid-cols-4 lg:gap-8 lg:py-14"
+    >
+      {
+        unvData.map((item) => (
+          <article class="overflow-hidden rounded-lg shadow-sm transition hover:shadow-lg dark:shadow-gray-700/25">
+            <img
+              alt={item.title}
+              src={item.image}
+              class="h-56 w-full object-cover"
+            />
+
+            <div class="bg-white p-4 dark:bg-gray-900 sm:p-6">
+              <a href="#">
+                <h3 class="mt-0.5 text-lg text-gray-900 dark:text-white">
+                  {item.title}
+                </h3>
+              </a>
+
+              <p class="mt-2 line-clamp-3 text-base/relaxed text-gray-500 dark:text-gray-400">
+                {item.description}
+              </p>
+            </div>
+          </article>
+        ))
+      }
     </div>
-    
-    <style>
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-    
-      @keyframes fadeInRight {
-        from {
-          opacity: 0;
-          transform: translateX(50px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-    
-      .animate-fadeIn {
-        animation: fadeIn 0.8s ease-out forwards;
-      }
-    
-      .animate-fadeInRight {
-        animation: fadeInRight 0.8s ease-out forwards;
-      }
-    
-      /* Smooth hover transitions for interactive elements */
-      a {
-        transition: all 0.3s ease;
-      }
-    </style>
-      <div class="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-8  py-10   lg:py-14 h-auto ">
-        {
-            unvData.map((item) => (
-      <article class="overflow-hidden rounded-lg shadow-sm transition hover:shadow-lg dark:shadow-gray-700/25">
-      <img
-        alt={item.title}
-        src= {item.image}
-        class="h-56 w-full object-cover"
-      />
-    
-      <div class="bg-white p-4 sm:p-6 dark:bg-gray-900">
-     
-    
-        <a href="#">
-          <h3 class="mt-0.5 text-lg text-gray-900 dark:text-white">
-            {item.title}
-          </h3>
-        </a>
-    
-        <p class="mt-2 line-clamp-3 text-base/relaxed text-gray-500 dark:text-gray-400">
-       {item.description}
-        </p>
-      </div>
-     </article>))}
-    </div>
-    <div class="flex-item-center grid justify-center gap-5 lg:grid-cols-2 mt-16">
-  
-      <div class="flex flex-col justify-center ">
+    <div
+      class="flex-item-center scroll-animate mt-16 grid justify-center gap-5 lg:grid-cols-2"
+    >
+      <!-- Left Column (Text Content) -->
+      <div class="flex flex-col justify-center">
         <h3
-          class="text-2xl font-bold text-neutral-800 dark:text-gray-200 md:text-4xl"
+          class="animate-on-scroll-right text-2xl font-bold text-neutral-800 dark:text-gray-200 md:text-4xl"
         >
-        Why Choose UNV Camera for Home Security? 
+          Why Choose UNV Camera for Home Security?
         </h3>
-       <li class="p-2 mt-4 dark:text-gray-200"> Advanced Motion Detection and Analytics</li>
-       <li class="p-2 dark:text-gray-200"> Superior Image Quality</li>
-       <li class="p-2 dark:text-gray-200"> Seamless Integration</li>
-       <li class="p-2 dark:text-gray-200"> Remote Access and Monitoring</li>
-       <li class="p-2 dark:text-gray-200">  Cost-Effective Security</li>
-       <li class="p-2 dark:text-gray-200">  Durability and Reliability</li>
-        <div class="mt-8 grid w-full sm:inline-flex">
+        <ul class="features-list">
+          <li
+            class="animate-on-scroll-right mt-4 p-2 dark:text-gray-200"
+            style="--delay: 0.1s"
+          >
+            Advanced Motion Detection and Analytics
+          </li>
+          <li
+            class="animate-on-scroll-right p-2 dark:text-gray-200"
+            style="--delay: 0.2s"
+          >
+            Superior Image Quality
+          </li>
+          <li
+            class="animate-on-scroll-right p-2 dark:text-gray-200"
+            style="--delay: 0.3s"
+          >
+            Seamless Integration
+          </li>
+          <li
+            class="animate-on-scroll-right p-2 dark:text-gray-200"
+            style="--delay: 0.4s"
+          >
+            Remote Access and Monitoring
+          </li>
+          <li
+            class="animate-on-scroll-right p-2 dark:text-gray-200"
+            style="--delay: 0.5s"
+          >
+            Cost-Effective Security
+          </li>
+          <li
+            class="animate-on-scroll-right p-2 dark:text-gray-200"
+            style="--delay: 0.6s"
+          >
+            Durability and Reliability
+          </li>
+        </ul>
+        <div
+          class="animate-on-scroll-right mt-8 grid w-full sm:inline-flex"
+          style="--delay: 0.7s"
+        >
           <PrimaryCTA title="Contact Us" url="https://lovosis.com/contact/" />
         </div>
       </div>
-      <div class="order-1 mt-16 justify-center lg:order-2">
+
+      <!-- Right Column (Image) -->
+      <div
+        class="animate-on-scroll-left order-1 mt-16 justify-center lg:order-2"
+      >
         <img
           src="/pictures/unv.jpg"
-          alt="billboard image"
+          alt="UNV security camera system"
           class="rounded-lg"
           width="600"
           height="500"
@@ -245,6 +291,80 @@ const structuredData = {
         />
       </div>
     </div>
+
+    <style>
+      /* Animation Styles */
+      .animate-on-scroll-right {
+        opacity: 0;
+        transform: translateX(50px);
+        transition: all 0.8s ease-out;
+        transition-delay: var(--delay, 0);
+      }
+
+      .animate-on-scroll-left {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: all 0.8s ease-out;
+      }
+
+      .scroll-animate.in-view .animate-on-scroll-right,
+      .scroll-animate.in-view .animate-on-scroll-left {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      /* List item animation */
+      .features-list li {
+        opacity: 0;
+        transform: translateX(30px);
+        transition: all 0.5s ease-out;
+      }
+
+      .scroll-animate.in-view .features-list li {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      /* Delay for list items */
+      .features-list li:nth-child(1) {
+        transition-delay: 0.1s;
+      }
+      .features-list li:nth-child(2) {
+        transition-delay: 0.2s;
+      }
+      .features-list li:nth-child(3) {
+        transition-delay: 0.3s;
+      }
+      .features-list li:nth-child(4) {
+        transition-delay: 0.4s;
+      }
+      .features-list li:nth-child(5) {
+        transition-delay: 0.5s;
+      }
+      .features-list li:nth-child(6) {
+        transition-delay: 0.6s;
+      }
+    </style>
+
+    <script>
+      // Intersection Observer for scroll animations
+      document.addEventListener("DOMContentLoaded", function () {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("in-view");
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        document.querySelectorAll(".scroll-animate").forEach((section) => {
+          observer.observe(section);
+        });
+      });
+    </script>
     <section class="mx-auto max-w-[1400px] px-4 pt-8">
       <div class="mx-auto mb-12 max-w-2xl">
         <h2 class="mb-6 text-center text-3xl font-bold">UNV Products</h2>
@@ -272,7 +392,6 @@ const structuredData = {
       </div>
       <section class="mx-auto max-w-[1400px] px-4 pb-8">
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-        
           {
             cards.map((card) => (
               <div class="transform overflow-hidden rounded-lg bg-white shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
@@ -293,64 +412,65 @@ const structuredData = {
           }
         </div>
       </section>
-    <p
-      id="no-results"
-      class="mx-4 my-6 hidden rounded-lg bg-gray-50 py-8 text-center text-xl font-medium text-gray-600 shadow-inner"
-    >
-      <span class="mb-2 block text-3xl">🔍</span>
-      No matching results found
-    </p>
+      <p
+        id="no-results"
+        class="mx-4 my-6 hidden rounded-lg bg-gray-50 py-8 text-center text-xl font-medium text-gray-600 shadow-inner"
+      >
+        <span class="mb-2 block text-3xl">🔍</span>
+        No matching results found
+      </p>
+    </section>
   </div>
-</MainLayout>
-<style>
-  /* Hero Section Styles */
-  .hero-section {
-    @apply bg-cover bg-center py-16 text-center text-white;
-    background-image: url("/public/pictures/unv/unvbanner.png");
-  }
-  .hero-content {
-    @apply bg-black bg-opacity-50 px-4 py-16;
-  }
-  /* Read More Button Styles */
-  .read-more-btn {
-    @apply relative transform overflow-hidden rounded-lg border-2 border-transparent bg-blue-600 px-6 py-3 font-bold text-white transition-all duration-300;
-  }
-  .read-more-btn:hover {
-    @apply -translate-y-1 border-blue-600 bg-white text-blue-600 shadow-xl;
-  }
-  .read-more-btn:active {
-    @apply scale-95;
-  }
-  .read-more-btn::before {
-    @apply absolute left-0 top-0 -z-10 h-full w-full origin-left scale-x-0 bg-white transition-transform duration-300;
-    content: "";
-  }
-  .read-more-btn:hover::before {
-    @apply scale-x-100;
-  }
-</style>
-<script>
-  // Client-side search functionality
-  const searchInput = document.getElementById("search");
-  const cards = document.querySelectorAll(".grid > div");
-  const noResults = document.getElementById("no-results");
-  searchInput?.addEventListener("input", (e) => {
-    const searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
-    let hasVisibleCards = false;
-    cards.forEach((card) => {
-      const title = card.querySelector("h3")?.textContent?.toLowerCase() || "";
-      const desc = card.querySelector("p")?.textContent?.toLowerCase() || "";
-      if (title.includes(searchTerm) || desc.includes(searchTerm)) {
-        card.classList.remove("hidden");
-        hasVisibleCards = true;
-      } else {
-        card.classList.add("hidden");
+  <style>
+    /* Hero Section Styles */
+    .hero-section {
+      @apply bg-cover bg-center py-16 text-center text-white;
+      background-image: url("/public/pictures/unv/unvbanner.png");
+    }
+    .hero-content {
+      @apply bg-black bg-opacity-50 px-4 py-16;
+    }
+    /* Read More Button Styles */
+    .read-more-btn {
+      @apply relative transform overflow-hidden rounded-lg border-2 border-transparent bg-blue-600 px-6 py-3 font-bold text-white transition-all duration-300;
+    }
+    .read-more-btn:hover {
+      @apply -translate-y-1 border-blue-600 bg-white text-blue-600 shadow-xl;
+    }
+    .read-more-btn:active {
+      @apply scale-95;
+    }
+    .read-more-btn::before {
+      @apply absolute left-0 top-0 -z-10 h-full w-full origin-left scale-x-0 bg-white transition-transform duration-300;
+      content: "";
+    }
+    .read-more-btn:hover::before {
+      @apply scale-x-100;
+    }
+  </style>
+  <script>
+    // Client-side search functionality
+    const searchInput = document.getElementById("search");
+    const cards = document.querySelectorAll(".grid > div");
+    const noResults = document.getElementById("no-results");
+    searchInput?.addEventListener("input", (e) => {
+      const searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
+      let hasVisibleCards = false;
+      cards.forEach((card) => {
+        const title =
+          card.querySelector("h3")?.textContent?.toLowerCase() || "";
+        const desc = card.querySelector("p")?.textContent?.toLowerCase() || "";
+        if (title.includes(searchTerm) || desc.includes(searchTerm)) {
+          card.classList.remove("hidden");
+          hasVisibleCards = true;
+        } else {
+          card.classList.add("hidden");
+        }
+      });
+      // Toggle no results message
+      if (noResults) {
+        noResults.classList.toggle("hidden", hasVisibleCards);
       }
     });
-    // Toggle no results message
-    if (noResults) {
-      noResults.classList.toggle("hidden", hasVisibleCards);
-    }
-  });
-</script>
-
+  </script>
+</MainLayout>
