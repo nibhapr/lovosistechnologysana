@@ -2,9 +2,9 @@
 :root {
     --border: hsla(var(--border-neutral), .4);
     --backdrop-color: #272727cc;
-    --sl-color-accent: #ff801f;
-    --sl-color-accent-high: #ffa057;
-    --sl-color-accent-low: #562800;
+    --sl-color-accent: #3b82f6;
+    --sl-color-accent-high: #3b82f6;
+    --sl-color-accent-low: #181818;
     --sl-color-black: #181818;
     --sl-color-gray-1: #eee;
     --sl-color-gray-2: #c2c2c2;
@@ -13,17 +13,17 @@
     --sl-color-gray-5: #383838;
     --sl-color-gray-6: #272727;
     --sl-color-white: #fff;
-    --list-marker-color: #fb923c;
+    --list-marker-color: #3b82f6;
     --border-neutral: 0, 0%, 25.1%;
 }
 
 /* Light mode colors. */
 :root[data-theme="light"] {
-    --border: hsla(var(--border-yellow), .4);
+    --border: hsla(var(--border-blue), .4);
     --backdrop-color: #f6f6f699;
-    --sl-color-accent: #b73d00;
-    --sl-color-accent-high: #562800;
-    --sl-color-accent-low: #ffa057;
+    --sl-color-accent: #3b82f6;           /* Main blue accent */
+    --sl-color-accent-high: #3b82f6;      /* Darker blue for contrast */
+    --sl-color-accent-low: #88c9ff;       /* Lighter blue */
     --sl-color-black: #fff;
     --sl-color-gray-1: #272727;
     --sl-color-gray-2: #383838;
@@ -33,10 +33,10 @@
     --sl-color-gray-6: #eee;
     --sl-color-gray-7: #f6f6f6;
     --sl-color-white: #181818;
-    --list-marker-color: #fb923c;
-    --border-yellow: 54.9, 96.7%, 88%;
-
+    --list-marker-color: #3b82f6;         /* A vibrant blue for markers */
+    --border-blue: 213, 100%, 85%;        /* Light sky blue hue */
 }
+
 
 header {
     border: none !important;
@@ -101,10 +101,19 @@ article.card {
 }
 
 .starlight-aside--tip {
-    background: linear-gradient(45deg, #ff512f, #f09819);
+    background: linear-gradient(135deg, #4a3aff, #1fa2ff);
     border: none;
-    border-radius: 0.5rem;
-    color: #66350c;
+    border-radius: 0.75rem;
+    color: #ffffff;
+    padding: 1rem 1.25rem;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.starlight-aside--tip:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
 
 .starlight-aside--note {
