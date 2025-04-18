@@ -21,13 +21,13 @@ export default {
         400: "#facc15",
         500: "#eab308",
       }, // Accent colors, used mainly for star color, heading and buttons
-      orange: {
-        100: "#ffedd5",
-        200: "#fed7aa",
-        300: "#fb713b",
-        400: "#fa5a15",
-        500: "#e14d0b",
-        600: "#ea580c",
+      orange:{
+        100: "#ebf4ff",  // Very light blue (softer than original for better readability)
+        200: "#c3dafe",  // Light blue (matches original's airy feel)
+        300: "#7ea5f8",  // Medium blue (vibrant but not overwhelming)
+        400: "#4b7bf5",  // Rich primary blue (perfect balance of saturation)
+        500: "#3b66f2",  // Deep blue (maintains original's boldness)
+        600: "#304fdb"   // Dark blue (more sophisticated than original)
       },
       teal: {
         600: "#3D958E",
