@@ -118,6 +118,24 @@ const eventCollection = defineCollection({
     }),
 });
 
+const hikvisionCollection = defineCollection({
+  type: "content",
+  schema: ({ image }) =>
+    z.object({
+      id: z.number(),
+      title: z.string(),
+      desc: z.string(),
+      img: image(),
+      images: z.array(image()),
+      alt: z.string(),
+      author: z.string(),
+      reviewBody: z.string(),
+      ratingValue: z.number(),
+      publishedTime: z.string(),
+      modifiedTime: z.string().optional(),
+      features: z.array(z.string()).optional()
+    }),
+});
 const univiewCollection = defineCollection({
   type: "content",
   schema: ({ image }) =>
@@ -239,5 +257,6 @@ export const collections = {
   toshiba: toshibaCollection,
   westerdigital: westerdigitalCollection,
   seagate: seagateCollection,
-  dahua: dahuaCollection
+  dahua: dahuaCollection,
+  hikvision:hikvisionCollection
 };
