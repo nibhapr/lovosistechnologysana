@@ -62,7 +62,7 @@ const structuredData = {
     <!-- Hero Section with Parallax Effect -->
     <section class="hero-section relative mb-8 overflow-hidden">
       <div class="parallax-bg"></div>
-      <div class="relative z-10 py-16 text-center text-white">
+      <div class="relative z-10 py-12 text-center text-white">
         <h1 class="text-4xl font-bold tracking-tight md:text-5xl">{title}</h1>
         <p class="mx-auto mt-4 max-w-2xl text-lg opacity-90">{desc}</p>
       </div>
@@ -93,8 +93,8 @@ const structuredData = {
     <div class="relative">
       <article class="product-card">
         <div class="card-inner flex flex-col gap-8 md:flex-row">
-          <!-- Image Gallery Section -->
-          <div class="image-section w-full md:w-1/2">
+          <!-- Image Gallery Section - Medium Size -->
+          <div class="image-section w-full md:w-2/5">
             {
               img && (
                 <div class="image-gallery">
@@ -102,8 +102,8 @@ const structuredData = {
                     <img
                       src={img.src}
                       alt={alt}
-                      width="600"
-                      height="400"
+                      width="450"
+                      height="350"
                       class="main-image"
                       id="main-image"
                       loading="eager"
@@ -191,8 +191,8 @@ const structuredData = {
             }
           </div>
 
-          <!-- Product Content Section -->
-          <div class="product-content w-full md:w-1/2">
+          <!-- Product Content Section - Adjusted width -->
+          <div class="product-content w-full md:w-3/5">
             <h2 class="product-title mb-4 text-2xl font-bold md:text-3xl">{title}</h2>
             
             <div class="product-badge mb-6">
@@ -556,7 +556,7 @@ const structuredData = {
   /* Hero Section with Parallax */
   .hero-section {
     @apply relative bg-cover bg-center text-center text-white;
-    height: 320px;
+    height: 280px;
     overflow: hidden;
   }
   
@@ -643,7 +643,7 @@ const structuredData = {
     background: white;
     border-radius: 16px;
     box-shadow: var(--shadow-md);
-    padding: 2.5rem;
+    padding: 2rem;
     margin-bottom: 2rem;
     border: 1px solid var(--light-gray);
     transition: all var(--transition-medium);
@@ -661,10 +661,10 @@ const structuredData = {
     box-shadow: var(--shadow-lg);
   }
 
-  /* Image Gallery Styles */
+  /* Image Gallery Styles - Adjusted size */
   .image-gallery {
     width: 100%;
-    max-width: 550px;
+    max-width: 450px;
     margin: 0 auto;
   }
   
@@ -673,7 +673,7 @@ const structuredData = {
     width: 100%;
     aspect-ratio: 4/3;
     background-color: #ffffff;
-    border-radius: 16px;
+    border-radius: 12px;
     overflow: hidden;
     box-shadow: var(--shadow-md);
     border: 1px solid var(--medium-gray);
@@ -715,8 +715,8 @@ const structuredData = {
 
   .nav-arrow {
     position: relative;
-    width: 3rem;
-    height: 3rem;
+    width: 2.5rem;
+    height: 2.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -727,11 +727,17 @@ const structuredData = {
     cursor: pointer;
     transition: all var(--transition-fast);
     z-index: 10;
-  }.nav-arrow:hover {
+  }
+  
+  .nav-arrow:hover {
     background: #ffffff;
     transform: scale(1.1);
   }
 
+
+  .next-arrow {
+    right: 0;
+  }
   .prev-arrow {
     left: 0;
   }
@@ -1087,7 +1093,5 @@ const structuredData = {
   }
   
   /* Add pulse animation on image hover */
-  .main-image-container:hover {
-    animation: pulse 2s infinite ease-in-out;
-  }
+ 
 </style>
