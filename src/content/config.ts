@@ -162,6 +162,7 @@ const lovosisCollection = defineCollection({
       title: z.string(),
       desc: z.string(),
       img: image(),
+      images: z.array(image()),
       alt: z.string(),
       author: z.string(),
       reviewBody: z.string(),

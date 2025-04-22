@@ -35,7 +35,7 @@ const structuredData = {
   description: desc,
   brand: {
     "@type": "Brand",
-    name: "UNV",
+    name: "Hikvision",
   },
   aggregateRating: {
     "@type": "AggregateRating",
@@ -109,90 +109,91 @@ const structuredData = {
                       id="main-image"
                       loading="eager"
                     />
+<div class="image-controls">
+  {images && images.length > 0 && (
+    <>
+      <button
+        class="nav-arrow prev-arrow w-6 h-6 p-1"
+        aria-label="Previous image"
+      >
+        <svg
+          class="h-4 w-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M15 19l-7-7 7-7"
+          />
+        </svg>
+      </button>
+      <button
+        class="nav-arrow next-arrow w-6 h-6 p-1"
+        aria-label="Next image"
+      >
+        <svg
+          class="h-4 w-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 5l7 7-7 7"
+          />
+        </svg>
+      </button>
+    </>
+  )}
+</div>
 
-                    <div class="image-controls">
-                      {images && images.length > 0 && (
-                        <>
-                          <button
-                            class="nav-arrow prev-arrow"
-                            aria-label="Previous image"
-                          >
-                            <svg
-                              class="h-6 w-6"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M15 19l-7-7 7-7"
-                              />
-                            </svg>
-                          </button>
-                          <button
-                            class="nav-arrow next-arrow"
-                            aria-label="Next image"
-                          >
-                            <svg
-                              class="h-6 w-6"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M9 5l7 7-7 7"
-                              />
-                            </svg>
-                          </button>
-                        </>
-                      )}
-                    </div>
                   </div>
 
                   {images && images.length > 0 && (
-                    <div class="thumbnails-container mt-4">
-                      <div class="thumbnails-scroll">
-                        <div class="thumbnail active" data-index="0">
-                          <img
-                            src={img.src}
-                            alt={alt}
-                            loading="eager"
-                            class="h-full w-full object-cover"
-                          />
-                        </div>
-                        {images.map((image, index) => (
-                          <div class="thumbnail" data-index={index + 1}>
-                            <img
-                              src={image.src}
-                              alt={`${alt} ${index + 1}`}
-                              loading="lazy"
-                              class="h-full w-full object-cover"
-                            />
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              )
-            }
-            {
-              images && images.length > 0 && (
-                <div class="hidden-images hidden">
-                  {images.map((image, index) => (
-                    <img
-                      src={image.src}
-                      alt={`${alt} ${index + 1}`}
-                      width={image.width}
-                      height={image.height}
-                      loading="lazy"
-                    />
-                  ))}
+  <div class="thumbnails-container mt-4">
+    <div class="thumbnails-scroll">
+      <div class="thumbnail active" data-index="0">
+        <img
+          src={images[0].src}
+          alt={alt}
+          loading="eager"
+          class="h-full w-full object-cover"
+        />
+      </div>
+      {images.slice(1).map((image, index) => (
+        <div class="thumbnail" data-index={index + 1}>
+          <img
+            src={image.src}
+            alt={`${alt} ${index + 1}`}
+            loading="lazy"
+            class="h-full w-full object-cover"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+)}
+
+{
+  images && images.length > 1 && (
+    <div class="hidden-images hidden">
+      {images.slice(1).map((image, index) => (
+        <img
+          src={image.src}
+          alt={`${alt} ${index + 1}`}
+          width={image.width}
+          height={image.height}
+          loading="lazy"
+        />
+      ))}
+    </div>
+  )
+}
                 </div>
               )
             }
@@ -231,7 +232,7 @@ const structuredData = {
         <!-- Share Section -->
         <div class="share-container mt-8 border-t border-gray-100 pt-6">
           <p class="mb-3 text-sm font-medium text-gray-600">
-            Share this camera:
+            Share this Camera:
           </p>
           <div class="share-buttons flex space-x-3">
             <button
@@ -851,7 +852,8 @@ const structuredData = {
     margin: 0 auto;
   }
 
- .main-image-container {
+  /* Update these styles in the CSS section */
+  .main-image-container {
   position: relative;
   width: 100%;
   aspect-ratio: 4/3;
@@ -860,10 +862,11 @@ const structuredData = {
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border: 1px solid #e0e0e0;
   transition: box-shadow 0.3s ease;
 }
 
-/* Bottom fade overlay */
+/* Enhanced bottom fade overlay */
 .main-image-container::after {
   content: "";
   position: absolute;
@@ -873,9 +876,10 @@ const structuredData = {
   height: 40%;
   background: linear-gradient(to top, 
               rgba(0, 0, 0, 0.35) 0%, 
+              rgba(0, 0, 0, 0.18) 50%,
               rgba(0, 0, 0, 0) 100%);
   opacity: 0;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
   z-index: 1;
 }
@@ -914,37 +918,6 @@ const structuredData = {
     opacity: 1;
   }
 
-  .nav-arrow {
-    position: relative;
-    width: 2.5rem;
-    height: 2.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 50%;
-    box-shadow: var(--shadow-md);
-    border: 1px solid var(--medium-gray);
-    cursor: pointer;
-    transition: all var(--transition-fast);
-    z-index: 10;
-  }
-
-  .nav-arrow:hover {
-    background: #ffffff;
-    transform: scale(1.1);
-  }
-
-  .next-arrow {
-    right: 0;
-  }
-  .prev-arrow {
-    left: 0;
-  }
-
-  .next-arrow {
-    right: 0;
-  }
 
   /* Thumbnails styles */
   .thumbnails-container {
@@ -1368,13 +1341,13 @@ const structuredData = {
   }
 
   .nav-arrow {
-    position: absolute;
+  
     width: 3rem;
     height: 3rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.9);
+    background: transparent;
     border-radius: 50%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     border: 1px solid #e5e7eb;
