@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import MainLayout from "@/layouts/MainLayout.astro";
 import Card from "@/components/sections/Card.astro";
+import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
 
 export async function getStaticPaths() {
   const contentEntries = await getCollection("hikvision");
@@ -102,17 +103,20 @@ const structuredData = {
                     <img
                       src={img.src}
                       alt={alt}
-                      width="450"
-                      height="350"
+                      width="400"
+                      height="300"
                       class="main-image"
                       id="main-image"
                       loading="eager"
                     />
-                    
+
                     <div class="image-controls">
                       {images && images.length > 0 && (
                         <>
-                          <button class="nav-arrow prev-arrow" aria-label="Previous image">
+                          <button
+                            class="nav-arrow prev-arrow"
+                            aria-label="Previous image"
+                          >
                             <svg
                               class="h-6 w-6"
                               fill="none"
@@ -127,7 +131,10 @@ const structuredData = {
                               />
                             </svg>
                           </button>
-                          <button class="nav-arrow next-arrow" aria-label="Next image">
+                          <button
+                            class="nav-arrow next-arrow"
+                            aria-label="Next image"
+                          >
                             <svg
                               class="h-6 w-6"
                               fill="none"
@@ -193,15 +200,12 @@ const structuredData = {
 
           <!-- Product Content Section - Adjusted width -->
           <div class="product-content w-full md:w-3/5">
-            <h2 class="product-title mb-4 text-2xl font-bold md:text-3xl">{title}</h2>
-            
-            <div class="product-badge mb-6">
-              <span class="badge">Professional Series</span>
-              <span class="badge">4MP Resolution</span>
-            </div>
-            
+            <h2 class="product-title mb-4 text-2xl font-bold md:text-3xl">
+              {title}
+            </h2>
+
             <p class="product-description mb-6 text-gray-700">{desc}</p>
-            
+
             {
               features && features.length > 0 && (
                 <div class="features-section mt-6">
@@ -214,10 +218,12 @@ const structuredData = {
                 </div>
               )
             }
-            
-            <div class="cta-section mt-8">
-              <button class="primary-button">Request Quote</button>
-              <button class="secondary-button">Technical Specs</button>
+
+            <div class="animate-fadeIn mt-8 grid w-full sm:inline-flex">
+              <PrimaryCTA
+                title="Contact Us"
+                url="/contact"
+              />
             </div>
           </div>
         </div>
@@ -228,7 +234,11 @@ const structuredData = {
             Share this camera:
           </p>
           <div class="share-buttons flex space-x-3">
-            <button class="share-btn" data-platform="whatsapp" aria-label="Share on WhatsApp">
+            <button
+              class="share-btn"
+              data-platform="whatsapp"
+              aria-label="Share on WhatsApp"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="22"
@@ -241,7 +251,11 @@ const structuredData = {
                 ></path>
               </svg>
             </button>
-            <button class="share-btn" data-platform="instagram" aria-label="Share on Instagram">
+            <button
+              class="share-btn"
+              data-platform="instagram"
+              aria-label="Share on Instagram"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="22"
@@ -254,7 +268,11 @@ const structuredData = {
                 ></path>
               </svg>
             </button>
-            <button class="share-btn" data-platform="x" aria-label="Share on X (Twitter)">
+            <button
+              class="share-btn"
+              data-platform="x"
+              aria-label="Share on X (Twitter)"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="22"
@@ -267,7 +285,11 @@ const structuredData = {
                 ></path>
               </svg>
             </button>
-            <button class="share-btn" data-platform="facebook" aria-label="Share on Facebook">
+            <button
+              class="share-btn"
+              data-platform="facebook"
+              aria-label="Share on Facebook"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="22"
@@ -286,12 +308,6 @@ const structuredData = {
     </div>
 
     <!-- Related Products Section -->
-    <section class="related-products mt-16">
-      <h2 class="mb-8 text-2xl font-bold">Related Products</h2>
-      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <!-- Related products would go here -->
-      </div>
-    </section>
   </main>
 </MainLayout>
 
@@ -303,37 +319,40 @@ const structuredData = {
     const prevArrow = document.querySelector(".prev-arrow");
     const nextArrow = document.querySelector(".next-arrow");
     const hiddenImages = document.querySelectorAll(".hidden-images img");
-    
+
     // Combine the main image and hidden images into one array
     let allImages = [
-      { src: mainImage ? mainImage.src : "", alt: mainImage ? mainImage.alt : "" }
+      {
+        src: mainImage ? mainImage.src : "",
+        alt: mainImage ? mainImage.alt : "",
+      },
     ];
-    
-    hiddenImages.forEach(img => {
+
+    hiddenImages.forEach((img) => {
       allImages.push({ src: img.src, alt: img.alt });
     });
-    
+
     let currentIndex = 0;
-    
+
     // Function to update the main image with animation
     function updateMainImage(index) {
       if (mainImage && allImages[index]) {
         // Add fade-out class
         mainImage.classList.add("fade-out");
-        
+
         // After animation completes, update image and fade back in
         setTimeout(() => {
           mainImage.src = allImages[index].src;
           mainImage.alt = allImages[index].alt;
           mainImage.classList.remove("fade-out");
           mainImage.classList.add("fade-in");
-          
+
           // Remove fade-in class after animation completes
           setTimeout(() => {
             mainImage.classList.remove("fade-in");
           }, 500);
         }, 300);
-        
+
         // Update active thumbnail
         thumbnails.forEach((thumb, i) => {
           if (i === index) {
@@ -344,7 +363,7 @@ const structuredData = {
         });
       }
     }
-    
+
     // Set up thumbnail click event
     thumbnails.forEach((thumbnail, index) => {
       thumbnail.addEventListener("click", () => {
@@ -352,7 +371,7 @@ const structuredData = {
         updateMainImage(currentIndex);
       });
     });
-    
+
     // Set up arrow navigation
     if (prevArrow) {
       prevArrow.addEventListener("click", (e) => {
@@ -361,7 +380,7 @@ const structuredData = {
         updateMainImage(currentIndex);
       });
     }
-    
+
     if (nextArrow) {
       nextArrow.addEventListener("click", (e) => {
         e.preventDefault();
@@ -369,28 +388,28 @@ const structuredData = {
         updateMainImage(currentIndex);
       });
     }
-    
+
     // Hide arrows if there are no additional images
     if (allImages.length <= 1) {
       if (prevArrow) prevArrow.style.display = "none";
       if (nextArrow) nextArrow.style.display = "none";
     }
-    
+
     // Add touch swipe support for mobile
     let touchStartX = 0;
     let touchEndX = 0;
-    
+
     const imageContainer = document.querySelector(".main-image-container");
     if (imageContainer) {
       imageContainer.addEventListener("touchstart", (e) => {
         touchStartX = e.changedTouches[0].screenX;
       });
-      
+
       imageContainer.addEventListener("touchend", (e) => {
         touchEndX = e.changedTouches[0].screenX;
         handleSwipe();
       });
-      
+
       function handleSwipe() {
         if (touchEndX < touchStartX - 50) {
           // Swipe left, show next image
@@ -398,12 +417,13 @@ const structuredData = {
           updateMainImage(currentIndex);
         } else if (touchEndX > touchStartX + 50) {
           // Swipe right, show previous image
-          currentIndex = (currentIndex - 1 + allImages.length) % allImages.length;
+          currentIndex =
+            (currentIndex - 1 + allImages.length) % allImages.length;
           updateMainImage(currentIndex);
         }
       }
     }
-    
+
     // Parallax effect for hero section
     const parallaxBg = document.querySelector(".parallax-bg");
     if (parallaxBg) {
@@ -412,7 +432,7 @@ const structuredData = {
         parallaxBg.style.transform = `translateY(${scrollPosition * 0.4}px)`;
       });
     }
-    
+
     // Add animation to the card on page load
     const productCard = document.querySelector(".product-card");
     if (productCard) {
@@ -420,7 +440,7 @@ const structuredData = {
         productCard.classList.add("card-loaded");
       }, 100);
     }
-    
+
     // Share buttons functionality
     const shareButtons = document.querySelectorAll(".share-btn");
     const pageUrl = encodeURIComponent(window.location.href);
@@ -437,7 +457,9 @@ const structuredData = {
           navigator.clipboard.writeText(
             `${document.title} ${window.location.href}`
           );
-          showNotification("Link copied to clipboard! Open Instagram and paste in your story or message.");
+          showNotification(
+            "Link copied to clipboard! Open Instagram and paste in your story or message."
+          );
           return;
         case "x":
           shareUrl = `https://twitter.com/intent/tweet?text=${pageTitle}&url=${pageUrl}`;
@@ -451,22 +473,22 @@ const structuredData = {
 
       window.open(shareUrl, "_blank");
     }
-    
+
     // Show notification function
     function showNotification(message) {
       // Create notification element
       const notification = document.createElement("div");
       notification.className = "notification";
       notification.textContent = message;
-      
+
       // Add to DOM
       document.body.appendChild(notification);
-      
+
       // Trigger animation
       setTimeout(() => {
         notification.classList.add("show");
       }, 10);
-      
+
       // Remove after delay
       setTimeout(() => {
         notification.classList.remove("show");
@@ -480,23 +502,23 @@ const structuredData = {
       btn.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
-        
+
         // Add click animation
         btn.classList.add("click-effect");
         setTimeout(() => {
           btn.classList.remove("click-effect");
         }, 300);
-        
+
         const platform = btn.dataset.platform;
         if (platform) {
           shareContent(platform);
         }
       });
     });
-    
+
     // CTA Buttons animations and interactions
     const ctaButtons = document.querySelectorAll(".cta-section button");
-    ctaButtons.forEach(button => {
+    ctaButtons.forEach((button) => {
       button.addEventListener("click", (e) => {
         e.preventDefault();
         button.classList.add("click-effect");
@@ -510,14 +532,14 @@ const structuredData = {
         }, 300);
       });
     });
-    
+
     // Feature list animation
     const featureItems = document.querySelectorAll(".feature-item");
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px"
+      rootMargin: "0px 0px -50px 0px",
     };
-    
+
     const featureObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -526,11 +548,171 @@ const structuredData = {
         }
       });
     }, observerOptions);
-    
+
     featureItems.forEach((item, index) => {
       // Set delay based on index for staggered animation
       item.style.transitionDelay = `${index * 100}ms`;
       featureObserver.observe(item);
+    });
+  });
+  // Enhanced Image Gallery JavaScript
+  document.addEventListener("DOMContentLoaded", () => {
+    // Get elements
+    const mainImage = document.getElementById("main-image");
+    const thumbnails = document.querySelectorAll(".thumbnail");
+    const prevArrow = document.querySelector(".prev-arrow");
+    const nextArrow = document.querySelector(".next-arrow");
+    const hiddenImages = document.querySelectorAll(".hidden-images img");
+
+    // Combine the main image and hidden images into one array
+    let allImages = [
+      {
+        src: mainImage ? mainImage.src : "",
+        alt: mainImage ? mainImage.alt : "",
+      },
+    ];
+
+    hiddenImages.forEach((img) => {
+      allImages.push({ src: img.src, alt: img.alt });
+    });
+
+    let currentIndex = 0;
+
+    // Function to update the main image with smooth animation
+    function updateMainImage(index) {
+      if (mainImage && allImages[index]) {
+        // Add fade-out class
+        mainImage.classList.add("fade-out");
+
+        // After animation completes, update image and fade back in
+        setTimeout(() => {
+          mainImage.src = allImages[index].src;
+          mainImage.alt = allImages[index].alt;
+          mainImage.classList.remove("fade-out");
+          mainImage.classList.add("fade-in");
+
+          // Remove fade-in class after animation completes
+          setTimeout(() => {
+            mainImage.classList.remove("fade-in");
+          }, 500);
+        }, 300);
+
+        // Update active thumbnail
+        thumbnails.forEach((thumb, i) => {
+          if (i === index) {
+            thumb.classList.add("active");
+          } else {
+            thumb.classList.remove("active");
+          }
+        });
+
+        // Scroll active thumbnail into view
+        scrollActiveThumbnailIntoView();
+      }
+    }
+
+    // Function to center the active thumbnail in the scroll view
+    function scrollActiveThumbnailIntoView() {
+      const activeThumb = document.querySelector(".thumbnail.active");
+      if (activeThumb) {
+        const container = document.querySelector(".thumbnails-scroll");
+        const containerWidth = container.offsetWidth;
+        const thumbPosition = activeThumb.offsetLeft;
+        const thumbWidth = activeThumb.offsetWidth;
+
+        // Calculate scroll position to center the thumbnail
+        const scrollLeft = thumbPosition - containerWidth / 2 + thumbWidth / 2;
+        container.scrollTo({
+          left: scrollLeft,
+          behavior: "smooth",
+        });
+      }
+    }
+
+    // Set up thumbnail click event
+    thumbnails.forEach((thumbnail, index) => {
+      thumbnail.addEventListener("click", () => {
+        currentIndex = index;
+        updateMainImage(currentIndex);
+      });
+    });
+
+    // Set up arrow navigation with subtle animation
+    if (prevArrow) {
+      prevArrow.addEventListener("click", (e) => {
+        e.preventDefault();
+        prevArrow.classList.add("click-effect");
+        setTimeout(() => prevArrow.classList.remove("click-effect"), 300);
+
+        currentIndex = (currentIndex - 1 + allImages.length) % allImages.length;
+        updateMainImage(currentIndex);
+      });
+    }
+
+    if (nextArrow) {
+      nextArrow.addEventListener("click", (e) => {
+        e.preventDefault();
+        nextArrow.classList.add("click-effect");
+        setTimeout(() => nextArrow.classList.remove("click-effect"), 300);
+
+        currentIndex = (currentIndex + 1) % allImages.length;
+        updateMainImage(currentIndex);
+      });
+    }
+
+    // Hide arrows if there are no additional images
+    if (allImages.length <= 1) {
+      if (prevArrow) prevArrow.style.display = "none";
+      if (nextArrow) nextArrow.style.display = "none";
+    }
+
+    // Add keyboard navigation
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") {
+        currentIndex = (currentIndex - 1 + allImages.length) % allImages.length;
+        updateMainImage(currentIndex);
+      } else if (e.key === "ArrowRight") {
+        currentIndex = (currentIndex + 1) % allImages.length;
+        updateMainImage(currentIndex);
+      }
+    });
+
+    // Improve touch swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    const imageContainer = document.querySelector(".main-image-container");
+    if (imageContainer) {
+      imageContainer.addEventListener("touchstart", (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      });
+
+      imageContainer.addEventListener("touchend", (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      });
+
+      function handleSwipe() {
+        const swipeThreshold = 50;
+        if (touchEndX < touchStartX - swipeThreshold) {
+          // Swipe left, show next image
+          currentIndex = (currentIndex + 1) % allImages.length;
+          updateMainImage(currentIndex);
+        } else if (touchEndX > touchStartX + swipeThreshold) {
+          // Swipe right, show previous image
+          currentIndex =
+            (currentIndex - 1 + allImages.length) % allImages.length;
+          updateMainImage(currentIndex);
+        }
+      }
+    }
+
+    // Initialize with the first image
+    updateMainImage(currentIndex);
+
+    // Make the image area more responsive
+    window.addEventListener("resize", () => {
+      scrollActiveThumbnailIntoView();
     });
   });
 </script>
@@ -548,9 +730,11 @@ const structuredData = {
     --transition-fast: 0.2s ease;
     --transition-medium: 0.3s ease;
     --transition-slow: 0.5s ease;
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.08);
-    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
 
   /* Hero Section with Parallax */
@@ -559,7 +743,7 @@ const structuredData = {
     height: 280px;
     overflow: hidden;
   }
-  
+
   .parallax-bg {
     position: absolute;
     top: 0;
@@ -573,8 +757,7 @@ const structuredData = {
     transform: translateY(0);
     z-index: 0;
   }
-
-  .hero-section::after {
+  > .hero-section::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -608,7 +791,7 @@ const structuredData = {
   }
 
   .back-button::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: -100%;
@@ -624,7 +807,7 @@ const structuredData = {
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
   }
-  
+
   .back-button:hover::before {
     transform: translateX(100%);
   }
@@ -633,7 +816,7 @@ const structuredData = {
     margin-right: 0.5rem;
     transition: transform var(--transition-fast);
   }
-  
+
   .back-button:hover .back-icon {
     transform: translateX(-3px);
   }
@@ -650,7 +833,7 @@ const structuredData = {
     opacity: 0;
     transform: translateY(20px);
   }
-  
+
   .product-card.card-loaded {
     opacity: 1;
     transform: translateY(0);
@@ -667,30 +850,48 @@ const structuredData = {
     max-width: 450px;
     margin: 0 auto;
   }
-  
-  .main-image-container {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 4/3;
-    background-color: #ffffff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: var(--shadow-md);
-    border: 1px solid var(--medium-gray);
-  }
 
-  .main-image {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-    transition: opacity var(--transition-fast);
-  }
-  
+ .main-image-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  max-height: 300px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Bottom fade overlay */
+.main-image-container::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(to top, 
+              rgba(0, 0, 0, 0.35) 0%, 
+              rgba(0, 0, 0, 0) 100%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.main-image-container:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.main-image-container:hover::after {
+  opacity: 1;
+}
+
   .main-image.fade-out {
     opacity: 0;
   }
-  
+
   .main-image.fade-in {
     opacity: 1;
   }
@@ -708,7 +909,7 @@ const structuredData = {
     opacity: 0;
     transition: opacity var(--transition-fast);
   }
-  
+
   .main-image-container:hover .image-controls {
     opacity: 1;
   }
@@ -728,12 +929,11 @@ const structuredData = {
     transition: all var(--transition-fast);
     z-index: 10;
   }
-  
+
   .nav-arrow:hover {
     background: #ffffff;
     transform: scale(1.1);
   }
-
 
   .next-arrow {
     right: 0;
@@ -745,37 +945,37 @@ const structuredData = {
   .next-arrow {
     right: 0;
   }
-  
+
   /* Thumbnails styles */
   .thumbnails-container {
     width: 100%;
     overflow: hidden;
     margin-top: 1rem;
   }
-  
+
   .thumbnails-scroll {
     display: flex;
     gap: 0.5rem;
     overflow-x: auto;
     padding: 0.5rem 0;
     scrollbar-width: thin;
-    scrollbar-color: var(--primary-color) var(--light-gray); 
+    scrollbar-color: var(--primary-color) var(--light-gray);
   }
-  
+
   .thumbnails-scroll::-webkit-scrollbar {
     height: 6px;
   }
-  
+
   .thumbnails-scroll::-webkit-scrollbar-track {
     background: var(--light-gray);
     border-radius: 10px;
   }
-  
+
   .thumbnails-scroll::-webkit-scrollbar-thumb {
     background-color: var(--primary-color);
     border-radius: 10px;
   }
-  
+
   .thumbnail {
     flex: 0 0 auto;
     width: 80px;
@@ -787,12 +987,12 @@ const structuredData = {
     border: 2px solid transparent;
     transition: all var(--transition-fast);
   }
-  
+
   .thumbnail:hover {
     opacity: 0.9;
     transform: translateY(-2px);
   }
-  
+
   .thumbnail.active {
     opacity: 1;
     border-color: var(--primary-color);
@@ -816,13 +1016,13 @@ const structuredData = {
     background: var(--primary-color);
     border-radius: 2px;
   }
-  
+
   .product-badge {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
   }
-  
+
   .badge {
     display: inline-block;
     padding: 0.25rem 0.75rem;
@@ -832,7 +1032,7 @@ const structuredData = {
     font-weight: 500;
     border-radius: 1rem;
   }
-  
+
   .product-description {
     font-size: 1.125rem;
     line-height: 1.8;
@@ -844,12 +1044,12 @@ const structuredData = {
   .features-section {
     margin-top: 2rem;
   }
-  
+
   .features-list {
     list-style: none;
     padding: 0;
   }
-  
+
   .feature-item {
     position: relative;
     padding-left: 1.75rem;
@@ -858,12 +1058,12 @@ const structuredData = {
     transform: translateX(20px);
     transition: all var(--transition-medium);
   }
-  
+
   .feature-item.feature-visible {
     opacity: 1;
     transform: translateX(0);
   }
-  
+
   .feature-item::before {
     content: "";
     position: absolute;
@@ -874,7 +1074,7 @@ const structuredData = {
     border-radius: 50%;
     background-color: var(--primary-color);
   }
-  
+
   /* CTA Section */
   .cta-section {
     display: flex;
@@ -882,8 +1082,9 @@ const structuredData = {
     gap: 1rem;
     margin-top: 2rem;
   }
-  
-  .primary-button, .secondary-button {
+
+  .primary-button,
+  .secondary-button {
     padding: 0.75rem 1.5rem;
     border-radius: 8px;
     font-weight: 600;
@@ -892,41 +1093,48 @@ const structuredData = {
     position: relative;
     overflow: hidden;
   }
-  
+
   .primary-button {
     background-color: var(--primary-color);
     color: white;
     box-shadow: var(--shadow-sm);
     border: none;
   }
-  
+
   .secondary-button {
     background-color: transparent;
     color: var(--primary-color);
     border: 2px solid var(--primary-color);
   }
-  
-  .primary-button:hover, .secondary-button:hover {
+
+  .primary-button:hover,
+  .secondary-button:hover {
     transform: translateY(-3px);
     box-shadow: var(--shadow-md);
   }
-  
+
   .primary-button:hover {
     background-color: var(--secondary-color);
   }
-  
+
   .secondary-button:hover {
     background-color: rgba(59, 130, 246, 0.1);
   }
-  
+
   .click-effect {
     animation: buttonClick 0.3s forwards;
   }
-  
+
   @keyframes buttonClick {
-    0% { transform: scale(1); }
-    50% { transform: scale(0.95); }
-    100% { transform: scale(1); }
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.95);
+    }
+    100% {
+      transform: scale(1);
+    }
   }
 
   /* Share Container Styles */
@@ -961,11 +1169,11 @@ const structuredData = {
     transform: translateY(-4px);
     box-shadow: var(--shadow-md);
   }
-  
+
   .share-btn svg {
     transition: transform var(--transition-fast);
   }
-  
+
   .share-btn:hover svg {
     transform: scale(1.2);
   }
@@ -985,7 +1193,7 @@ const structuredData = {
     opacity: 0;
     transition: all var(--transition-medium);
   }
-  
+
   .notification.show {
     transform: translateX(-50%) translateY(0);
     opacity: 1;
@@ -997,101 +1205,295 @@ const structuredData = {
     padding-top: 2rem;
     border-top: 1px solid var(--medium-gray);
   }
-  
+
   /* Mobile Responsiveness */
   @media (max-width: 768px) {
     .hero-section {
       height: 220px;
     }
-    
+
     .product-card {
       padding: 1.5rem;
     }
-    
+
     .card-inner {
       flex-direction: column;
       gap: 2.5rem;
     }
-    
+
     .image-section,
     .product-content {
       width: 100%;
     }
-    
+
     .image-gallery {
       max-width: 100%;
     }
-    
+
     .main-image-container {
       aspect-ratio: 4/3;
     }
-    
+
     .thumbnail {
       width: 60px;
       height: 45px;
     }
-    
+
     .product-title {
       font-size: 1.75rem;
     }
-    
+
     .cta-section {
       flex-direction: column;
     }
-    
+
     .primary-button,
     .secondary-button {
       width: 100%;
     }
   }
-  
+
   @media (max-width: 480px) {
     .hero-section {
       height: 180px;
     }
-    
+
     .product-title {
       font-size: 1.5rem;
     }
-    
+
     .product-description {
       font-size: 1rem;
     }
-    
+
     .nav-arrow {
       width: 2.5rem;
       height: 2.5rem;
     }
-    
+
     .share-btn {
       width: 2.5rem;
       height: 2.5rem;
     }
   }
-  
+
   /* Animation Keyframes */
   @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
-  
+
   @keyframes slideUp {
-    from { 
+    from {
       opacity: 0;
       transform: translateY(20px);
     }
-    to { 
+    to {
       opacity: 1;
       transform: translateY(0);
     }
   }
-  
+
   @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
   }
-  
+
+  .main-image-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    background-color: #ffffff;
+    border-radius: 1px;
+    overflow: hidden;
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e5e7eb;
+    border-width: 1px 1px 0 1px; /* top, right, bottom, left */
+    margin: 1rem auto;
+    transition: transform 0.3s ease;
+    padding: 20px 30px;
+  }
+  /* Updated main-image styles */
+  .main-image {
+    width: 100%; /* Keep full width within the padded container */
+    height: 100%;
+    object-fit: contain; /* This ensures the image maintains its aspect ratio */
+    display: block;
+    transition: opacity 0.3s ease;
+    border-radius: 8px;
+  }
+
+  /* You might also want to adjust the container width for better proportions */
+  .image-section {
+    width: 100%;
+    max-width: 440px; /* Slightly increased from 400px */
+    margin: 0 auto;
+  }
+  .main-image-container:hover {
+    transform: scale(1.02);
+  }
+  .main-image.fade-out {
+    opacity: 0;
+  }
+
+  .main-image.fade-in {
+    opacity: 1;
+  }
+
+  /* Navigation Arrows */
+  .image-controls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  .nav-arrow {
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    border: 1px solid #e5e7eb;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    pointer-events: auto;
+    opacity: 0.9;
+  }
+
+  .nav-arrow:hover {
+    background: #ffffff;
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    opacity: 1;
+  }
+
+  .prev-arrow {
+    left: -1rem;
+  }
+
+  .next-arrow {
+    right: -1rem;
+  }
+
+  /* Thumbnails Gallery */
+  .thumbnails-container {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 1.5rem;
+    padding: 0.5rem 0;
+  }
+
+  .thumbnails-scroll {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    padding: 0.75rem 0;
+    justify-content: center;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+  }
+
+  .thumbnails-scroll::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .thumbnails-scroll::-webkit-scrollbar-track {
+    background: #f3f4f6;
+    border-radius: 10px;
+  }
+
+  .thumbnails-scroll::-webkit-scrollbar-thumb {
+    background-color: #3b82f6;
+    border-radius: 10px;
+  }
+
+  .thumbnail {
+    flex: 0 0 auto;
+    width: 90px;
+    height: 70px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0.7;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .thumbnail:hover {
+    opacity: 0.9;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .thumbnail.active {
+    opacity: 1;
+    border-color: #3b82f6;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .main-image-container {
+      aspect-ratio: 1/1;
+    }
+
+    .nav-arrow {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+
+    .prev-arrow {
+      left: 0.5rem;
+    }
+
+    .next-arrow {
+      right: 0.5rem;
+    }
+
+    .thumbnail {
+      width: 70px;
+      height: 55px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .nav-arrow {
+      width: 2.25rem;
+      height: 2.25rem;
+    }
+
+    .thumbnail {
+      width: 60px;
+      height: 50px;
+    }
+  }
   /* Add pulse animation on image hover */
- 
 </style>

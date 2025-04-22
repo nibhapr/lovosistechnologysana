@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 import MainLayout from "@/layouts/MainLayout.astro";
 import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
-
 interface Card {
   id: number;
   title: string;
@@ -31,6 +30,7 @@ const cards: Card[] = content.map((item) => ({
   features: item.data.features,
   publishedTime: item.data.publishedTime,
 }));
+
 
 const pageTitle: string = "Hikvision wholesale dealer in U.A.E";
 interface Props {
@@ -254,7 +254,7 @@ const structuredData = {
       <div class="mt-8 grid w-full sm:inline-flex animate-fadeIn">
         <PrimaryCTA
           title="Contact Us"
-          url="https://lovosis.com/contact-us/"
+          url="/contact"
         />
       </div>
     </div>
