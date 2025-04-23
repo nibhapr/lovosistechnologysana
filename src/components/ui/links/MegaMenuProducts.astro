@@ -4,23 +4,25 @@ import Icon from "../icons/Icon.astro";
 import personWorking from "@images/person-working.avif";
 ---
 
-<!-- Brands Dropdown -->
-<!-- Brands Dropdown -->
 <div
   class="hs-dropdown [--adaptive:none] [--strategy:static] md:[--strategy:absolute] md:[--trigger:hover]"
 >
   <button
     type="button"
-    class="flex w-full items-center font-semibold text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-600 transition-colors duration-300"
+    class="flex w-full items-center font-semibold text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-600"
   >
     <a href="/#"> Brands </a>
+    <!--
+        <span class="bg-blue-600 text-white px-2 py-1 rounded-md text-xs">New!</span>
+      -->
+
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
       stroke-width="1.5"
       stroke="currentColor"
-      class="ms-2 size-4 flex-shrink-0 transition-transform duration-300 group-hover:rotate-180"
+      class="ms-2 size-4 flex-shrink-0"
     >
       <path
         stroke-linecap="round"
@@ -30,15 +32,14 @@ import personWorking from "@images/person-working.avif";
   </button>
 
   <div
-    class="hs-dropdown-menu start-0 top-full z-10 hidden w-full min-w-60 rounded-2xl bg-neutral-50 py-2 opacity-0 transform transition-all duration-300 ease-in-out before:absolute before:-top-5 before:start-0 before:h-5 before:w-full hs-dropdown-open:opacity-100 hs-dropdown-open:translate-y-0 translate-y-5 dark:divide-neutral-700 dark:bg-neutral-800 md:top-16 md:p-4 md:shadow-2xl"
+    class="hs-dropdown-menu start-0 top-full z-10 hidden w-full min-w-60 rounded-2xl bg-neutral-50 py-2 opacity-0 transition-[opacity,margin] duration-[0.1ms] before:absolute before:-top-5 before:start-0 before:h-5 before:w-full hs-dropdown-open:opacity-100 dark:divide-neutral-700 dark:bg-neutral-800 md:top-16 md:p-4 md:shadow-2xl md:duration-[0.1s]"
   >
     <div class="items-center gap-4 md:grid md:grid-cols-1 lg:grid-cols-1">
-      <!-- Mobile: 3 rows (only on small screens) -->
-      <div class="md:hidden flex flex-col gap-3">
-        <!-- Row 1 -->
+      <!--Link area -->
+      <div class="mx-1 flex flex-wrap gap-3 md:mx-0">
         <div class="flex gap-3">
           <a
-            class="group gap-x-5 rounded-lg border border-blue-600 p-4 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10 transition-all duration-300 hover:shadow-md"
+            class="group gap-x-5 rounded-lg border border-blue-600 p-4 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10"
             title="UNV authorized distributor in U.A.E"
             href="/uniview"
             onmouseover="hoverDetails('/pictures/Brand Logo/unv2.png', 'solution2')"
@@ -46,368 +47,182 @@ import personWorking from "@images/person-working.avif";
             <img
               src="/pictures/Brand Logo/unv2.png"
               alt="Logo"
-              class="h-6 w-20 transition-transform duration-300 group-hover:scale-105"
+              class="md:auto h-6 w-20 md:w-32"
             />
             <div class="grow">
               <p
-                class="mt-3 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 transition-all duration-300"
+                class="mt-3 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600"
               >
                 Learn more
-                <Icon name="arrowRight" class="transition-transform duration-300 group-hover:translate-x-1" />
+                <Icon name="arrowRight" />
               </p>
             </div>
           </a>
 
           <a
-            class="group gap-x-5 rounded-lg border border-blue-600 p-4 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10 transition-all duration-300 hover:shadow-md"
-            href="/dahua"
+            class="group gap-x-5 rounded-lg border border-blue-600 p-4 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10"
+            href="/alhua"
             onmouseover="hoverDetails('/pictures/logo.png', 'solution2')"
           >
             <img
               src="/pictures/Brand Logo/dahua.png"
               alt="Logo"
-              class="h-6 w-20 transition-transform duration-300 group-hover:scale-105"
+              class="md:auto h-6 w-20 md:w-32"
             />
             <div class="grow">
               <p
-                class="mt-3 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 transition-all duration-300"
+                class="mt-3 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600"
               >
                 Learn more
-                <Icon name="arrowRight" class="transition-transform duration-300 group-hover:translate-x-1" />
+                <Icon name="arrowRight" />
               </p>
             </div>
           </a>
 
           <a
-            class="group gap-x-5 rounded-lg border border-blue-600 p-4 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10 transition-all duration-300 hover:shadow-md"
+            class="group gap-x-5 rounded-lg border border-blue-600 p-4 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10"
             href="/imou"
             onmouseover="hoverDetails('/pictures/UNV.png', 'solution2')"
           >
             <img
               src="/pictures/Brand Logo/Imou.png"
               alt="Logo"
-              class="h-6 w-20 transition-transform duration-300 group-hover:scale-105"
+              class="md:auto h-6 w-20 md:w-32"
             />
             <div class="grow">
               <p
-                class="mt-3 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 transition-all duration-300"
+                class="mt-3 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600"
               >
                 Learn more
-                <Icon name="arrowRight" class="transition-transform duration-300 group-hover:translate-x-1" />
+                <Icon name="arrowRight" />
               </p>
             </div>
           </a>
         </div>
 
-        <!-- Row 2 -->
         <div class="flex gap-3">
           <a
-            class="group gap-x-5 rounded-lg border border-blue-600 p-4 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10 transition-all duration-300 hover:shadow-md"
+            class="group gap-x-5 rounded-lg border border-blue-600 p-4 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10"
             href="/hikvision"
             onmouseover="hoverDetails('/pictures/Brand Logo/hikvision.png', 'solution1')"
           >
             <img
               src="/pictures/Brand Logo/logo.png"
               alt="Logo"
-              class="h-6 w-20 transition-transform duration-300 group-hover:scale-105"
+              class="h-auto w-full md:h-auto md:w-32"
             />
             <div class="grow">
               <p
-                class="mt-3 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 transition-all duration-300"
+                class="mt-3 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600"
               >
                 Learn more
-                <Icon name="arrowRight" class="transition-transform duration-300 group-hover:translate-x-1" />
+                <Icon name="arrowRight" />
               </p>
             </div>
           </a>
-          
           <a
-            class="group gap-x-5 rounded-lg border border-blue-600 p-4 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10 transition-all duration-300 hover:shadow-md"
+            class="group gap-x-5 rounded-lg border border-blue-600 p-4 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10"
             href="/westerdigital"
             onmouseover="hoverDetails('/pictures/p1.png', 'solution1')"
           >
             <img
               src="/pictures/Brand Logo/western1.png"
               alt="Logo"
-              class="h-6 w-20 transition-transform duration-300 group-hover:scale-105"
+              class="md:auto h-6 w-20 md:w-32"
             />
             <div class="grow">
               <p
-                class="mt-3 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 transition-all duration-300"
+                class="mt-3 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600"
               >
                 Learn more
-                <Icon name="arrowRight" class="transition-transform duration-300 group-hover:translate-x-1" />
+                <Icon name="arrowRight" />
               </p>
             </div>
           </a>
-          
+
           <a
-            class="group gap-x-5 rounded-lg border border-blue-600 p-4 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10 transition-all duration-300 hover:shadow-md"
+            class="group gap-x-5 rounded-lg border border-blue-600 p-4 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10"
             href="/toshiba"
             onmouseover="hoverDetails('/pictures/logo.png', 'solution2')"
           >
             <img
               src="/pictures/Brand Logo/toshiba1.png"
               alt="Logo"
-              class="h-6 w-20 transition-transform duration-300 group-hover:scale-105"
+              class="md:auto h-6 w-20 md:w-28"
             />
             <div class="grow">
               <p
-                class="mt-3 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 transition-all duration-300"
+                class="mt-3 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600"
               >
                 Learn more
-                <Icon name="arrowRight" class="transition-transform duration-300 group-hover:translate-x-1" />
+                <Icon name="arrowRight" />
               </p>
             </div>
           </a>
-        </div>
 
-        <!-- Row 3 -->
-        <div class="flex gap-3">
           <a
-            class="group gap-x-5 rounded-lg border border-blue-600 p-4 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10 transition-all duration-300 hover:shadow-md"
+            class="group gap-x-5 rounded-lg border border-blue-600 p-4 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10"
             href="/seagate"
             onmouseover="hoverDetails('/pictures/Brand Logo/seagate.png', 'solution1')"
           >
             <img
               src="/pictures/Brand Logo/seagate.png"
               alt="Logo"
-              class="h-6 w-20 transition-transform duration-300 group-hover:scale-105"
+              class="md:auto h-6 w-20 md:w-32"
             />
             <div class="grow">
               <p
-                class="mt-3 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 transition-all duration-300"
+                class="mt-3 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600"
               >
                 Learn more
-                <Icon name="arrowRight" class="transition-transform duration-300 group-hover:translate-x-1" />
+                <Icon name="arrowRight" />
               </p>
             </div>
           </a>
-          
+        </div>
+
+        <div class="flex gap-3">
           <a
-            class="group gap-x-5 rounded-lg border border-blue-600 p-4 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10 transition-all duration-300 hover:shadow-md"
+            class="group gap-x-5 rounded-lg border border-blue-600 p-4 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10"
             href="/uniarch"
             onmouseover="hoverDetails('/pictures/Brand Logo/hikvision.png', 'solution1')"
           >
             <img
               src="/pictures/Brand Logo/uniarch.png"
               alt="Logo"
-              class="h-6 w-20 transition-transform duration-300 group-hover:scale-105"
+              class="h-auto w-full md:h-auto md:w-32"
             />
             <div class="grow">
               <p
-                class="mt-3 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 transition-all duration-300"
+                class="mt-3 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600"
               >
                 Learn more
-                <Icon name="arrowRight" class="transition-transform duration-300 group-hover:translate-x-1" />
+                <Icon name="arrowRight" />
               </p>
             </div>
           </a>
-          
+        </div>
+        <div class="flex gap-3">
           <a
-            class="group gap-x-5 rounded-lg border border-blue-600 p-4 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10 transition-all duration-300 hover:shadow-md"
+            class="group gap-x-5 rounded-lg border border-blue-600 p-4 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10"
             href="/unvdisplay"
             onmouseover="hoverDetails('/pictures/Brand Logo/unvdisplay.png', 'solution1')"
           >
             <img
               src="/pictures/Brand Logo/unvdisplay.png"
               alt="Logo"
-              class="h-6 w-20 transition-transform duration-300 group-hover:scale-105"
+              class="h-auto w-full md:h-auto md:w-32"
             />
             <div class="grow">
               <p
-                class="mt-3 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 transition-all duration-300"
+                class="mt-3 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600"
               >
                 Learn more
-                <Icon name="arrowRight" class="transition-transform duration-300 group-hover:translate-x-1" />
+                <Icon name="arrowRight" />
               </p>
             </div>
           </a>
         </div>
-      </div>
-
-      <!-- PC: Original layout (hidden on mobile) -->
-      <div class="hidden md:flex md:flex-wrap md:gap-3">
-        <a
-          class="group gap-x-5 rounded-lg border border-blue-600 p-4 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10 transition-all duration-300 hover:shadow-md"
-          title="UNV authorized distributor in U.A.E"
-          href="/uniview"
-          onmouseover="hoverDetails('/pictures/Brand Logo/unv2.png', 'solution2')"
-        >
-          <img
-            src="/pictures/Brand Logo/unv2.png"
-            alt="Logo"
-            class="h-6 w-20 md:w-32 transition-transform duration-300 group-hover:scale-105"
-          />
-          <div class="grow">
-            <p
-              class="mt-3 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 transition-all duration-300"
-            >
-              Learn more
-              <Icon name="arrowRight" class="transition-transform duration-300 group-hover:translate-x-1" />
-            </p>
-          </div>
-        </a>
-
-        <a
-          class="group gap-x-5 rounded-lg border border-blue-600 p-4 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10 transition-all duration-300 hover:shadow-md"
-          href="/dahua"
-          onmouseover="hoverDetails('/pictures/logo.png', 'solution2')"
-        >
-          <img
-            src="/pictures/Brand Logo/dahua.png"
-            alt="Logo"
-            class="h-6 w-20 md:w-32 transition-transform duration-300 group-hover:scale-105"
-          />
-          <div class="grow">
-            <p
-              class="mt-3 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 transition-all duration-300"
-            >
-              Learn more
-              <Icon name="arrowRight" class="transition-transform duration-300 group-hover:translate-x-1" />
-            </p>
-          </div>
-        </a>
-
-        <a
-          class="group gap-x-5 rounded-lg border border-blue-600 p-4 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10 transition-all duration-300 hover:shadow-md"
-          href="/imou"
-          onmouseover="hoverDetails('/pictures/UNV.png', 'solution2')"
-        >
-          <img
-            src="/pictures/Brand Logo/Imou.png"
-            alt="Logo"
-            class="h-6 w-20 md:w-32 transition-transform duration-300 group-hover:scale-105"
-          />
-          <div class="grow">
-            <p
-              class="mt-3 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 transition-all duration-300"
-            >
-              Learn more
-              <Icon name="arrowRight" class="transition-transform duration-300 group-hover:translate-x-1" />
-            </p>
-          </div>
-        </a>
-
-        <a
-          class="group gap-x-5 rounded-lg border border-blue-600 p-4 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10 transition-all duration-300 hover:shadow-md"
-          href="/hikvision"
-          onmouseover="hoverDetails('/pictures/Brand Logo/hikvision.png', 'solution1')"
-        >
-          <img
-            src="/pictures/Brand Logo/logo.png"
-            alt="Logo"
-            class="h-auto w-full md:h-auto md:w-32 transition-transform duration-300 group-hover:scale-105"
-          />
-          <div class="grow">
-            <p
-              class="mt-3 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 transition-all duration-300"
-            >
-              Learn more
-              <Icon name="arrowRight" class="transition-transform duration-300 group-hover:translate-x-1" />
-            </p>
-          </div>
-        </a>
-        
-        <a
-          class="group gap-x-5 rounded-lg border border-blue-600 p-4 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10 transition-all duration-300 hover:shadow-md"
-          href="/westerdigital"
-          onmouseover="hoverDetails('/pictures/p1.png', 'solution1')"
-        >
-          <img
-            src="/pictures/Brand Logo/western1.png"
-            alt="Logo"
-            class="h-6 w-20 md:w-32 transition-transform duration-300 group-hover:scale-105"
-          />
-          <div class="grow">
-            <p
-              class="mt-3 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 transition-all duration-300"
-            >
-              Learn more
-              <Icon name="arrowRight" class="transition-transform duration-300 group-hover:translate-x-1" />
-            </p>
-          </div>
-        </a>
-        
-        <a
-          class="group gap-x-5 rounded-lg border border-blue-600 p-4 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10 transition-all duration-300 hover:shadow-md"
-          href="/toshiba"
-          onmouseover="hoverDetails('/pictures/logo.png', 'solution2')"
-        >
-          <img
-            src="/pictures/Brand Logo/toshiba1.png"
-            alt="Logo"
-            class="h-6 w-20 md:w-28 transition-transform duration-300 group-hover:scale-105"
-          />
-          <div class="grow">
-            <p
-              class="mt-3 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 transition-all duration-300"
-            >
-              Learn more
-              <Icon name="arrowRight" class="transition-transform duration-300 group-hover:translate-x-1" />
-            </p>
-          </div>
-        </a>
-        
-        <a
-          class="group gap-x-5 rounded-lg border border-blue-600 p-4 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10 transition-all duration-300 hover:shadow-md"
-          href="/seagate"
-          onmouseover="hoverDetails('/pictures/Brand Logo/seagate.png', 'solution1')"
-        >
-          <img
-            src="/pictures/Brand Logo/seagate.png"
-            alt="Logo"
-            class="h-6 w-20 md:w-32 transition-transform duration-300 group-hover:scale-105"
-          />
-          <div class="grow">
-            <p
-              class="mt-3 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 transition-all duration-300"
-            >
-              Learn more
-              <Icon name="arrowRight" class="transition-transform duration-300 group-hover:translate-x-1" />
-            </p>
-          </div>
-        </a>
-        
-        <a
-          class="group gap-x-5 rounded-lg border border-blue-600 p-4 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10 transition-all duration-300 hover:shadow-md"
-          href="/uniarch"
-          onmouseover="hoverDetails('/pictures/Brand Logo/hikvision.png', 'solution1')"
-        >
-          <img
-            src="/pictures/Brand Logo/uniarch.png"
-            alt="Logo"
-            class="h-auto w-full md:h-auto md:w-32 transition-transform duration-300 group-hover:scale-105"
-          />
-          <div class="grow">
-            <p
-              class="mt-3 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 transition-all duration-300"
-            >
-              Learn more
-              <Icon name="arrowRight" class="transition-transform duration-300 group-hover:translate-x-1" />
-            </p>
-          </div>
-        </a>
-        
-        <a
-          class="group gap-x-5 rounded-lg border border-blue-600 p-4 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10 transition-all duration-300 hover:shadow-md"
-          href="/unvdisplay"
-          onmouseover="hoverDetails('/pictures/Brand Logo/unvdisplay.png', 'solution1')"
-        >
-          <img
-            src="/pictures/Brand Logo/unvdisplay.png"
-            alt="Logo"
-            class="h-auto w-full md:h-auto md:w-32 transition-transform duration-300 group-hover:scale-105"
-          />
-          <div class="grow">
-            <p
-              class="mt-3 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 transition-all duration-300"
-            >
-              Learn more
-              <Icon name="arrowRight" class="transition-transform duration-300 group-hover:translate-x-1" />
-            </p>
-          </div>
-        </a>
       </div>
     </div>
   </div>
@@ -415,72 +230,7 @@ import personWorking from "@images/person-working.avif";
 
 <script is:inline>
   function hoverDetails(proSrc, proTitle) {
-    const img = document.getElementById("products-img");
-    const title = document.getElementById("products-title");
-    
-    if (img && title) {
-
-      img.classList.add("opacity-0");
-      setTimeout(() => {
-        img.src = proSrc;
-        title.textContent = proTitle;
-        img.classList.remove("opacity-0");
-      }, 150);
-    }
+    document.getElementById("products-img").src = proSrc;
+    document.getElementById("products-title").textContent = proTitle;
   }
-  
- 
-  document.addEventListener('DOMContentLoaded', function() {
-    const dropdownItems = document.querySelectorAll('.hs-dropdown');
-    dropdownItems.forEach(item => {
-      const button = item.querySelector('button');
-      const menu = item.querySelector('.hs-dropdown-menu');
-      const svg = button?.querySelector('svg');
-      
-      if (button && menu) {
-        // Add necessary CSS for transitions
-        menu.style.transition = 'opacity 300ms ease-in-out, transform 300ms ease-in-out';
-        
-
-        if (window.innerWidth >= 768) { 
-          button.addEventListener('mouseenter', () => {
-            svg?.classList.add('rotate-180');
-          });
-          
-          item.addEventListener('mouseleave', () => {
-            svg?.classList.remove('rotate-180');
-          });
-        }
-      }
-    });
-  });
 </script>
-
-<style is:global>
-
-  .hs-dropdown-open {
-    transition: all 0.3s ease-in-out;
-  }
-  
-  #products-img {
-    transition: opacity 0.3s ease-in-out;
-  }
-  
-  .group:hover img {
-    transition: transform 0.3s ease;
-  }
-  
-  .hs-dropdown-menu {
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-  }
-  
-
-  .hs-dropdown button svg {
-    transition: transform 0.3s ease;
-  }
-  
-
-  a, button, .group {
-    transition: all 0.3s ease;
-  }
-</style>
