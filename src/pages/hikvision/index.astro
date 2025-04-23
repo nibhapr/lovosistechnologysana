@@ -643,60 +643,7 @@ const structuredData = {
       <span class="mb-2 block text-3xl">🔍</span>
       No matching results found
     </p>
-  </section>
-</div>
-<style>
-   .hero-section {
-      @apply bg-cover bg-center py-16 text-center text-white;
-      background-image: url("");
-    }
-    .hero-content {
-      @apply bg-black bg-opacity-50 px-4 py-16;
-    }
-    /* Read More Button Styles */
-    .read-more-btn {
-      @apply relative transform overflow-hidden rounded-lg border-2 border-transparent bg-blue-600 px-6 py-3 font-bold text-white transition-all duration-300;
-    }
-    .read-more-btn:hover {
-      @apply -translate-y-1 border-blue-600 bg-white text-blue-600 shadow-xl;
-    }
-    .read-more-btn:active {
-      @apply scale-95;
-    }
-    .read-more-btn::before {
-      @apply absolute left-0 top-0 -z-10 h-full w-full origin-left scale-x-0 bg-white transition-transform duration-300;
-      content: "";
-    }
-    .read-more-btn:hover::before {
-      @apply scale-x-100;
-    }
-  </style>
-  <script>
-    // Client-side search functionality
-    const searchInput = document.getElementById("search");
-    const cards = document.querySelectorAll(".grid > div");
-    const noResults = document.getElementById("no-results");
-    searchInput?.addEventListener("input", (e) => {
-      const searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
-      let hasVisibleCards = false;
-      cards.forEach((card) => {
-        const title =
-          card.querySelector("h3")?.textContent?.toLowerCase() || "";
-        const desc = card.querySelector("p")?.textContent?.toLowerCase() || "";
-        if (title.includes(searchTerm) || desc.includes(searchTerm)) {
-          card.classList.remove("hidden");
-          hasVisibleCards = true;
-        } else {
-          card.classList.add("hidden");
-        }
-      });
-      // Toggle no results message
-      if (noResults) {
-        noResults.classList.toggle("hidden", hasVisibleCards);
-      }
-    });
-  </script>
-     <div class="fadeInUps mb-5 mt-32 rounded-2xl text-center">
+    <div class="fadeInUps mb-5 mt-32 rounded-2xl text-center">
       <h2 class="animate-fade-in-left text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-100 md:text-4xl md:leading-tight">
         Contact for More Details
       </h2>
@@ -771,5 +718,60 @@ const structuredData = {
         </div>
       </div>
     </div>
+  </section>
+</div>
+
+<style>
+   .hero-section {
+      @apply bg-cover bg-center py-16 text-center text-white;
+      background-image: url("");
+    }
+    .hero-content {
+      @apply bg-black bg-opacity-50 px-4 py-16;
+    }
+    /* Read More Button Styles */
+    .read-more-btn {
+      @apply relative transform overflow-hidden rounded-lg border-2 border-transparent bg-blue-600 px-6 py-3 font-bold text-white transition-all duration-300;
+    }
+    .read-more-btn:hover {
+      @apply -translate-y-1 border-blue-600 bg-white text-blue-600 shadow-xl;
+    }
+    .read-more-btn:active {
+      @apply scale-95;
+    }
+    .read-more-btn::before {
+      @apply absolute left-0 top-0 -z-10 h-full w-full origin-left scale-x-0 bg-white transition-transform duration-300;
+      content: "";
+    }
+    .read-more-btn:hover::before {
+      @apply scale-x-100;
+    }
+  </style>
+  <script>
+    // Client-side search functionality
+    const searchInput = document.getElementById("search");
+    const cards = document.querySelectorAll(".grid > div");
+    const noResults = document.getElementById("no-results");
+    searchInput?.addEventListener("input", (e) => {
+      const searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
+      let hasVisibleCards = false;
+      cards.forEach((card) => {
+        const title =
+          card.querySelector("h3")?.textContent?.toLowerCase() || "";
+        const desc = card.querySelector("p")?.textContent?.toLowerCase() || "";
+        if (title.includes(searchTerm) || desc.includes(searchTerm)) {
+          card.classList.remove("hidden");
+          hasVisibleCards = true;
+        } else {
+          card.classList.add("hidden");
+        }
+      });
+      // Toggle no results message
+      if (noResults) {
+        noResults.classList.toggle("hidden", hasVisibleCards);
+      }
+    });
+  </script>
+     
   </section>
 </MainLayout>
