@@ -137,7 +137,8 @@ const metaTags = [
 
     <!-- Main Product Card with enhanced animations -->
     <div class="relative">
-      <article class="product-card">
+      <article class="product-card border border-gray-300 dark:border-[var(--primary-color)] dark:border-[1px] dark:border-blue-500 dark:bg-transparent">
+
         <div class="card-inner flex flex-col gap-8 md:flex-row">
           <!-- Image Gallery Section - Medium Size -->
           <div class="image-section w-full md:w-2/5">
@@ -246,19 +247,19 @@ const metaTags = [
 
           <!-- Product Content Section - Adjusted width -->
           <div class="product-content w-full md:w-3/5">
-            <h2 class="product-title mb-4 text-2xl font-bold md:text-3xl">
+            <h2 class="product-title mb-4 text-2xl font-bold md:text-3xl dark:text-white">
               {title}
             </h2>
 
-            <p class="product-description mb-6 text-gray-700">{desc}</p>
+            <p class="product-description mb-6 text-gray-700 dark:text-white">{desc}</p>
 
             {
               features && features.length > 0 && (
                 <div class="features-section mt-6">
-                  <h3 class="mb-4 text-xl font-semibold">Key Features:</h3>
+                  <h3 class="mb-4 text-xl font-semibold dark:text-white">Key Features:</h3>
                   <ul class="features-list">
                     {features.map((feature) => (
-                      <li class="feature-item">{feature}</li>
+                      <li class="feature-item dark:text-white">{feature}</li>
                     ))}
                   </ul>
                 </div>
@@ -275,7 +276,7 @@ const metaTags = [
         </div>
 
         <!-- Share Section -->
-        <div class="share-container mt-8 border-t border-gray-100 pt-6">
+        <div class="share-container mt-8 border-t border-gray-100 dark:border-[var(--primary-color)] pt-6">
           <p class="mb-3 text-sm font-medium text-gray-600">
             Share this Camera:
           </p>
