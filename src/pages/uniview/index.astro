@@ -274,7 +274,7 @@ const structuredData = {
           class="animate-on-scroll-right mt-8 grid w-full sm:inline-flex"
           style="--delay: 0.7s"
         >
-          <PrimaryCTA title="Contact Us" url="https://lovosis.com/contact/" />
+          <PrimaryCTA title="Contact Us" url="/contact" />
         </div>
       </div>
 
@@ -393,26 +393,31 @@ const structuredData = {
       </div>
       <section class="mx-auto max-w-[1400px] px-4 pb-8 scroll-animate">
         <div></div>
-        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {
-            cards.map((card) => (
-              <div class="transform overflow-hidden rounded-lg bg-white shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl opacity-0 translate-y-10 transition-all duration-500">
-                <img
-                  src={card.img}
-                  alt={card.alt}
-                  class="product-image h-56 w-full object-cover"
-                />
-                <div class="flex flex-col items-center p-6">
-                  <h3 class="text-xl font-semibold">{card.title}</h3>
-                  <p class="mb-4 mt-3 text-gray-600">{card.desc}</p>
-                  <a href={`/uniview/${card.slug}`} class="read-more-btn">
-                    Read More
-                  </a>
+        <section class="mx-auto max-w-[1400px] px-4 pb-8 scroll-animate">
+    
+          <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+            {
+              cards.map((card) => (
+                <div class="transform overflow-hidden rounded-lg bg-white shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl opacity-0 translate-y-10 transition-all duration-500 transform overflow-hidden rounded-lg bg-white shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
+                  <div class="flex items-center justify-center p-4">
+                    <img
+                      src={card.img}
+                      alt={card.alt}
+                      class="product-image h-48 w-auto object-contain"
+                    />
+                  </div>
+                  <div class="flex flex-col items-center p-6">
+                    <h3 class="text-center text-xl font-semibold">{card.title}</h3>
+                    <p class="mb-4 mt-3 text-center text-gray-600">{card.desc}</p>
+                    <a href={`/uniview/${card.slug}`} class="read-more-btn">
+                      Read More
+                    </a>
+                  </div>
                 </div>
-              </div>
-            ))
-          }
-        </div>
+              ))
+            }
+          </div>
+        </section>
       </section>
       <p
         id="no-results"
