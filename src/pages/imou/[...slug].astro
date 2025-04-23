@@ -856,19 +856,23 @@ const structuredData = {
   }
 
   /* Update these styles in the CSS section */
+ 
   .main-image-container {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4/3;
-  max-height: 300px;
-  background-color: #ffffff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  border: 1px solid #e0e0e0;
-  transition: box-shadow 0.3s ease;
-}
-
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    background-color: #ffffff;
+    border-radius: 9px;
+    overflow: hidden;
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e5e7eb;
+    border-width: 1px 1px 0 1px; /* top, right, bottom, left */
+    margin: 1rem auto;
+    transition: transform 0.3s ease;
+    padding: 20px 30px;
+  }
 /* Enhanced bottom fade overlay */
 .main-image-container::after {
   content: "";
@@ -1287,40 +1291,44 @@ const structuredData = {
   }
 
   .main-image-container {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 4/3;
-    background-color: #ffffff;
-    border-radius: 1px;
-    overflow: hidden;
-    box-shadow:
-      0 4px 6px -1px rgba(0, 0, 0, 0.1),
-      0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    border: 1px solid #e5e7eb;
-    border-width: 1px 1px 0 1px; /* top, right, bottom, left */
-    margin: 1rem auto;
-    transition: transform 0.3s ease;
-    padding: 20px 30px;
-  }
-  /* Updated main-image styles */
-  .main-image {
-    width: 100%; /* Keep full width within the padded container */
-    height: 100%;
-    object-fit: contain; /* This ensures the image maintains its aspect ratio */
-    display: block;
-    transition: opacity 0.3s ease;
-    border-radius: 8px;
-  }
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  max-height: 300px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border: 1px solid #e0e0e0;
+  transition: box-shadow 0.3s ease;
+}
 
-  /* You might also want to adjust the container width for better proportions */
-  .image-section {
-    width: 100%;
-    max-width: 440px; /* Slightly increased from 400px */
-    margin: 0 auto;
-  }
-  .main-image-container:hover {
-    transform: scale(1.02);
-  }
+/* Enhanced bottom fade overlay */
+.main-image-container::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(to top, 
+              rgba(0, 0, 0, 0.35) 0%, 
+              rgba(0, 0, 0, 0.18) 50%,
+              rgba(0, 0, 0, 0) 100%);
+  opacity: 0;
+  transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.main-image-container:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.main-image-container:hover::after {
+  opacity: 1;
+}
+
   .main-image.fade-out {
     opacity: 0;
   }
@@ -1329,7 +1337,6 @@ const structuredData = {
     opacity: 1;
   }
 
-  /* Navigation Arrows */
   .image-controls {
     position: absolute;
     top: 0;
@@ -1339,8 +1346,9 @@ const structuredData = {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    pointer-events: none;
-    z-index: 5;
+    padding: 0 1rem;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
   }
 
   .nav-arrow {
