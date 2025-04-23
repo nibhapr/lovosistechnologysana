@@ -255,52 +255,124 @@ const structuredData = {
     </div>
   </div>
   
-  <section class="mx-auto max-w-[1400px] px-4 pt-8">
-    <div class="mx-auto mb-12 max-w-2xl">
-      <h2 class="mb-6 text-center text-3xl font-bold">Toshiba Products</h2>
-      <div class="relative">
-        <input
-          type="text"
-          id="search"
-          class="focus:border-blue-500 focus:ring-blue-500 w-full rounded-lg border border-gray-300 px-4 py-3 pl-12 text-base shadow-sm focus:outline-none focus:ring-1"
-          placeholder="Search Toshiba Products..."
-        />
-        <svg
-          class="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-        </svg>
+    <section class="mx-auto max-w-[1400px] px-4 pt-8 mt-5">
+      <div class="mx-auto mb-12 max-w-2xl">
+        <h2 class="mb-6 text-center text-3xl font-bold">Toshiba Products</h2>
+        <div class="relative">
+          <input
+            type="text"
+            id="search"
+            class="focus:border-blue-500 focus:ring-blue-500 w-full rounded-lg border border-gray-300 px-4 py-3 pl-12 text-base shadow-sm focus:outline-none focus:ring-1"
+            placeholder="Search Toshiba Products..."
+          />
+          <svg
+            class="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </div>
       </div>
-    </div>
-    <section class="mx-auto max-w-[1400px] px-4 pb-8">
-      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-        {
-          cards.map((card) => (
-            <div class="transform overflow-hidden rounded-lg bg-white shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
-              <img
-                src={card.img}
-                alt={card.alt}
-                class="product-image h-56 w-full object-cover"
-              />
-              <div class="flex flex-col items-center p-6">
-                <h3 class="text-xl font-semibold">{card.title}</h3>
-                <p class="mb-4 mt-3 text-gray-600">{card.desc}</p>
-                <a href={`/toshiba/${card.slug}`} class="read-more-btn">
-                  Read More
-                </a>
+      <section class="mx-auto max-w-[1400px] px-4 pb-8 scroll-animate">
+        <div></div>
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+          {
+            cards.map((card) => (
+              <div class="transform overflow-hidden rounded-lg bg-white shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl opacity-0 translate-y-10 transition-all duration-500">
+                <img
+                  src={card.img}
+                  alt={card.alt}
+                  class="product-image h-56 w-full object-cover"
+                />
+                <div class="flex flex-col items-center p-6">
+                  <h3 class="text-xl font-semibold">{card.title}</h3>
+                  <p class="mb-4 mt-3 text-gray-600">{card.desc}</p>
+                  <a href={`/toshiba/${card.slug}`} class="read-more-btn">
+                    Read More
+                  </a>
+                </div>
               </div>
-            </div>
-          ))
-        }
-      </div>
+            ))
+          }
+        </div>
+      </section>
+      <p
+        id="no-results"
+        class="mx-4 my-6 hidden rounded-lg bg-gray-50 py-8 text-center text-xl font-medium text-gray-600 shadow-inner"
+      >
+        <span class="mb-2 block text-3xl">🔍</span>
+        No matching results found
+      </p>
+    </section>   
+    <script>
+      // Intersection Observer for scroll animations
+      document.addEventListener("DOMContentLoaded", function () {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                // Animate the card container
+                entry.target.classList.add("in-view");
+                
+                // Animate each card individually with staggered delays
+                const cards = entry.target.querySelectorAll(".grid > div");
+                cards.forEach((card, index) => {
+                  setTimeout(() => {
+                    card.classList.remove("opacity-0", "translate-y-10");
+                  }, 100 * index); // 100ms delay between each card
+                });
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+    
+        document.querySelectorAll(".scroll-animate").forEach((section) => {
+          observer.observe(section);
+        });
+    
+        // Client-side search functionality
+        const searchInput = document.getElementById("search");
+        const cards = document.querySelectorAll(".grid > div");
+        const noResults = document.getElementById("no-results");
+        searchInput?.addEventListener("input", (e) => {
+          const searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
+          let hasVisibleCards = false;
+          cards.forEach((card) => {
+            const title = card.querySelector("h3")?.textContent?.toLowerCase() || "";
+            const desc = card.querySelector("p")?.textContent?.toLowerCase() || "";
+            if (title.includes(searchTerm) || desc.includes(searchTerm)) {
+              card.classList.remove("hidden");
+              hasVisibleCards = true;
+            } else {
+              card.classList.add("hidden");
+            }
+          });
+          // Toggle no results message
+          if (noResults) {
+            noResults.classList.toggle("hidden", hasVisibleCards);
+          }
+        });
+      });
+    </script>
+  
+    <style>
+      /* Optional: Add some smooth transitions */
+      .scroll-animate {
+        transition: all 0.3s ease;
+      }
+      
+      .grid > div {
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+    </style>
       <div class="fadeInUps mb-5 mt-32 rounded-2xl text-center">
         <h2 class="animate-fade-in-left text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-100 md:text-4xl md:leading-tight">
           Contact for More Details
@@ -377,14 +449,6 @@ const structuredData = {
         </div>
       </div>
     </section>
-    <p
-      id="no-results"
-      class="mx-4 my-6 hidden rounded-lg bg-gray-50 py-8 text-center text-xl font-medium text-gray-600 shadow-inner"
-    >
-      <span class="mb-2 block text-3xl">🔍</span>
-      No matching results found
-    </p>
-  </section>
   
   <style>
     /* Animation Styles */

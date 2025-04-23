@@ -391,15 +391,16 @@ const structuredData = {
           </svg>
         </div>
       </div>
-      <section class="mx-auto max-w-[1400px] px-4 pb-8">
+      <section class="mx-auto max-w-[1400px] px-4 pb-8 scroll-animate">
+        <div></div>
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           {
             cards.map((card) => (
-              <div class="transform overflow-hidden rounded-lg bg-white shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
+              <div class="transform overflow-hidden rounded-lg bg-white shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl opacity-0 translate-y-10 transition-all duration-500">
                 <img
                   src={card.img}
                   alt={card.alt}
-                  class="product-image h-60 w-full object-cover"
+                  class="product-image h-56 w-full object-cover"
                 />
                 <div class="flex flex-col items-center p-6">
                   <h3 class="text-xl font-semibold">{card.title}</h3>
@@ -420,7 +421,69 @@ const structuredData = {
         <span class="mb-2 block text-3xl">🔍</span>
         No matching results found
       </p>
-    </section>
+    </section>   
+    <script>
+      // Intersection Observer for scroll animations
+      document.addEventListener("DOMContentLoaded", function () {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                // Animate the card container
+                entry.target.classList.add("in-view");
+                
+                // Animate each card individually with staggered delays
+                const cards = entry.target.querySelectorAll(".grid > div");
+                cards.forEach((card, index) => {
+                  setTimeout(() => {
+                    card.classList.remove("opacity-0", "translate-y-10");
+                  }, 100 * index); // 100ms delay between each card
+                });
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+    
+        document.querySelectorAll(".scroll-animate").forEach((section) => {
+          observer.observe(section);
+        });
+    
+        // Client-side search functionality
+        const searchInput = document.getElementById("search");
+        const cards = document.querySelectorAll(".grid > div");
+        const noResults = document.getElementById("no-results");
+        searchInput?.addEventListener("input", (e) => {
+          const searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
+          let hasVisibleCards = false;
+          cards.forEach((card) => {
+            const title = card.querySelector("h3")?.textContent?.toLowerCase() || "";
+            const desc = card.querySelector("p")?.textContent?.toLowerCase() || "";
+            if (title.includes(searchTerm) || desc.includes(searchTerm)) {
+              card.classList.remove("hidden");
+              hasVisibleCards = true;
+            } else {
+              card.classList.add("hidden");
+            }
+          });
+          // Toggle no results message
+          if (noResults) {
+            noResults.classList.toggle("hidden", hasVisibleCards);
+          }
+        });
+      });
+    </script>
+  
+    <style>
+      /* Optional: Add some smooth transitions */
+      .scroll-animate {
+        transition: all 0.3s ease;
+      }
+      
+      .grid > div {
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+    </style>
   </div>
   <style>
     /* Hero Section Styles */
