@@ -279,9 +279,9 @@ const seagateContent = await getCollection("seagate");
                     />
                   </div>
               <div class="flex flex-col items-center p-6">
-                <h3 class="text-xl font-semibold">{card.title}</h3>
-                <p class="mb-4 mt-3 text-gray-600">{card.desc}</p>
-                <a href={`/seagate/${card.slug}`} class="read-more-btn">
+                <h3 class="text-center text-xl font-semibold dark:text-white">{card.title}</h3>
+                    <p class="mb-4 mt-3 text-center text-gray-600 dark:text-gray-300">{card.desc}</p>
+                     <a href={`/seagate/${card.slug}`} class="read-more-btn">
                   Read More
                 </a>
               </div>
