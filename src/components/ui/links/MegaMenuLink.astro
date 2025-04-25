@@ -1,8 +1,10 @@
 ---
 import { Image } from "astro:assets";
 import Icon from "../icons/Icon.astro";
-import personWorking from "@images/person-working.avif";
 
+// Get the current URL path to determine active page
+const { pathname } = Astro.url;
+const isActive = pathname.includes('/surveillance') || pathname.includes('/IT') || pathname.includes('/careers');
 ---
 
 <div
@@ -10,13 +12,9 @@ import personWorking from "@images/person-working.avif";
 >
   <button
     type="button"
-    class="flex w-full items-center text-gray-700 font-semibold hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-600"
+    class={`flex w-full items-center font-semibold ${isActive ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-600'}`}
   >
     Solutions
-    <!--
-      <span class="bg-blue-600 text-white px-2 py-1 rounded-md text-xs">New!</span>
-    -->
-
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -35,85 +33,100 @@ import personWorking from "@images/person-working.avif";
   <div
     class="hs-dropdown-menu start-0 top-full z-10 hidden w-full min-w-60 rounded-2xl bg-neutral-50 py-2 opacity-0 transition-[opacity,margin] duration-300 ease-in-out before:absolute before:-top-5 before:start-0 before:h-5 before:w-full hs-dropdown-open:opacity-100 dark:divide-neutral-700 dark:bg-neutral-800 md:top-16 md:p-4 md:shadow-2xl md:duration-300"
   >
-  <div class="gap-4 items-center md:grid md:grid-cols-1 lg:grid-cols-1">
-    <div class="mx-1 flex flex-wrap md:mx-0">
-      <a
-        class="group flex gap-x-5 rounded-lg p-4 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10"
-        href="/surveillance"
-        onmouseover="updateDetails('/pictures/surveillance.webp', 'surveillance Solution')"
-      >
-        <div class="flex-shrink-0 w-16 md:w-24"> <!-- Reduced from w-20/md:w-32 -->
-          <img 
-            src="/pictures/surveillance.webp" 
-            alt="Logo" 
-            class="h-full w-full object-contain max-w-[80px]"
-          />
-        </div>
-        <div class="grow">
-          <p class="font-medium text-neutral-800 dark:text-neutral-200">
-            Surveillance Solution
-          </p>
-          <p class="mt-3 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600">
-            Learn more
-            <Icon name="arrowRight" />
-          </p>
-        </div>
-      </a>
-  
-      <!-- Repeat same structure for other items -->
-      <a
-        class="group flex gap-x-5 rounded-lg p-4 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10"
-        href="/IT"
-        onmouseover="updateDetails('/pictures/it.webp', 'IT Solution')"
-      >
-        <div class="flex-shrink-0 w-16 md:w-24">
-          <img 
-            src="/pictures/it.webp" 
-            alt="Logo" 
-            class="h-full w-full object-contain max-w-[80px]"
-          />
-        </div>
-        <div class="grow">
-          <p class="font-medium text-neutral-800 dark:text-neutral-200">
-            IT Solution
-          </p>
-          <p class="mt-3 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600">
-            Learn more
-            <Icon name="arrowRight" />
-          </p>
-        </div>
-      </a>
-  
-      <a
-        class="group flex gap-x-5 rounded-lg p-4 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10"
-        href="/careers"
-        onmouseover="updateDetails('/pictures/it.webp', 'IT Solution')"
-      >
-        <div class="flex-shrink-0 w-16 md:w-24">
-          <img 
-            src="/pictures/carrers.webp" 
-            alt="Logo" 
-            class="h-full w-full object-contain max-w-[80px]"
-          />
-        </div>
-        <div class="grow">
-          <p class="font-medium text-neutral-800 dark:text-neutral-200">
-            Careers 
-          </p>
-          <p class="mt-3 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600">
-            Learn more
-            <Icon name="arrowRight" />
-          </p>
-        </div>
-      </a>
+    <div class="gap-4 items-center md:grid md:grid-cols-1 lg:grid-cols-1">
+      <div class="mx-1 flex flex-wrap md:mx-0">
+        <a
+          class={`group flex gap-x-5 rounded-lg p-4 ${pathname === '/surveillance' ? 'bg-blue-50 text-blue-600 dark:bg-neutral-700' : 'hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10'}`}
+          href="/surveillance"
+          onmouseover="updateDetails('/pictures/surveillance.webp', 'Surveillance Solution')"
+        >
+          <div class="flex-shrink-0 w-16 md:w-24">
+            <img 
+              src="/pictures/surveillance.webp" 
+              alt="Logo" 
+              class="h-full w-full object-contain max-w-[80px]"
+            />
+          </div>
+          <div class="grow">
+            <p class={`font-medium ${pathname === '/surveillance' ? 'text-blue-600' : 'text-neutral-800 dark:text-neutral-200'}`}>
+              Surveillance Solution
+            </p>
+            <p class="mt-3 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600">
+              Learn more
+              <Icon name="arrowRight" />
+            </p>
+          </div>
+        </a>
+    
+        <a
+          class={`group flex gap-x-5 rounded-lg p-4 ${pathname === '/IT' ? 'bg-blue-50 text-blue-600 dark:bg-neutral-700' : 'hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10'}`}
+          href="/IT"
+          onmouseover="updateDetails('/pictures/it.webp', 'IT Solution')"
+        >
+          <div class="flex-shrink-0 w-16 md:w-24">
+            <img 
+              src="/pictures/it.webp" 
+              alt="Logo" 
+              class="h-full w-full object-contain max-w-[80px]"
+            />
+          </div>
+          <div class="grow">
+            <p class={`font-medium ${pathname === '/IT' ? 'text-blue-600' : 'text-neutral-800 dark:text-neutral-200'}`}>
+              IT Solution
+            </p>
+            <p class="mt-3 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600">
+              Learn more
+              <Icon name="arrowRight" />
+            </p>
+          </div>
+        </a>
+    
+        <a
+          class={`group flex gap-x-5 rounded-lg p-4 ${pathname === '/careers' ? 'bg-blue-50 text-blue-600 dark:bg-neutral-700' : 'hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10'}`}
+          href="/careers"
+          onmouseover="updateDetails('/pictures/it.webp', 'IT Solution')"
+        >
+          <div class="flex-shrink-0 w-16 md:w-24">
+            <img 
+              src="/pictures/carrers.webp" 
+              alt="Logo" 
+              class="h-full w-full object-contain max-w-[80px]"
+            />
+          </div>
+          <div class="grow">
+            <p class={`font-medium ${pathname === '/careers' ? 'text-blue-600' : 'text-neutral-800 dark:text-neutral-200'}`}>
+              Careers 
+            </p>
+            <p class="mt-3 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600">
+              Learn more
+              <Icon name="arrowRight" />
+            </p>
+          </div>
+        </a>
+      </div>
     </div>
-  </div>
   </div>
 </div>
 
 <script is:inline>
-  function updateDetails(newSrc, newTitle, newLinkText) {
-    document.getElementById('solution-img').src = newSrc;
-    document.getElementById('solution-title').textContent = newTitle;
+  function updateDetails(newSrc, newTitle) {
+    const solutionImg = document.getElementById('solution-img');
+    const solutionTitle = document.getElementById('solution-title');
+    
+    if (solutionImg) solutionImg.src = newSrc;
+    if (solutionTitle) solutionTitle.textContent = newTitle;
   }
+  
+  // Add active class based on current pathname
+  document.addEventListener('DOMContentLoaded', () => {
+    const currentPath = window.location.pathname;
+    const solutionPaths = ['/surveillance', '/IT', '/careers'];
+    
+    if (solutionPaths.some(path => currentPath.includes(path))) {
+      const solutionButton = document.querySelector('.hs-dropdown button');
+      if (solutionButton) {
+        solutionButton.classList.add('text-blue-600');
+      }
+    }
+  });
 </script>

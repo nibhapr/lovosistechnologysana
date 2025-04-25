@@ -786,7 +786,6 @@ document.addEventListener("DOMContentLoaded", () => {
   height: 280px;
   overflow: hidden;
 }
-
 .parallax-bg {
   position: absolute;
   top: 0;
@@ -800,6 +799,15 @@ document.addEventListener("DOMContentLoaded", () => {
   transform: translateY(0);
   z-index: 0;
 }
+
+/* Media query for mobile devices */
+@media only screen and (max-width: 768px) {
+  .parallax-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)),
+    url("/pictures/seagate/Ban.jpg");
+  }
+}
+
 > .hero-section::after {
   content: "";
   position: absolute;

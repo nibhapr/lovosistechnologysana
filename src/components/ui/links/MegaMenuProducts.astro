@@ -1,12 +1,17 @@
 ---
 import { Image } from "astro:assets";
 import Icon from "../icons/Icon.astro";
-import personWorking from "@images/person-working.avif";
+
+// Get the current URL path to determine active page
+const { pathname } = Astro.url;
+const brandPaths = ['/uniview', '/dahua', '/imou', '/hikvision', '/westerdigital', '/toshiba', '/seagate', '/uniarch', '/unvdisplay'];
+const isBrandsActive = brandPaths.some(path => pathname.includes(path));
 ---
+
 <div class="hs-dropdown [--adaptive:none] [--strategy:static] md:[--strategy:absolute] md:[--trigger:hover]">
   <button
     type="button"
-    class="flex w-full items-center font-semibold text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-600"
+    class={`flex w-full items-center font-semibold ${isBrandsActive ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-600'}`}
   >
     <a href="/#"> Brands </a>
     <svg
@@ -28,11 +33,11 @@ import personWorking from "@images/person-working.avif";
   <div
     class="hs-dropdown-menu start-0 top-full z-10 hidden w-full min-w-60 rounded-2xl bg-neutral-50 py-2 opacity-0 transition-[opacity,margin] duration-300 ease-in-out before:absolute before:-top-5 before:start-0 before:h-5 before:w-full hs-dropdown-open:opacity-100 dark:divide-neutral-700 dark:bg-neutral-800 md:top-16 md:p-4 md:shadow-2xl md:duration-300"
   >
-    <div class="items-center gap-4 md:grid md:grid-cols-1 lg:grid-cols-1">
+    <div class="gap-4 items-center md:grid md:grid-cols-1 lg:grid-cols-1">
       <div class="mx-1 grid grid-cols-3 gap-2 md:mx-0 md:flex md:flex-wrap md:gap-3">
         <!-- UNIVIEW -->
         <a
-          class="group flex flex-col items-center gap-x-5 rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10 md:p-4"
+          class={`group flex flex-col items-center gap-x-5 rounded-lg border border-blue-600 p-2 ${pathname === '/uniview' ? 'bg-blue-50 text-blue-600 dark:bg-neutral-700' : 'hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10'} md:p-4`}
           title="UNV authorized distributor in U.A.E"
           href="/uniview"
           onmouseover="hoverDetails('/pictures/Brand Logo/unv2.png', 'solution2')"
@@ -42,7 +47,7 @@ import personWorking from "@images/person-working.avif";
             alt="UNIVIEW"
             class="h-6 w-20 md:w-32"
           />
-          <p class="mt-1 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 md:mt-3">
+          <p class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === '/uniview' ? 'text-blue-600' : 'text-blue-600 decoration-2 hover:underline dark:text-teal-600'} md:mt-3`}>
             Learn more
             <Icon name="arrowRight" />
           </p>
@@ -50,7 +55,7 @@ import personWorking from "@images/person-working.avif";
 
         <!-- DAHUA -->
         <a
-          class="group flex flex-col items-center gap-x-5 rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10 md:p-4"
+          class={`group flex flex-col items-center gap-x-5 rounded-lg border border-blue-600 p-2 ${pathname === '/dahua' ? 'bg-blue-50 text-blue-600 dark:bg-neutral-700' : 'hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10'} md:p-4`}
           href="/dahua"
           onmouseover="hoverDetails('/pictures/logo.png', 'solution2')"
         >
@@ -59,15 +64,16 @@ import personWorking from "@images/person-working.avif";
             alt="DAHUA"
             class="h-6 w-20 md:w-32"
           />
-          <p class="mt-1 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 md:mt-3">
+          <p class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === '/dahua' ? 'text-blue-600' : 'text-blue-600 decoration-2 hover:underline dark:text-teal-600'} md:mt-3`}>
             Learn more
             <Icon name="arrowRight" />
           </p>
         </a>
 
+        <!-- Repeat similar pattern for other brand links -->
         <!-- IMOU -->
         <a
-          class="group flex flex-col items-center gap-x-5 rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10 md:p-4"
+          class={`group flex flex-col items-center gap-x-5 rounded-lg border border-blue-600 p-2 ${pathname === '/imou' ? 'bg-blue-50 text-blue-600 dark:bg-neutral-700' : 'hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10'} md:p-4`}
           href="/imou"
           onmouseover="hoverDetails('/pictures/UNV.png', 'solution2')"
         >
@@ -76,7 +82,7 @@ import personWorking from "@images/person-working.avif";
             alt="IMOU"
             class="h-6 w-20 md:w-32"
           />
-          <p class="mt-1 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 md:mt-3">
+          <p class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === '/imou' ? 'text-blue-600' : 'text-blue-600 decoration-2 hover:underline dark:text-teal-600'} md:mt-3`}>
             Learn more
             <Icon name="arrowRight" />
           </p>
@@ -84,7 +90,7 @@ import personWorking from "@images/person-working.avif";
 
         <!-- HIKVISION -->
         <a
-          class="group flex flex-col items-center gap-x-5 rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10 md:p-4"
+          class={`group flex flex-col items-center gap-x-5 rounded-lg border border-blue-600 p-2 ${pathname === '/hikvision' ? 'bg-blue-50 text-blue-600 dark:bg-neutral-700' : 'hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10'} md:p-4`}
           href="/hikvision"
           onmouseover="hoverDetails('/pictures/Brand Logo/hikvision.png', 'solution1')"
         >
@@ -93,7 +99,7 @@ import personWorking from "@images/person-working.avif";
             alt="HIKVISION"
             class="h-auto w-full md:w-32"
           />
-          <p class="mt-1 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 md:mt-3">
+          <p class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === '/hikvision' ? 'text-blue-600' : 'text-blue-600 decoration-2 hover:underline dark:text-teal-600'} md:mt-3`}>
             Learn more
             <Icon name="arrowRight" />
           </p>
@@ -101,7 +107,7 @@ import personWorking from "@images/person-working.avif";
 
         <!-- WESTERN DIGITAL -->
         <a
-          class="group flex flex-col items-center gap-x-5 rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10 md:p-4"
+          class={`group flex flex-col items-center gap-x-5 rounded-lg border border-blue-600 p-2 ${pathname === '/westerdigital' ? 'bg-blue-50 text-blue-600 dark:bg-neutral-700' : 'hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10'} md:p-4`}
           href="/westerdigital"
           onmouseover="hoverDetails('/pictures/p1.png', 'solution1')"
         >
@@ -110,7 +116,7 @@ import personWorking from "@images/person-working.avif";
             alt="Western Digital"
             class="h-6 w-20 md:w-32"
           />
-          <p class="mt-1 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 md:mt-3">
+          <p class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === '/westerdigital' ? 'text-blue-600' : 'text-blue-600 decoration-2 hover:underline dark:text-teal-600'} md:mt-3`}>
             Learn more
             <Icon name="arrowRight" />
           </p>
@@ -118,7 +124,7 @@ import personWorking from "@images/person-working.avif";
 
         <!-- TOSHIBA -->
         <a
-          class="group flex flex-col items-center gap-x-5 rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10 md:p-4"
+          class={`group flex flex-col items-center gap-x-5 rounded-lg border border-blue-600 p-2 ${pathname === '/toshiba' ? 'bg-blue-50 text-blue-600 dark:bg-neutral-700' : 'hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10'} md:p-4`}
           href="/toshiba"
           onmouseover="hoverDetails('/pictures/logo.png', 'solution2')"
         >
@@ -127,7 +133,7 @@ import personWorking from "@images/person-working.avif";
             alt="TOSHIBA"
             class="h-6 w-20 md:w-28"
           />
-          <p class="mt-1 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 md:mt-3">
+          <p class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === '/toshiba' ? 'text-blue-600' : 'text-blue-600 decoration-2 hover:underline dark:text-teal-600'} md:mt-3`}>
             Learn more
             <Icon name="arrowRight" />
           </p>
@@ -135,7 +141,7 @@ import personWorking from "@images/person-working.avif";
 
         <!-- SEAGATE -->
         <a
-          class="group flex flex-col items-center gap-x-5 rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10 md:p-4"
+          class={`group flex flex-col items-center gap-x-5 rounded-lg border border-blue-600 p-2 ${pathname === '/seagate' ? 'bg-blue-50 text-blue-600 dark:bg-neutral-700' : 'hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10'} md:p-4`}
           href="/seagate"
           onmouseover="hoverDetails('/pictures/Brand Logo/seagate.png', 'solution1')"
         >
@@ -144,7 +150,7 @@ import personWorking from "@images/person-working.avif";
             alt="SEAGATE"
             class="h-6 w-20 md:w-32"
           />
-          <p class="mt-1 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 md:mt-3">
+          <p class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === '/seagate' ? 'text-blue-600' : 'text-blue-600 decoration-2 hover:underline dark:text-teal-600'} md:mt-3`}>
             Learn more
             <Icon name="arrowRight" />
           </p>
@@ -152,7 +158,7 @@ import personWorking from "@images/person-working.avif";
 
         <!-- UNIARCH -->
         <a
-          class="group flex flex-col items-center gap-x-5 rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10 md:p-4"
+          class={`group flex flex-col items-center gap-x-5 rounded-lg border border-blue-600 p-2 ${pathname === '/uniarch' ? 'bg-blue-50 text-blue-600 dark:bg-neutral-700' : 'hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10'} md:p-4`}
           href="/uniarch"
           onmouseover="hoverDetails('/pictures/Brand Logo/hikvision.png', 'solution1')"
         >
@@ -161,7 +167,7 @@ import personWorking from "@images/person-working.avif";
             alt="UNIARCH"
             class="h-auto w-full md:w-32"
           />
-          <p class="mt-1 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 md:mt-3">
+          <p class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === '/uniarch' ? 'text-blue-600' : 'text-blue-600 decoration-2 hover:underline dark:text-teal-600'} md:mt-3`}>
             Learn more
             <Icon name="arrowRight" />
           </p>
@@ -169,7 +175,7 @@ import personWorking from "@images/person-working.avif";
 
         <!-- UNVDISPLAY -->
         <a
-          class="group flex flex-col items-center gap-x-5 rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10 md:p-4"
+          class={`group flex flex-col items-center gap-x-5 rounded-lg border border-blue-600 p-2 ${pathname === '/unvdisplay' ? 'bg-blue-50 text-blue-600 dark:bg-neutral-700' : 'hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10'} md:p-4`}
           href="/unvdisplay"
           onmouseover="hoverDetails('/pictures/Brand Logo/unvdisplay.png', 'solution1')"
         >
@@ -178,7 +184,7 @@ import personWorking from "@images/person-working.avif";
             alt="UNVDISPLAY"
             class="h-auto w-full md:w-32"
           />
-          <p class="mt-1 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 md:mt-3">
+          <p class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === '/unvdisplay' ? 'text-blue-600' : 'text-blue-600 decoration-2 hover:underline dark:text-teal-600'} md:mt-3`}>
             Learn more
             <Icon name="arrowRight" />
           </p>
@@ -193,4 +199,17 @@ import personWorking from "@images/person-working.avif";
     document.getElementById("products-img").src = proSrc;
     document.getElementById("products-title").textContent = proTitle;
   }
+
+  // Add active class based on current pathname
+  document.addEventListener('DOMContentLoaded', () => {
+    const currentPath = window.location.pathname;
+    const brandPaths = ['/uniview', '/dahua', '/imou', '/hikvision', '/westerdigital', '/toshiba', '/seagate', '/uniarch', '/unvdisplay'];
+    
+    if (brandPaths.some(path => currentPath.includes(path))) {
+      const brandsButton = document.querySelector('.hs-dropdown button');
+      if (brandsButton) {
+        brandsButton.classList.add('text-blue-600');
+      }
+    }
+  });
 </script>
