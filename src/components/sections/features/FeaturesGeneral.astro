@@ -256,37 +256,92 @@ const { title, subTitle } = Astro.props;
   </div>
 
   <style>
-    .autoBLur {
-      animation: autoBLurAnimation linear both;
-      animation-timeline: view();
+  .autoBLur {
+    animation: autoBLurAnimation linear both;
+    animation-timeline: view();
+  }
+  @keyframes autoBLurAnimation {
+    0% {
+      filter: blur(40px);
     }
-    @keyframes autoBLurAnimation {
-      0% {
-        filter: blur(40px);
-      }
-      45%,
-      55% {
-        filter: blur(0px);
-      }
-      100% {
-        filter: blur(40px);
-      }
+    45%,
+    55% {
+      filter: blur(0px);
+    }
+    100% {
+      filter: blur(40px);
+    }
+  }
+
+  .autoShow {
+    animation: autoShowAnimation both;
+    animation-timeline: view(70% 5%);
+  }
+
+  @keyframes autoShowAnimation {
+    from {
+      opacity: 0;
+      transform: translateY(200px) scale(0.3);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  /* Tablet-specific adjustments */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .text-5xl {
+      font-size: 3.5rem;
+      line-height: 1;
+    }
+    
+    .text-4xl {
+      font-size: 2.5rem;
     }
 
-    .autoShow {
-      animation: autoShowAnimation both;
-      animation-timeline: view(70% 5%);
+    .grid-cols-1 {
+      gap: 1.5rem;
     }
 
-    @keyframes autoShowAnimation {
-      from {
-        opacity: 0;
-        transform: translateY(200px) scale(0.3);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
+    [class*="w-[17em]"] {
+      width: 100%;
+      max-width: 20rem;
     }
-  </style>
+
+    .mx-auto.max-w-\[85rem\] {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    .ml-5.md\:-ml-28 {
+      margin-left: 0;
+    }
+
+    .md\:w-3\/4 {
+      width: 100%;
+      padding-right: 1rem;
+    }
+
+    .group:hover {
+      height: 9em !important;
+      width: 12em !important;
+    }
+
+    .text-\[0\.9em\] {
+      font-size: 0.8em;
+    }
+
+    .rounded-\[1\.5em\] {
+      border-radius: 1.2em;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .md\:text-8xl {
+      font-size: 4.5rem;
+    }
+  }
+</style>
+
 </section>
