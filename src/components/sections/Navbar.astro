@@ -10,18 +10,18 @@ const { pathname } = Astro.url;
 ---
 
 <header
-  class="sticky inset-x-0 top-4 z-50 flex w-full flex-wrap text-sm md:flex-nowrap md:justify-start"
+  class="sticky inset-x-0 top-4 z-50 flex w-full flex-wrap text-sm lg:flex-nowrap lg:justify-start"
 >
   <nav
-    class="relative mx-2 w-full rounded-[36px] border border-yellow-100/40 bg-white px-4 py-3 shadow-2xl backdrop-blur-md dark:border-neutral-700/40 dark:bg-neutral-800/80 dark:backdrop-blur-md md:flex md:items-center md:justify-between md:px-6 md:py-3 lg:px-8 xl:mx-auto"
+    class="relative mx-2 w-full rounded-[36px] border border-yellow-100/40 bg-white px-4 py-3 shadow-2xl backdrop-blur-md dark:border-neutral-700/40 dark:bg-neutral-800/80 dark:backdrop-blur-md lg:flex lg:items-center lg:justify-between lg:px-6 lg:py-3 xl:px-8 xl:mx-auto"
     aria-label="Global"
   >
     <div class="flex items-center justify-between">
       <a href="/" aria-label="Brand">
-        <img src="/pictures/logo.png" alt="Logo" class="w-38 mr-2 h-12 " />
+        <img src="/pictures/logo.png" alt="Logo" class="w-38 mr-2 h-12" />
       </a>
     
-      <div class="ml-auto mr-5 md:hidden">
+      <div class="ml-auto mr-5 lg:hidden">
         <button
           type="button"
           class="hs-collapse-toggle flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold text-neutral-600 transition duration-300 hover:bg-neutral-200 disabled:pointer-events-none disabled:opacity-50 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:outline-none"
@@ -61,20 +61,20 @@ const { pathname } = Astro.url;
         </button>
       </div>
     
-      <span class="inline-block md:hidden">
+      <span class="inline-block lg:hidden">
         <ThemeIcon />
       </span>
     </div>
    
     <div
       id="navbar-collapse-with-animation"
-      class="hs-collapse hidden grow basis-full overflow-hidden transition-all duration-300 md:block"
+      class="hs-collapse hidden grow basis-full overflow-hidden transition-all duration-300 lg:block"
     >
       <div
-        class="mt-5 flex flex-col gap-x-0 gap-y-4 md:mt-0 md:flex-row md:items-center md:justify-center md:gap-x-4 md:gap-y-0 md:ps-7 lg:gap-x-7"
+        class="mt-5 flex flex-col gap-x-0 gap-y-4 lg:mt-0 lg:flex-row lg:items-center lg:justify-center lg:gap-x-4 lg:gap-y-0 lg:ps-7 xl:gap-x-7"
       >
         <div
-          class="mt-4 flex flex-col space-y-2 md:ml-auto md:mt-0 md:flex-row md:items-center md:justify-center md:space-x-4 md:space-y-0 lg:space-x-7"
+          class="mt-4 flex flex-col space-y-2 lg:ml-auto lg:mt-0 lg:flex-row lg:items-center lg:justify-center lg:space-x-4 lg:space-y-0 xl:space-x-7"
         >
           <a
             href="/"
@@ -84,19 +84,15 @@ const { pathname } = Astro.url;
             Home
           </a>
           <a
-          href="/event"
-          class={`font-semibold ${pathname.startsWith('/event') ? 'text-blue-600' : 'text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-600'}`}
-          title="Learn more about upcoming events"
-        >
-          Events
-        </a>
-        
+            href="/event"
+            class={`font-semibold ${pathname.startsWith('/event') ? 'text-blue-600' : 'text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-600'}`}
+            title="Learn more about upcoming events"
+          >
+            Events
+          </a>
           
-          <!-- Implement active state in MegaMenuProducts component -->
-          <MegaMenuProducts />
-
-          <!-- Implement active state in MegaMenuLink component -->
-          <MegaMenuLink />
+          <MegaMenuProducts class="lg:relative" />
+          <MegaMenuLink class="lg:relative" />
 
           <a
             href="/about"
@@ -120,13 +116,9 @@ const { pathname } = Astro.url;
             Support
           </a>
         </div>
-        <div class="mx-4 hidden h-6 w-px bg-gray-300 dark:bg-gray-700 md:block">
-        </div>
+        <div class="mx-4 hidden h-6 w-px bg-gray-300 dark:bg-gray-700 lg:block"></div>
 
-        <!--
-          <Authentication />
-          -->
-        <div class="mb-3 mt-4 flex space-x-3 md:mb-0 md:mt-0">
+        <div class="mb-3 mt-4 flex space-x-3 lg:mb-0 lg:mt-0">
           <a
             href="https://wa.me/+971552929644"
             class="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-blue-600"
@@ -176,10 +168,9 @@ const { pathname } = Astro.url;
             </svg>
           </a>
         </div>
-        <div class="mx-4 hidden h-6 w-px bg-gray-300 dark:bg-gray-700 md:block">
-        </div>
+        <div class="mx-4 hidden h-6 w-px bg-gray-300 dark:bg-gray-700 lg:block"></div>
       
-        <span class="hidden md:inline-block">
+        <span class="hidden lg:inline-block">
           <ThemeIcon />
         </span>
       </div>
@@ -292,7 +283,7 @@ const { pathname } = Astro.url;
     });
   });
 </script>
-<!--Import the necessary Collapse and Overlay plugins-->
+
 <script>
   import "@preline/collapse/index.js";
   import "@preline/overlay/index.js";
