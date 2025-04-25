@@ -813,12 +813,19 @@ const metaTags = [
     width: 100%;
     height: 150%;
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)),
-    url("/pictures/seagate/seagatebanner1.png");
+    url("/pictures/westerdigital/westerdigitalbanner1.jpg");
     background-size: cover;
     background-position: center;
     transform: translateY(0);
     z-index: 0;
   }
+  
+  @media (max-width: 768px) {
+  .parallax-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)),
+      url("/pictures/mobileview/Western Digital Mobile View.jpg");
+  }
+}
   > .hero-section::after {
     content: "";
     position: absolute;

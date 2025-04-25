@@ -814,6 +814,13 @@ document.addEventListener("DOMContentLoaded", () => {
   transform: translateY(0);
   z-index: 0;
 }
+@media (max-width: 768px) {
+  .parallax-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)),
+      url("/pictures/mobileview/Seagate Mobile View.jpg");
+  }
+}
+
 > .hero-section::after {
   content: "";
   position: absolute;
