@@ -84,12 +84,13 @@ const { pathname } = Astro.url;
             Home
           </a>
           <a
-            href="/event"
-            class={`font-semibold ${pathname === '/event' ? 'text-blue-600' : 'text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-600'}`}
-            title="Learn more about upcoming events"
-          >
-            Events
-          </a>
+          href="/event"
+          class={`font-semibold ${pathname.startsWith('/event') ? 'text-blue-600' : 'text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-600'}`}
+          title="Learn more about upcoming events"
+        >
+          Events
+        </a>
+        
           
           <!-- Implement active state in MegaMenuProducts component -->
           <MegaMenuProducts />
