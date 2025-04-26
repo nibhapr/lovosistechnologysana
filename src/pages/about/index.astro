@@ -388,220 +388,179 @@ const structuredData = {
       </div>
     </div>
 
-    <div
-      class="mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8 lg:py-20"
-    >
-      <div
-        class="mb-10 max-w-xl sm:text-center md:mx-auto md:mb-12 lg:max-w-2xl"
-      >
+   
+    <style>
+      .team-img-container {
+        aspect-ratio: 3/4;
+        overflow: hidden;
+      }
+      .team-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+      @media (max-width: 768px) {
+        .team-img-container {
+          aspect-ratio: 1/1;
+        }
+      }
+    </style>
+    
+    <div class="mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8 lg:py-20">
+      <div class="mb-10 max-w-xl sm:text-center md:mx-auto md:mb-12 lg:max-w-2xl">
         <div>
-          <p
-            class="bg-teal-accent-400 mb-4 inline-block rounded-full px-3 py-px text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-teal-600"
-          >
+          <p class="bg-teal-accent-400 mb-4 inline-block rounded-full px-3 py-px text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-teal-600">
             Core Team
           </p>
         </div>
-        <h2
-          class="mb-6 max-w-lg font-sans text-3xl font-bold leading-none tracking-tight text-teal-600 dark:text-blue-600 sm:text-4xl md:mx-auto"
-        >
+        <h2 class="mb-6 max-w-lg font-sans text-3xl font-bold leading-none tracking-tight text-teal-600 dark:text-blue-600 sm:text-4xl md:mx-auto">
           <span class="relative inline-block">
-            <svg
-              viewBox="0 0 52 24"
-              fill="currentColor"
-              class="text-blue-gray-100 absolute left-0 top-0 z-0 -ml-20 -mt-8 hidden w-32 sm:block lg:-ml-28 lg:-mt-10 lg:w-32"
-            >
+            <svg viewBox="0 0 52 24" fill="currentColor" class="text-blue-gray-100 absolute left-0 top-0 z-0 -ml-20 -mt-8 hidden w-32 sm:block lg:-ml-28 lg:-mt-10 lg:w-32">
               <defs>
-                <pattern
-                  id="1d4040f3-9f3e-4ac7-b117-7d4009658ced"
-                  x="0"
-                  y="0"
-                  width=".135"
-                  height=".30"
-                >
+                <pattern id="1d4040f3-9f3e-4ac7-b117-7d4009658ced" x="0" y="0" width=".135" height=".30">
                   <circle cx="1" cy="1" r=".7"></circle>
                 </pattern>
               </defs>
-              <rect
-                fill="url(#1d4040f3-9f3e-4ac7-b117-7d4009658ced)"
-                width="52"
-                height="24"></rect>
+              <rect fill="url(#1d4040f3-9f3e-4ac7-b117-7d4009658ced)" width="52" height="24"></rect>
             </svg>
             <span class="relative">Explore</span>
           </span>
           our talented team of professionals
         </h2>
       </div>
-
-      <div
-        class="scroll-container mx-auto max-w-[85rem] px-4 py-4 sm:px-6 lg:px-8 lg:py-6 2xl:max-w-full"
-      >
-        <div
-          class="flex-col-2 md:flex-col-2 flex items-center justify-center gap-x-3 gap-y-2 sm:flex-row sm:gap-x-12 sm:gap-y-0 lg:gap-x-5"
-        >
-          <div>
-            <div
-              class="relative transform overflow-hidden rounded shadow-lg transition duration-300 hover:shadow-2xl lg:hover:-translate-y-2"
-            >
-              <img
-                class="h-56 w-full object-cover md:h-64 xl:h-80"
-                src="/pictures/team/profile Gafoor.jpg"
-                alt="Person"
-              />
-              <div
-                class="absolute inset-0 flex flex-col justify-center bg-black bg-opacity-75 px-5 py-4 text-center opacity-0 transition-opacity duration-300 hover:opacity-100"
-              >
-                <p class="mb-1 text-lg font-bold text-gray-100">
-                  Mr.Abdul Gafoor
-                </p>
+    
+      <!-- CEO Section -->
+      <div class="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8 lg:py-6">
+        <div class="flex justify-center">
+          <div class="w-full sm:w-2/3 md:w-1/2 lg:w-2/5 xl:w-1/3">
+            <div class="relative transform overflow-hidden rounded shadow-lg transition duration-300 hover:shadow-2xl lg:hover:-translate-y-2">
+              <div class="team-img-container">
+                <img class="team-img h-10" src="/pictures/team/profile Gafoor.jpg" alt="CEO and Founder" />
+              </div>
+              <div class="absolute inset-0 flex flex-col justify-center bg-black bg-opacity-75 px-5 py-4 text-center opacity-0 transition-opacity duration-300 hover:opacity-100">
+                <p class="mb-1 text-lg font-bold text-gray-100">Mr.Abdul Gafoor</p>
                 <p class="mb-4 text-xs text-gray-100">CEO and Founder</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <div
-        class="scroll-container mx-auto max-w-[85rem] px-4 py-4 sm:px-6 lg:px-8 lg:py-6 2xl:max-w-full"
-      >
-        <div
-          class="flex-col-2 md:flex-col-2 flex items-center justify-center gap-x-3 gap-y-2 sm:flex-row sm:gap-x-12 sm:gap-y-0 lg:gap-x-5"
-            >
-          <div>
-            <div
-              class="relative transform overflow-hidden rounded shadow-lg transition duration-300 hover:shadow-2xl lg:hover:-translate-y-2"
-            >
-              <img
-                class="h-56 w-full object-cover md:h-64 xl:h-80"
-                src="/pictures/team/6.jpg"
-                alt="Person"
-              />
-              <div
-                class="absolute inset-0 flex flex-col justify-center bg-black bg-opacity-75 px-5 py-4 text-center opacity-0 transition-opacity duration-300 hover:opacity-100"
-              >
-                <p class="mb-1 text-lg font-bold text-gray-100">
-                  Mishal Abdul Gafoor
-                </p>
-                <p class="mb-4 text-xs text-gray-100">Account Sales Manager</p>
-              </div>
+    
+      <!-- Team Row 1 -->
+      <div class="scroll-container mx-auto max-w-[85rem] px-4 py-4 sm:px-6 lg:px-8 lg:py-6 2xl:max-w-full">
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
+          <!-- Team Member 1 -->
+          <div class="relative transform overflow-hidden rounded shadow-lg transition duration-300 hover:shadow-2xl lg:hover:-translate-y-2">
+            <div class="team-img-container">
+              <img class="team-img" src="/pictures/team/6.jpg" alt="Person" />
+            </div>
+            <div class="absolute inset-0 flex flex-col justify-center bg-black bg-opacity-75 px-5 py-4 text-center opacity-0 transition-opacity duration-300 hover:opacity-100">
+              <p class="mb-1 text-lg font-bold text-gray-100">Mishal Abdul Gafoor</p>
+              <p class="mb-4 text-xs text-gray-100">Account Sales Manager</p>
             </div>
           </div>
-          <div>
-            <div
-              class="relative transform overflow-hidden rounded shadow-lg transition duration-300 hover:shadow-2xl lg:hover:-translate-y-2"
-            >
-              <img
-                class="h-56 w-full object-cover md:h-64 xl:h-80"
-                src="/pictures/team/1.jpg"
-                alt="Person"
-              />
-              <div
-                class="absolute inset-0 flex flex-col justify-center bg-black bg-opacity-75 px-5 py-4 text-center opacity-0 transition-opacity duration-300 hover:opacity-100"
-              >
-                <p class="mb-1 text-lg font-bold text-gray-100">
-                  Muhammed Saleem
-                </p>
-                <p class="mb-4 text-xs text-gray-100">Sales Assistant</p>
-              </div>
+          
+          <!-- Team Member 2 -->
+          <div class="relative transform overflow-hidden rounded shadow-lg transition duration-300 hover:shadow-2xl lg:hover:-translate-y-2">
+            <div class="team-img-container">
+              <img class="team-img" src="/pictures/team/1.jpg" alt="Person" />
+            </div>
+            <div class="absolute inset-0 flex flex-col justify-center bg-black bg-opacity-75 px-5 py-4 text-center opacity-0 transition-opacity duration-300 hover:opacity-100">
+              <p class="mb-1 text-lg font-bold text-gray-100">Muhammed Saleem</p>
+              <p class="mb-4 text-xs text-gray-100">Sales Assistant</p>
             </div>
           </div>
-          <div>
-            <div
-              class="relative transform overflow-hidden rounded shadow-lg transition duration-300 hover:shadow-2xl lg:hover:-translate-y-2"
-            >
-              <img
-                class="h-56 w-full object-cover md:h-64 xl:h-80"
-                src="/pictures/team/8.jpg"
-                alt="Person"
-              />
-              <div
-                class="absolute inset-0 flex flex-col justify-center bg-black bg-opacity-75 px-5 py-4 text-center opacity-0 transition-opacity duration-300 hover:opacity-100"
-              >
-                <p class="mb-1 text-lg font-bold text-gray-100">
-                  Althiya Titus
-                </p>
-                <p class="mb-4 text-xs text-gray-100">HR & Admin Manager</p>
-              </div>
+          
+          <!-- Team Member 3 -->
+          <div class="relative transform overflow-hidden rounded shadow-lg transition duration-300 hover:shadow-2xl lg:hover:-translate-y-2">
+            <div class="team-img-container">
+              <img class="team-img" src="/pictures/team/8.jpg" alt="Person" />
+            </div>
+            <div class="absolute inset-0 flex flex-col justify-center bg-black bg-opacity-75 px-5 py-4 text-center opacity-0 transition-opacity duration-300 hover:opacity-100">
+              <p class="mb-1 text-lg font-bold text-gray-100">Althiya Titus</p>
+              <p class="mb-4 text-xs text-gray-100">HR & Admin Manager</p>
             </div>
           </div>
-          <div>
-            <div
-              class="relative transform overflow-hidden rounded shadow-lg transition duration-300 hover:shadow-2xl lg:hover:-translate-y-2"
-            >
-              <img
-                class="h-56 w-full object-cover md:h-64 xl:h-80"
-                src="/pictures/team/7.jpg"
-                alt="Person"
-              />
-              <div
-                class="absolute inset-0 flex flex-col justify-center bg-black bg-opacity-75 px-5 py-4 text-center opacity-0 transition-opacity duration-300 hover:opacity-100"
-              >
-                <p class="mb-1 text-lg font-bold text-gray-100">Antu Mathews</p>
-                <p class="mb-4 text-xs text-gray-100">Account sales manager</p>
-              </div>
+          
+          <!-- Team Member 4 -->
+          <div class="relative transform overflow-hidden rounded shadow-lg transition duration-300 hover:shadow-2xl lg:hover:-translate-y-2">
+            <div class="team-img-container">
+              <img class="team-img" src="/pictures/team/7.jpg" alt="Person" />
+            </div>
+            <div class="absolute inset-0 flex flex-col justify-center bg-black bg-opacity-75 px-5 py-4 text-center opacity-0 transition-opacity duration-300 hover:opacity-100">
+              <p class="mb-1 text-lg font-bold text-gray-100">Antu Mathews</p>
+              <p class="mb-4 text-xs text-gray-100">Account sales manager</p>
             </div>
           </div>
         </div>
       </div>
-
-      <div
-        class="scroll-container mx-auto max-w-[85rem] px-4 py-4 sm:px-6 lg:px-8 lg:py-6 2xl:max-w-full"
-      >
-        <div
-          class="flex-col-2 md:flex-col-2 flex items-center justify-center gap-x-3 gap-y-2 sm:flex-row sm:gap-x-12 sm:gap-y-0 lg:gap-x-5"
-             >
-          <div>
-            <div
-              class="relative transform overflow-hidden rounded shadow-lg transition duration-300 hover:shadow-2xl lg:hover:-translate-y-2"
-            >
-              <img
-                class="h-56 w-full object-cover md:h-64 xl:h-80"
-                src="/pictures/team/2.jpg"
-                alt="Person"
-              />
-              <div
-                class="absolute inset-0 flex flex-col justify-center bg-black bg-opacity-75 px-5 py-4 text-center opacity-0 transition-opacity duration-300 hover:opacity-100"
-              >
-                <p class="mb-1 text-lg font-bold text-gray-100">Shaik Nihaal</p>
-                <p class="mb-4 text-xs text-gray-100">Chief Sales Manager</p>
-              </div>
+    
+      <div class="scroll-container mx-auto max-w-4xl px-4 py-4 sm:px-6 lg:px-8 lg:py-6">
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
+          
+          <!-- Team Member 5 -->
+          <div class="relative transform overflow-hidden rounded shadow-lg transition duration-300 hover:shadow-xl">
+            <div class="team-img-container">
+              <img class="team-img h-32 sm:h-40 md:h-48 object-cover w-full" src="/pictures/team/2.jpg" alt="Shaik Nihaal" />
+            </div>
+            <div class="absolute inset-0 flex flex-col justify-center bg-black bg-opacity-75 px-3 py-2 text-center opacity-0 transition-opacity duration-300 hover:opacity-100">
+              <p class="mb-1 text-base font-semibold text-gray-100">Shaik Nihaal</p>
+              <p class="text-[0.7rem] text-gray-300">Chief Sales Manager</p>
             </div>
           </div>
-          <div>
-            <div
-              class="relative transform overflow-hidden rounded shadow-lg transition duration-300 hover:shadow-2xl lg:hover:-translate-y-2"
-            >
-              <img
-                class="h-56 w-full object-cover md:h-64 xl:h-80"
-                src="/pictures/team/3.jpg"
-                alt="Person"
-              />
-              <div
-                class="absolute inset-0 flex flex-col justify-center bg-black bg-opacity-75 px-5 py-4 text-center opacity-0 transition-opacity duration-300 hover:opacity-100"
-              >
-                <p class="mb-1 text-lg font-bold text-gray-100">Rincy Antu</p>
-                <p class="mb-4 text-xs text-gray-100">Office Admin</p>
-              </div>
+      
+          <!-- Team Member 6 -->
+          <div class="relative transform overflow-hidden rounded shadow-lg transition duration-300 hover:shadow-xl">
+            <div class="team-img-container">
+              <img class="team-img h-32 sm:h-40 md:h-48 object-cover w-full" src="/pictures/team/3.jpg" alt="Rincy Antu" />
+            </div>
+            <div class="absolute inset-0 flex flex-col justify-center bg-black bg-opacity-75 px-3 py-2 text-center opacity-0 transition-opacity duration-300 hover:opacity-100">
+              <p class="mb-1 text-base font-semibold text-gray-100">Rincy Antu</p>
+              <p class="text-[0.7rem] text-gray-300">Office Admin</p>
             </div>
           </div>
-          <div>
-            <div
-              class="relative transform overflow-hidden rounded shadow-lg transition duration-300 hover:shadow-2xl lg:hover:-translate-y-2"
-            >
-              <img
-                class="h-56 w-full object-cover md:h-64 xl:h-80"
-                src="/pictures/team/5.jpg"
-                alt="Person"
-              />
-              <div
-                class="absolute inset-0 flex flex-col justify-center bg-black bg-opacity-75 px-5 py-4 text-center opacity-0 transition-opacity duration-300 hover:opacity-100"
-              >
-                <p class="mb-1 text-lg font-bold text-gray-100">Suhail</p>
-                <p class="mb-4 text-xs text-gray-100">Purchase Assistant</p>
-              </div>
+      
+          <!-- Team Member 7 (Centered on Tablet) -->
+          <div class="relative transform overflow-hidden rounded shadow-lg transition duration-300 hover:shadow-xl md:col-span-2 md:mx-auto md:w-1/2 lg:col-span-1 lg:mx-0 lg:w-auto">
+            <div class="team-img-container">
+              <img class="team-img h-32 sm:h-40 md:h-48 object-cover w-full" src="/pictures/team/5.jpg" alt="Suhail" />
+            </div>
+            <div class="absolute inset-0 flex flex-col justify-center bg-black bg-opacity-75 px-3 py-2 text-center opacity-0 transition-opacity duration-300 hover:opacity-100">
+              <p class="mb-1 text-base font-semibold text-gray-100">Suhail</p>
+              <p class="text-[0.7rem] text-gray-300">Purchase Assistant</p>
             </div>
           </div>
+      
         </div>
       </div>
+      
+      
+      <style>
+      .team-img-container {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+      }
+      
+      .team-img {
+        width: 100%;
+        transition: transform 0.3s ease;
+      }
+      
+      @media (min-width: 640px) {
+        .team-img {
+          min-height: 160px;
+        }
+      }
+      
+      @media (min-width: 768px) {
+        .team-img {
+          min-height: 192px;
+        }
+      }
+      </style>
     </div>
+ 
   </section>
 </MainLayout>
