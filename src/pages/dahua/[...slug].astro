@@ -64,14 +64,23 @@ const structuredData = {
     <section class="hero-section relative mb-8 overflow-hidden">
       <div class="parallax-bg"></div>
       <div class="relative z-10 py-12 text-center text-white">
-        <h1 class="text-4xl font-bold tracking-tight md:text-5xl">{title}</h1>
-        <p class="mx-auto mt-4 max-w-2xl text-lg opacity-90">{desc}</p>
+        <h1
+          class="px-4 text-center text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl lg:text-5xl"
+        >
+          {title}
+        </h1>
+        <p
+          class="mx-auto mt-4 max-w-[90%] px-4 text-center text-base opacity-90 sm:max-w-2xl sm:text-lg"
+        >
+          {desc}
+        </p>
       </div>
     </section>
 
     <!-- Navigation with animation -->
     <div class="navigation-container mb-6">
-      <a href="/dahua" class="back-button">
+      <a href="/dahua" class="back-button bg-transparent dark:border-none dark:bg-neutral-900 dark:text-white dark:hover:bg-neutral-500 dark:hover:text-white"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -92,16 +101,16 @@ const structuredData = {
 
     <!-- Main Product Card with enhanced animations -->
     <div class="relative">
-      <article class="product-card border border-gray-300 dark:border-[var(--primary-color)] dark:border-[2px] dark:border-blue-500 dark:bg-transparent">
-
-
+      <article
+        class="product-card border border-gray-300 dark:border-0 dark:bg-neutral-900"
+      >
         <div class="card-inner flex flex-col gap-8 md:flex-row">
           <!-- Image Gallery Section - Medium Size -->
           <div class="image-section w-full md:w-2/5">
             {
               img && (
                 <div class="image-gallery">
-                  <div class="main-image-container">
+                  <div class="main-image-container dark:border-0 dark:bg-neutral-500">
                     <img
                       src={img.src}
                       alt={alt}
@@ -111,91 +120,94 @@ const structuredData = {
                       id="main-image"
                       loading="eager"
                     />
-<div class="image-controls">
-  {images && images.length > 0 && (
-    <>
-      <button
-        class="nav-arrow prev-arrow w-6 h-6 p-1"
-        aria-label="Previous image"
-      >
-        <svg
-          class="h-4 w-4"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M15 19l-7-7 7-7"
-          />
-        </svg>
-      </button>
-      <button
-        class="nav-arrow next-arrow w-6 h-6 p-1"
-        aria-label="Next image"
-      >
-        <svg
-          class="h-4 w-4"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M9 5l7 7-7 7"
-          />
-        </svg>
-      </button>
-    </>
-  )}
-</div>
-
+                    <div class="image-controls">
+                      {images && images.length > 0 && (
+                        <>
+                          <button
+                            class="nav-arrow prev-arrow h-6 w-6 border-none p-1 text-gray-700 hover:text-gray-900 dark:[color:var(--primary-color)] dark:hover:[color:var(--primary-color)]"
+                            aria-label="Previous image"
+                          >
+                            <svg
+                              class="h-4 w-4"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M15 19l-7-7 7-7"
+                              />
+                            </svg>
+                          </button>
+                          <button
+                            class="nav-arrow next-arrow h-6 w-6 border-none p-1 text-gray-700 hover:text-gray-900 dark:[color:var(--primary-color)] dark:hover:[color:var(--primary-color)]"
+                            aria-label="Next image"
+                          >
+                            <svg
+                              class="h-4 w-4"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M9 5l7 7-7 7"
+                              />
+                            </svg>
+                          </button>
+                        </>
+                      )}
+                    </div>
                   </div>
 
                   {images && images.length > 0 && (
-  <div class="thumbnails-container mt-4">
-    <div class="thumbnails-scroll">
-      <div class="thumbnail active" data-index="0">
-        <img
-          src={images[0].src}
-          alt={alt}
-          loading="eager"
-          class="h-full w-full object-cover"
-        />
-      </div>
-      {images.slice(1).map((image, index) => (
-        <div class="thumbnail" data-index={index + 1}>
-          <img
-            src={image.src}
-            alt={`${alt} ${index + 1}`}
-            loading="lazy"
-            class="h-full w-full object-cover"
-          />
-        </div>
-      ))}
-    </div>
-  </div>
-)}
+                    <div class="thumbnails-container mt-4">
+                      <div class="thumbnails-scroll">
+                        <div
+                          class="thumbnail active dark:bg-neutral-500"
+                          data-index="0"
+                        >
+                          <img
+                            src={images[0].src}
+                            alt={alt}
+                            loading="eager"
+                            class="h-full w-full object-cover"
+                          />
+                        </div>
+                        {images.slice(1).map((image, index) => (
+                          <div
+                            class="thumbnail dark:bg-neutral-500"
+                            data-index={index + 1}
+                          >
+                            <img
+                              src={image.src}
+                              alt={`${alt} ${index + 1}`}
+                              loading="lazy"
+                              class="h-full w-full object-cover"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
 
-{
-  images && images.length > 1 && (
-    <div class="hidden-images hidden">
-      {images.slice(1).map((image, index) => (
-        <img
-          src={image.src}
-          alt={`${alt} ${index + 1}`}
-          width={image.width}
-          height={image.height}
-          loading="lazy"
-        />
-      ))}
-    </div>
-  )
-}
+                  {images && images.length > 1 && (
+                    <div class="hidden-images hidden">
+                      {images.slice(1).map((image, index) => (
+                        <img
+                          src={image.src}
+                          alt={`${alt} ${index + 1}`}
+                          width={image.width}
+                          height={image.height}
+                          loading="lazy"
+                        />
+                      ))}
+                    </div>
+                  )}
                 </div>
               )
             }
@@ -203,16 +215,20 @@ const structuredData = {
 
           <!-- Product Content Section - Adjusted width -->
           <div class="product-content w-full md:w-3/5">
-            <h2 class="product-title mb-4 text-2xl font-bold md:text-3xl dark:text-white">
+            <h2
+              class="product-title mb-4 text-2xl font-bold dark:text-white md:text-3xl"
+            >
               {title}
             </h2>
 
-            <p class="product-description mb-6 text-gray-700dark:text-white">{desc}</p>
+            <p class="product-description mb-6 dark:text-white">{desc}</p>
 
             {
               features && features.length > 0 && (
                 <div class="features-section mt-6">
-                  <h3 class="mb-4 text-xl font-semibold dark:text-white">Key Features:</h3>
+                  <h3 class="mb-4 text-xl font-semibold dark:text-white">
+                    Key Features:
+                  </h3>
                   <ul class="features-list">
                     {features.map((feature) => (
                       <li class="feature-item dark:text-white">{feature}</li>
@@ -223,18 +239,17 @@ const structuredData = {
             }
 
             <div class="animate-fadeIn mt-8 grid w-full sm:inline-flex">
-              <PrimaryCTA
-                title="Contact Us"
-                url="/contact"
-              />
+              <PrimaryCTA title="Contact Us" url="/contact" />
             </div>
           </div>
         </div>
 
         <!-- Share Section -->
-        <div class="share-container mt-8 border-t border-gray-100 dark:border-[var(--primary-color)] pt-6">
+        <div
+          class="share-container mt-8 border-t border-gray-100 pt-6 dark:border-[var(--primary-color)]"
+        >
           <p class="mb-3 text-sm font-medium text-gray-600">
-            Share this Camera:
+            Share This Camera:
           </p>
           <div class="share-buttons flex space-x-3">
             <button
@@ -776,7 +791,6 @@ const structuredData = {
     display: flex;
     justify-content: flex-start;
   }
-
   .back-button {
     display: inline-flex;
     align-items: center;
@@ -791,7 +805,13 @@ const structuredData = {
     box-shadow: var(--shadow-sm);
     position: relative;
     overflow: hidden;
+}
+
+@media (prefers-color-scheme: dark) {
+  .back-button {
+    border: none;
   }
+}
 
   .back-button::before {
     content: "";
@@ -856,43 +876,45 @@ const structuredData = {
 
   /* Update these styles in the CSS section */
   .main-image-container {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4/3;
-  max-height: 300px;
-  background-color: #ffffff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  border: 1px solid #e0e0e0;
-  transition: box-shadow 0.3s ease;
-}
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    max-height: 300px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    transition: box-shadow 0.3s ease;
+  }
 
-/* Enhanced bottom fade overlay */
-.main-image-container::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 40%;
-  background: linear-gradient(to top, 
-              rgba(0, 0, 0, 0.35) 0%, 
-              rgba(0, 0, 0, 0.18) 50%,
-              rgba(0, 0, 0, 0) 100%);
-  opacity: 0;
-  transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  pointer-events: none;
-  z-index: 1;
-}
+  /* Enhanced bottom fade overlay */
+  .main-image-container::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.35) 0%,
+      rgba(0, 0, 0, 0.18) 50%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    z-index: 1;
+  }
 
-.main-image-container:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
+  .main-image-container:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
 
-.main-image-container:hover::after {
-  opacity: 1;
-}
+  .main-image-container:hover::after {
+    opacity: 1;
+  }
 
   .main-image.fade-out {
     opacity: 0;
@@ -919,7 +941,6 @@ const structuredData = {
   .main-image-container:hover .image-controls {
     opacity: 1;
   }
-
 
   /* Thumbnails styles */
   .thumbnails-container {
@@ -1285,7 +1306,6 @@ const structuredData = {
     }
   }
 
-
   .main-image-container {
     position: relative;
     width: 100%;
@@ -1344,7 +1364,6 @@ const structuredData = {
   }
 
   .nav-arrow {
-  
     width: 3rem;
     height: 3rem;
     display: flex;
@@ -1353,7 +1372,6 @@ const structuredData = {
     background: transparent;
     border-radius: 50%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    border: 1px solid #e5e7eb;
     cursor: pointer;
     transition: all 0.3s ease;
     z-index: 10;
@@ -1362,7 +1380,7 @@ const structuredData = {
   }
 
   .nav-arrow:hover {
-    background: #ffffff;
+    background: transparent;
     transform: scale(1.1);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     opacity: 1;

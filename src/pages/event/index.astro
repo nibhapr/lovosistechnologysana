@@ -85,9 +85,9 @@ const structuredData = {
   <main class="container mx-auto px-4 py-8 text-black dark:text-white">
     <h1 class="mb-12 text-center text-4xl font-bold">Upcoming Events</h1>
     
-    <div class="events-grid grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+    <div class="events-grid grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 ">
       {eventsPost.map((eventEntry, index) => (
-        <div class="event-card" style={`transition-delay: ${index * 0.1}s`}>
+        <div class="event-card  " style={`transition-delay: ${index * 0.1}s`}>
           <CardEvent eventEntry={eventEntry} />
         </div>
       ))}
