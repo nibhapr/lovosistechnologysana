@@ -188,67 +188,37 @@ const { title, subTitle } = Astro.props;
 </div>
 
   <style>
-  :root {
-  --blur-max: 40px;
-  --translate-y-distance: 200px;
-  --view-start: 70%;
-  --view-end: 5%;
-}
+    .autoBLur {
+      animation: autoBLurAnimation linear both;
+      animation-timeline: view();
+    }
+    @keyframes autoBLurAnimation {
+      0% {
+        filter: blur(40px);
+      }
+      45%,
+      55% {
+        filter: blur(0px);
+      }
+      100% {
+        filter: blur(40px);
+      }
+    }
 
-/* Tablet (768px and below) */
-@media (max-width: 768px) {
-  :root {
-    --blur-max: 30px;
-    --translate-y-distance: 150px;
-    --view-start: 60%;
-    --view-end: 10%;
-  }
-}
+    .autoShow {
+      animation: autoShowAnimation both;
+      animation-timeline: view(70% 5%);
+    }
 
-/* Mobile (480px and below) */
-@media (max-width: 480px) {
-  :root {
-    --blur-max: 20px;
-    --translate-y-distance: 100px;
-    --view-start: 50%;
-    --view-end: 15%;
-  }
-}
-
-/* Blur Animation */
-.autoBLur {
-  animation: autoBLurAnimation linear both;
-  animation-timeline: view();
-}
-
-@keyframes autoBLurAnimation {
-  0% {
-    filter: blur(var(--blur-max));
-  }
-  45%,
-  55% {
-    filter: blur(0px);
-  }
-  100% {
-    filter: blur(var(--blur-max));
-  }
-}
-
-/* Show Animation */
-.autoShow {
-  animation: autoShowAnimation both;
-  animation-timeline: view(var(--view-start) var(--view-end));
-}
-
-@keyframes autoShowAnimation {
-  from {
-    opacity: 0;
-    transform: translateY(var(--translate-y-distance)) scale(0.3);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
+    @keyframes autoShowAnimation {
+      from {
+        opacity: 0;
+        transform: translateY(200px) scale(0.3);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
   </style>
 </section>
