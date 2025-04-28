@@ -487,14 +487,15 @@ const metaTags = [
         case "whatsapp":
           shareUrl = `https://wa.me/?text=${pageTitle}%20${pageUrl}`;
           break;
-        case "instagram":
-          navigator.clipboard.writeText(
-            `${document.title} ${window.location.href}`
-          );
-          showNotification(
-            "Link copied to clipboard! Open Instagram and paste in your story or message."
-          );
-          return;
+          case "instagram":
+  navigator.clipboard.writeText(
+    `${document.title} ${window.location.href}`
+  );
+  // Change this line:
+  // showNotification("Link copied to clipboard! Open Instagram and paste in your story or message.");
+  // To this:
+  window.alert("Image link copied to clipboard! Open Instagram and paste in your story or message.");
+  return;
         case "x":
           shareUrl = `https://twitter.com/intent/tweet?text=${pageTitle}&url=${pageUrl}`;
           break;
