@@ -35,23 +35,12 @@ const structuredData = {
   description: desc,
   brand: {
     "@type": "Brand",
-    name: "Western Digital"
-  },
-  offers: {
-    "@type": "Offer",
-    availability: "https://schema.org/InStock",
-    areaServed: ["AE", "SA", "BH", "KW", "OM", "QA"],
-    warranty: "3 year replacement warranty",
-    seller: {
-      "@type": "Organization",
-      name: "Lovosis Technology L.L.C",
-      areaServed: "Middle East"
-    }
+    name: "Western Digital",
   },
   aggregateRating: {
     "@type": "AggregateRating",
-    ratingValue: ratingValue,
-    reviewCount: "50"
+    ratingValue: "4.9",
+    reviewCount: "50",
   },
   review: [
     {
@@ -62,27 +51,10 @@ const structuredData = {
       reviewRating: {
         "@type": "Rating",
         ratingValue: ratingValue,
-        bestRating: "5"
-      }
-    }
+        bestRating: "5",
+      },
+    },
   ],
-  additionalProperty: [
-    {
-      "@type": "PropertyValue",
-      name: "Warranty",
-      value: "3 Years Replacement Warranty"
-    },
-    {
-      "@type": "PropertyValue",
-      name: "Features",
-      value: features?.join(", ")
-    },
-    {
-      "@type": "PropertyValue",
-      name: "Usage",
-      value: "24/7 Surveillance Recording"
-    }
-  ]
 };
 
 const metaTags = [

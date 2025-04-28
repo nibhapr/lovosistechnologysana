@@ -34,52 +34,86 @@ const cards: Card[] = content.map((item) => ({
 
 const pageTitle = "Seagate Skyhawk Surveillance Hard Drive | 3 Year Warranty | UAE Distributor";
 const description = "Official Seagate Skyhawk surveillance hard drives with 3-year replacement warranty. Authorized distributor in UAE, Saudi Arabia, Dubai & Middle East. Best prices for CCTV storage.";
+
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "Product",
-  name: "Seagate Skyhawk Surveillance Hard Drive",
-  description: description,
-  brand: {
-    "@type": "Brand",
-    name: "Seagate"
-  },
-  offers: {
-    "@type": "Offer",
-    availability: "https://schema.org/InStock",
-    "priceCurrency": "AED",  
-    "priceSpecification": {
-      "@type": "PriceSpecification",
-      "price": "0",           
-      "priceCurrency": "AED",  
-      "eligibleRegion": {
-        "@type": "Place",
-        "name": "Middle East"
-      }
-    },
-    areaServed: ["AE", "SA", "BH", "KW", "OM", "QA"],
-    seller: {
+  "@graph": [
+    {
       "@type": "Organization",
       name: "Lovosis Technology L.L.C",
-      areaServed: "Middle East"
-    }
-  },
-  aggregateRating: {
-              "@type": "AggregateRating",
-              "ratingValue": "4.5",
-              "reviewCount": "46"
-            },
-  additionalProperty: [
-    {
-      "@type": "PropertyValue",
-      name: "Warranty",
-      value: "3 Years Replacement Warranty"
+      url: "https://lovosis.com",
+      logo: "https://lovosis.come.com/pictures/logo.png",
+      description: description,
+      sameAs: [
+        "https://www.facebook.com/p/LOVOSIS-TECHNOLOGY-100083060600975/",
+        "https://www.instagram.com/_lovosis_group_of_companies_/reels/",
+      ],
+      email: "sales@lovosis.com",
+      telephone: "+971552929644",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress:
+          "Satellite Market Naif Deira,Baghlaf Building Showroom No.5",
+        addressLocality: "Dubai",
+        addressCountry: "AE",
+        addressRegion: "Dubai,United Arab Emirates",
+        postalCode: "123421",
+      },
     },
     {
-      "@type": "PropertyValue",
-      name: "Purpose",
-      value: "Surveillance Storage"
-    }
-  ]
+      "@type": "WebPage",
+      name: "Seagate | Lovosis Technology",
+      url: "https://lovosis.com/seagate",
+      description: description,
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://lovosis.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Alhua",
+          item: "https://lovosis.com/seagate",
+        },
+      ],
+    },
+    {
+      hasOfferCatalog: {
+        "@type": "ItemList",
+        itemListElement: cards.map((card) => {
+          return {
+            "@type": "ListItem",
+
+            position: card.id,
+            item: {
+              "@type": "Product",
+              name: card.title,
+              image: `${Astro.url.origin}/${card.img}`,
+
+              description: card.desc,
+              brand: {
+                "@type": "Brand",
+                name: "Seagate",
+              },
+              url: `${Astro.url.origin}/seagate/${card.slug}`,
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: "4.9",
+                reviewCount: "50",
+              },
+             
+            },
+          };
+        }),
+      },
+    },
+  ],
 };
 const seagateContent = await getCollection("seagate");
 ---
