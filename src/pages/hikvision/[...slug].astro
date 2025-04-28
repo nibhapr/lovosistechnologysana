@@ -471,19 +471,14 @@ const structuredData = {
         case "whatsapp":
           shareUrl = `https://wa.me/?text=${pageTitle}%20${pageUrl}`;
           break;
-        case "instagram":
-          navigator.clipboard.writeText(
-            `${document.title} ${window.location.href}`
-          );
-          showNotification(
-            "Link copied to clipboard! Open Instagram and paste in your story or message."
-          );
-          return;
         case "x":
           shareUrl = `https://twitter.com/intent/tweet?text=${pageTitle}&url=${pageUrl}`;
           break;
         case "facebook":
           shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+          break;
+        case "instagram":
+          shareUrl = `https://www.instagram.com/?text=${pageTitle}%20${pageUrl}`;
           break;
         default:
           return;
