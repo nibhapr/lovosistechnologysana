@@ -177,7 +177,7 @@ export const unvdisplaydata = [
     author: "Sanam Rehman",
   },
 ];
-export const dahuanewData = [
+export const alhuanewData = [
   {
     title: "High-Quality Imaging & Resolution",
     description:

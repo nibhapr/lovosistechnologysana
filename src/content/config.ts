@@ -229,7 +229,7 @@ const seagateCollection = defineCollection({
       features: z.array(z.string()).optional()
     }),
 });
-const dahuaCollection = defineCollection({
+const alhuaCollection = defineCollection({
   type: "content",
   schema: ({ image }) =>
     z.object({
@@ -258,6 +258,6 @@ export const collections = {
   toshiba: toshibaCollection,
   westerdigital: westerdigitalCollection,
   seagate: seagateCollection,
-  dahua: dahuaCollection,
+  alhua: alhuaCollection,
   hikvision:hikvisionCollection
 };
