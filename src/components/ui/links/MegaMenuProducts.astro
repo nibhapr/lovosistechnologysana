@@ -111,15 +111,25 @@ const isBrandsActive = brandPaths.some(path => pathname.includes(path));
           href="/westerdigital"
           onmouseover="hoverDetails('/pictures/p1.png', 'solution1')"
         >
-          <img
+        <div class="logo-container">
+          <img 
+            src="/pictures/Brand Logo/western.png"
+            alt="Western Digital" 
+            class="h-auto w-full md:w-32 logo-light"
+            
+          />
+          <img 
             src="/pictures/Brand Logo/westerndark.png"
-            alt="Western Digital"
-            class="h-6 w-20 md:w-32"
+            alt="Western Digital" 
+            class="h-auto w-full md:w-32 logo-dark"
+            
           />
           <p class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === '/westerdigital' ? 'text-blue-600' : 'text-blue-600 decoration-2 hover:underline dark:text-teal-600'} md:mt-3`}>
             Learn more
             <Icon name="arrowRight" />
           </p>
+        </div>
+         
         </a>
 
         <!-- TOSHIBA -->
@@ -193,15 +203,35 @@ const isBrandsActive = brandPaths.some(path => pathname.includes(path));
     </div>
   </div>
 </div>
-
 <script is:inline>
-  function hoverDetails(proSrc, proTitle) {
-    document.getElementById("products-img").src = proSrc;
-    document.getElementById("products-title").textContent = proTitle;
+  // Dark mode image handling
+  function toggleLogosBasedOnTheme() {
+    const isDarkMode = document.documentElement.classList.contains('dark');
+    const logoContainers = document.querySelectorAll('.logo-container');
+    
+    logoContainers.forEach(container => {
+      const lightLogo = container.querySelector('.logo-light');
+      const darkLogo = container.querySelector('.logo-dark');
+      
+      if (isDarkMode) {
+        darkLogo.style.display = 'block';
+        lightLogo.style.display = 'none';
+      } else {
+        lightLogo.style.display = 'block';
+        darkLogo.style.display = 'none';
+      }
+    });
   }
 
-  // Add active class based on current pathname
+  // Initial theme setup
   document.addEventListener('DOMContentLoaded', () => {
+    // Hover details function
+    window.hoverDetails = function(proSrc, proTitle) {
+      document.getElementById("products-img").src = proSrc;
+      document.getElementById("products-title").textContent = proTitle;
+    };
+
+    // Brand path detection
     const currentPath = window.location.pathname;
     const brandPaths = ['/uniview', '/dahua', '/imou', '/hikvision', '/westerdigital', '/toshiba', '/seagate', '/uniarch', '/unvdisplay'];
     
@@ -211,5 +241,16 @@ const isBrandsActive = brandPaths.some(path => pathname.includes(path));
         brandsButton.classList.add('text-blue-600');
       }
     }
+
+    // Set initial logos
+    toggleLogosBasedOnTheme();
+    
+    // Watch for theme changes
+    const observer = new MutationObserver(toggleLogosBasedOnTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
   });
 </script>
+
