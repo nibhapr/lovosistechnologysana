@@ -32,26 +32,27 @@ const cards: Card[] = content.map((item) => ({
   publishedTime: item.data.publishedTime,
 }));
 
+const pageTitle = "Hikvision wholesale dealer in U.A.E";
+const descriptions = "Hikvision wholesale dealer in UAE offering top-quality CCTV cameras, access control, and security solutions at unbeatable prices. Contact us for bulk pricing";
+const canonicalUrl = new URL('/hikvision', Astro.site).toString();
 
-const pageTitle: string = "Hikvision wholesale dealer in U.A.E";
+// Props interface last
 interface Props {
   title: string;
-  descriptions?: string;
-  benefits?: Array<string>;
+  description?: string;  // Changed to singular
+  benefits?: string[];
+  canonical?: string;
 }
-const descriptions: string =
-  "Hikvision wholesale dealer in UAE offering top-quality CCTV cameras, access control, and security solutions at unbeatable prices. Contact us for bulk pricing";
-
 
   const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "Organization",
-      name: "Lovosis Technology L.L.C",
+      name: pageTitle,
       url: "https://lovosis.com",
-      logo: "https://lovosis.come.com/pictures/logo.png",
-      description: descriptions, 
+      logo: "https://lovosis.com/pictures/logo.png",
+      description: descriptions,
       sameAs: [
         "https://www.facebook.com/p/LOVOSIS-TECHNOLOGY-100083060600975/",
         "https://www.instagram.com/_lovosis_group_of_companies_/reels/",
@@ -70,8 +71,8 @@ const descriptions: string =
     },
     {
       "@type": "WebPage",
-      name: "Dahua | Lovosis Technology",
-      url: "https://lovosis.com/hikvision",
+      name: "Hikvision | Lovosis Technology",
+      url: "https://lovosis.com/imou",
       description: descriptions,
     },
     {
@@ -86,39 +87,40 @@ const descriptions: string =
         {
           "@type": "ListItem",
           position: 2,
-          name: "Hikvision",
+          name: "Imou",
           item: "https://lovosis.com/hikvision",
         },
       ],
     },
     {
-      hasOfferCatalog: {
-        "@type": "ItemList",
-        itemListElement: cards.map((card) => {
-          return {
-            "@type": "ListItem",
-
-            position: card.id,
-            item: {
-              "@type": "Product",
-              name: card.title,
-              image: `${Astro.url.origin}/${card.img}`,
-
-              description: card.desc,
-              brand: {
-                "@type": "Brand",
-                name: "Hikvision",
-              },
-              url: `${Astro.url.origin}/hikvision/${card.slug}`,
-              aggregateRating: {
-                "@type": "AggregateRating",
-                ratingValue: "4.9",
-                reviewCount: "50",
-              },
-            },
-          };
-        }),
-      },
+      "@type": "ItemList",
+      itemListElement: cards.map((product, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "Product",
+          name: product.title,
+          description: product.desc,
+          image: new URL(product.img, Astro.site).toString(),
+          url: new URL(`/hikvision/${product.slug}`, Astro.site).toString(),
+          offers: {
+            "@type": "Offer",
+            priceCurrency: "AED",
+            price: "0.00",
+            availability: "https://schema.org/InStock",
+            itemCondition: "https://schema.org/NewCondition",
+          },
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: product.ratingValue.toString() || "4.5",
+            reviewCount: "10",
+          },
+          brand: {
+            "@type": "Brand",
+            name: "Hikvision",
+          },
+        },
+      })),
     },
   ],
 };
@@ -204,6 +206,7 @@ const descriptions: string =
 </style>
 
 <MainLayout title={pageTitle} sd={structuredData} description={descriptions}>
+
   <section
       class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
     >

@@ -38,61 +38,83 @@ const description: string =
   "Looking for affordable and high-quality Imou cameras? We are a trusted wholesale distributor of Imou CCTV cameras, offering smart security solutions at unbeatable prices. Explore our bulk pricing options for residential, commercial, and industrial needs. Contact us for a quote today!";
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Lovosis Technology L.L.C",
-  url: "https://www.lovosis.com",
-  logo: "https://lovosis.com/logo.png",
-  contactPoint: {
-    "@type": "ContactPoint",
-    telephone: "+971 50 9162488",
-    contactType: "Sales",
-    areaServed: "AE",
-    availableLanguage: "English",
-  },
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Satellite Market Naif Deira,Baghlaf Building Showroom No.5",
-    addressLocality: "Dubai",
-    addressRegion: "United Arab Emirates",
-    postalCode: "123421",
-    addressCountry: "AE",
-  },
-  sameAs: [
-    "https://www.instagram.com/_lovosis_group_of_companies_/",
-    "https://in.linkedin.com/company/lovosis-technology-llc",
-  ],
-  brand: {
-    "@type": "Brand",
-    name: "Imou",
-    url: "https://www.imou.com",
-    logo: "https://lovosis.com/pictures/Brand%20Logo/Imou.png",
-  },
-
-  hasOfferCatalog: {
-    "@type": "ItemList",
-    itemListElement: cards.map((card) => {
-      return {
+  "@graph": [
+    {
+      "@type": "Organization",
+      name: title,
+      url: "https://lovosis.com",
+      logo: "https://lovosis.com/pictures/logo.png",
+      description: description,
+      sameAs: [
+        "https://www.facebook.com/p/LOVOSIS-TECHNOLOGY-100083060600975/",
+        "https://www.instagram.com/_lovosis_group_of_companies_/reels/",
+      ],
+      email: "sales@lovosis.com",
+      telephone: "+971552929644",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress:
+          "Satellite Market Naif Deira,Baghlaf Building Showroom No.5",
+        addressLocality: "Dubai",
+        addressCountry: "AE",
+        addressRegion: "Dubai,United Arab Emirates",
+        postalCode: "123421",
+      },
+    },
+    {
+      "@type": "WebPage",
+      name: "Imou | Lovosis Technology",
+      url: "https://lovosis.com/imou",
+      description: description,
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://lovosis.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Imou",
+          item: "https://lovosis.com/imou",
+        },
+      ],
+    },
+    {
+      "@type": "ItemList",
+      itemListElement: cards.map((product, index) => ({
         "@type": "ListItem",
-        position: card.id,
+        position: index + 1,
         item: {
           "@type": "Product",
-          name: card.title,
-          image: `${Astro.url.origin}/${card.img}`,
-          description: card.desc,
-          brand: {
-            "@type": "Brand",
-            name: "UNV",
+          name: product.title,
+          description: product.desc,
+          image: new URL(product.img, Astro.site).toString(),
+          url: new URL(`/imou/${product.slug}`, Astro.site).toString(),
+          offers: {
+            "@type": "Offer",
+            priceCurrency: "AED",
+            price: "0.00",
+            availability: "https://schema.org/InStock",
+            itemCondition: "https://schema.org/NewCondition",
           },
-          url: `${Astro.url.origin}/imou/${card.slug}`,
           aggregateRating: {
             "@type": "AggregateRating",
-            ratingValue: "4.9",
-            reviewCount: "45",
+            ratingValue: product.ratingValue.toString() || "4.5",
+            reviewCount: "10",
+          },
+          brand: {
+            "@type": "Brand",
+            name: "Imou",
           },
         },
-      };
-    }),
-  },
+      })),
+    },
+  ],
 };
 ---
 
@@ -191,7 +213,12 @@ const structuredData = {
   }
 </style>
 
-<MainLayout title={title} sd={structuredData} description={description}>
+<MainLayout
+  title={title}
+  description={description}
+  sd={structuredData}
+
+>
   <main>
     <section
       class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
@@ -276,9 +303,11 @@ const structuredData = {
           transition: all 0.3s ease;
         }
       </style>
-       <section class="mx-auto max-w-[1400px] px-4 pt-8 mt-5">
+      <section class="mx-auto mt-5 max-w-[1400px] px-4 pt-8">
         <div class="mx-auto mb-12 max-w-2xl">
-          <h2 class="mb-6 text-center text-3xl font-bold dark:text-white">IMOU Products </h2>
+          <h2 class="mb-6 text-center text-3xl font-bold dark:text-white">
+            IMOU Products
+          </h2>
           <div class="relative">
             <input
               type="text"
@@ -301,22 +330,26 @@ const structuredData = {
             </svg>
           </div>
         </div>
-        <section class="mx-auto max-w-[1400px] px-4 pb-8 scroll-animate">
+        <section class="scroll-animate mx-auto max-w-[1400px] px-4 pb-8">
           <div></div>
           <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             {
               cards.map((card) => (
-              <div class=" dark:bg-neutral-500 transform overflow-hidden rounded-lg bg-white shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl opacity-0 translate-y-10 transition-all duration-500 transform overflow-hidden rounded-lg bg-white shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
-            <div class="flex items-center justify-center p-4">
-              <img
-                src={card.img}
-                alt={card.alt}
-                class="product-image h-48 w-auto object-contain"
-              />
-            </div>
+                <div class="translate-y-10 transform overflow-hidden rounded-lg bg-white opacity-0 shadow-lg transition-all duration-300 duration-500 ease-in-out hover:-translate-y-2 hover:shadow-xl dark:bg-neutral-500">
+                  <div class="flex items-center justify-center p-4">
+                    <img
+                      src={card.img}
+                      alt={card.alt}
+                      class="product-image h-48 w-auto object-contain"
+                    />
+                  </div>
                   <div class="flex flex-col items-center p-6">
-                    <h3 class="text-center text-xl font-semibold dark:text-white">{card.title}</h3>
-                    <p class="mb-4 mt-3 text-center text-gray-600 dark:text-gray-300">{card.desc}</p>
+                    <h3 class="text-center text-xl font-semibold dark:text-white">
+                      {card.title}
+                    </h3>
+                    <p class="mb-4 mt-3 text-center text-gray-600 dark:text-gray-300">
+                      {card.desc}
+                    </p>
                     <a href={`/imou/${card.slug}`} class="read-more-btn">
                       Read More
                     </a>
@@ -333,7 +366,7 @@ const structuredData = {
           <span class="mb-2 block text-3xl">🔍</span>
           No matching results found
         </p>
-      </section>   
+      </section>
       <script>
         // Intersection Observer for scroll animations
         document.addEventListener("DOMContentLoaded", function () {
@@ -343,7 +376,7 @@ const structuredData = {
                 if (entry.isIntersecting) {
                   // Animate the card container
                   entry.target.classList.add("in-view");
-                  
+
                   // Animate each card individually with staggered delays
                   const cards = entry.target.querySelectorAll(".grid > div");
                   cards.forEach((card, index) => {
@@ -356,21 +389,25 @@ const structuredData = {
             },
             { threshold: 0.1 }
           );
-      
+
           document.querySelectorAll(".scroll-animate").forEach((section) => {
             observer.observe(section);
           });
-      
+
           // Client-side search functionality
           const searchInput = document.getElementById("search");
           const cards = document.querySelectorAll(".grid > div");
           const noResults = document.getElementById("no-results");
           searchInput?.addEventListener("input", (e) => {
-            const searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
+            const searchTerm = (
+              e.target as HTMLInputElement
+            ).value.toLowerCase();
             let hasVisibleCards = false;
             cards.forEach((card) => {
-              const title = card.querySelector("h3")?.textContent?.toLowerCase() || "";
-              const desc = card.querySelector("p")?.textContent?.toLowerCase() || "";
+              const title =
+                card.querySelector("h3")?.textContent?.toLowerCase() || "";
+              const desc =
+                card.querySelector("p")?.textContent?.toLowerCase() || "";
               if (title.includes(searchTerm) || desc.includes(searchTerm)) {
                 card.classList.remove("hidden");
                 hasVisibleCards = true;
@@ -385,42 +422,45 @@ const structuredData = {
           });
         });
       </script>
-    
+
       <style>
         /* Optional: Add some smooth transitions */
         .scroll-animate {
           transition: all 0.3s ease;
         }
-        
+
         .grid > div {
-          transition: opacity 0.5s ease, transform 0.5s ease;
+          transition:
+            opacity 0.5s ease,
+            transform 0.5s ease;
         }
       </style>
-        <script>
-          // Client-side search functionality
-          const searchInput = document.getElementById("search");
-          const cards = document.querySelectorAll(".grid > div");
-          const noResults = document.getElementById("no-results");
-          searchInput?.addEventListener("input", (e) => {
-            const searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
-            let hasVisibleCards = false;
-            cards.forEach((card) => {
-              const title =
-                card.querySelector("h3")?.textContent?.toLowerCase() || "";
-              const desc = card.querySelector("p")?.textContent?.toLowerCase() || "";
-              if (title.includes(searchTerm) || desc.includes(searchTerm)) {
-                card.classList.remove("hidden");
-                hasVisibleCards = true;
-              } else {
-                card.classList.add("hidden");
-              }
-            });
-            // Toggle no results message
-            if (noResults) {
-              noResults.classList.toggle("hidden", hasVisibleCards);
+      <script>
+        // Client-side search functionality
+        const searchInput = document.getElementById("search");
+        const cards = document.querySelectorAll(".grid > div");
+        const noResults = document.getElementById("no-results");
+        searchInput?.addEventListener("input", (e) => {
+          const searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
+          let hasVisibleCards = false;
+          cards.forEach((card) => {
+            const title =
+              card.querySelector("h3")?.textContent?.toLowerCase() || "";
+            const desc =
+              card.querySelector("p")?.textContent?.toLowerCase() || "";
+            if (title.includes(searchTerm) || desc.includes(searchTerm)) {
+              card.classList.remove("hidden");
+              hasVisibleCards = true;
+            } else {
+              card.classList.add("hidden");
             }
           });
-        </script>
+          // Toggle no results message
+          if (noResults) {
+            noResults.classList.toggle("hidden", hasVisibleCards);
+          }
+        });
+      </script>
 
       <div class="fadeInUps mb-5 mt-32 rounded-2xl text-center">
         <h2
@@ -477,8 +517,8 @@ const structuredData = {
                   </div>
                   <div class="text-center sm:ml-4 sm:text-left">
                     <p class="text-base text-gray-500 dark:text-white">
-                      Baghlaf Building Showroom No.5 Satellite Market Naif Deira - Dubai
-                      United Arab Emirates
+                      Baghlaf Building Showroom No.5 Satellite Market Naif Deira
+                      - Dubai United Arab Emirates
                     </p>
                   </div>
                 </a>
