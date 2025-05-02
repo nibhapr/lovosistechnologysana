@@ -123,14 +123,45 @@ const structuredData = {
     },
   ],
 };
+const metaTags = [
+  {
+    name: "pageTitle",
+    content: `${pageTitle} | UNV Security Systems Distributor in Dubai`,
+  },
+  
+  {
+    name: "description",
+    content: `${description} | Official UNV Security Systems Distributor in Dubai with Enterprise-grade Solutions`,
+  },
+  {
+  name: "keywords",
+  content: `UNV Dubai distributor, enterprise CCTV solutions, UNV NVR systems, commercial security systems UAE, AI surveillance Dubai, professional UNV installers, smart city security, industrial CCTV Dubai, UNV IP cameras UAE, UNV VMS solutions`
+},
+  { name: "robots", content: "index, follow" },
+  { property: "og:title", content: "UNV Security Solutions Dubai | Enterprise-grade Systems | Lovosis" },
+  { property: "og:description", content: description },
+  { property: "og:image", content: `${Astro.url.origin}/pictures/unvhero.jpg` },
+  { property: "og:type", content: "website" },
+  { property: "og:locale", content: "en_AE" },
+  { property: "og:locale:alternate", content: "ar_AE" },
+  { name: "twitter:card", content: "summary_large_image" },
+  { name: "twitter:title", content: "UNV Security Systems Wholesale Supplier | Dubai UAE" },
+  { name: "twitter:description", content: description },
+  { name: "twitter:image", content: `${Astro.url.origin}/pictures/unvhero.jpg` },
+  { name: "geo.region", content: "AE" },
+  { name: "geo.placename", content: "Dubai" },
+  { name: "geo.position", content: "25.276987;55.296249" },
+  { name: "ICBM", content: "25.276987, 55.296249" },
+];
 ---
 
-<MainLayout 
-  title={pageTitle} 
-  description={description} 
-  sd={structuredData} 
- 
-<div>
+<MainLayout
+  title={pageTitle}
+  description={description}
+  sd={structuredData}
+  canonical={canonicalUrl}
+>
+  <div>
     <section
       class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
     >

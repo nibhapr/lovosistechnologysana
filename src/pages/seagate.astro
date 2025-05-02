@@ -31,7 +31,7 @@ const cards: Card[] = content.map((item) => ({
   features: item.data.features,
   publishedTime: item.data.publishedTime,
 }));
-
+const canonicalUrl = new URL("/seagate", Astro.site).toString();
 const pageTitle = "Seagate Skyhawk Surveillance Hard Drive | 3 Year Warranty | UAE Distributor";
 const description = "Official Seagate Skyhawk surveillance hard drives with 3-year replacement warranty. Authorized distributor in UAE, Saudi Arabia, Dubai & Middle East. Best prices for CCTV storage.";
 const structuredData = {
@@ -114,6 +114,37 @@ const structuredData = {
     },
   ],
 };
+const metaTags = [
+  { 
+    name: "pageTitle", 
+    content: `${pageTitle} | Seagate Skyhawk Surveillance HDDs - Middle East Distributor` 
+  },
+  {
+    name: "description",
+    content: `${description} | Official Seagate Skyhawk CCTV Storage Solutions in GCC Countries with 3-Year Warranty`,
+  },
+  {
+    name: "keywords",
+    content: "Seagate Skyhawk UAE, surveillance HDD Dubai, Skyhawk Health Management, 24/7 CCTV storage Saudi Arabia, RAID-optimized drives Qatar, VMS storage solutions Kuwait, ImagePerfect firmware Bahrain, 256MB cache Oman, 10TB surveillance drive GCC",
+  },
+  { name: "robots", content: "index, follow" },
+  { property: "og:type", content: "product" },
+  { property: "og:locale", content: "en_AE" },
+  { property: "og:locale:alternate", content: "ar_AE" },
+  { property: "og:title", content: "Seagate Skyhawk Surveillance Drives | GCC Authorized Distributor" },
+  { property: "og:description", content: description },
+  { property: "og:image", content: `${Astro.url.origin}/pictures/Brand Profile/10.jpg` },
+  { property: "og:image:alt", content: "Seagate Skyhawk Surveillance Drives with 3-Year Warranty - Middle East" },
+  { name: "twitter:card", content: "summary_large_image" },
+  { name: "twitter:title", content: "Seagate Skyhawk CCTV Storage Solutions | Dubai UAE" },
+  { name: "twitter:description", content: description },
+  { name: "twitter:image", content: `${Astro.url.origin}/pictures/Brand Profile/10.jpg` },
+  { name: "geo.region", content: "AE, SA, BH, KW, OM, QA" },
+  { name: "geo.placename", content: "Dubai" },
+  { name: "geo.position", content: "25.2048;55.2708" },
+  { name: "ICBM", content: "25.2048, 55.2708" },
+];
+
 const seagateContent = await getCollection("seagate");
 ---
 
@@ -121,6 +152,7 @@ const seagateContent = await getCollection("seagate");
   title={pageTitle} 
   description={description} 
   sd={structuredData}
+  canonical={canonicalUrl}
 >
   <!-- Add additional meta tags in the head -->
   <Fragment slot="head">

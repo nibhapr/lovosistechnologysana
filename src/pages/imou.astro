@@ -16,7 +16,7 @@ interface Card {
   features?: string[];
   publishedTime: string;
 }
-
+const canonicalUrl = new URL("/imou", Astro.site).toString();
 const content = await getCollection("lovosis");
 const cards: Card[] = content.map((item: any) => ({
   id: item.data.id,
@@ -116,6 +116,32 @@ const structuredData = {
     },
   ],
 };
+const metaTags = [
+{ name: "title", content: `${title} | Buy Imou CCTV Cameras in Bulk in U.A.E` },
+  {
+    name: "description",
+    content: `${description} | Official Imou Smart Security Solutions Distributor in UAE with Competitive Pricing`,
+  },
+  {
+    name: "keywords",
+    content: `Imou UAE distributor, smart security cameras Dubai, IoT home security, wireless CCTV systems, Imou Lion Series, affordable security solutions, DIY installation Dubai`,
+  },
+  { name: "robots", content: "index, follow" },
+  { property: "og:title", content: "Imou Smart Security Solutions | Lovosis Technology" },
+  { property: "og:description", content: description },
+  { property: "og:image", content: `${Astro.url.origin}/pictures/Brand Profile/7.jpg` },
+  { property: "og:type", content: "website" },
+  { property: "og:locale", content: "en_AE" },
+  { property: "og:locale:alternate", content: "ar_AE" },
+  { name: "twitter:card", content: "summary_large_image" },
+  { name: "twitter:title", content: "Imou Smart Security Solutions in UAE | Lovosis" },
+  { name: "twitter:description", content: description },
+  { name: "twitter:image", content: `${Astro.url.origin}/pictures/Brand Profile/7.jpg` },
+  { name: "geo.region", content: "AE" },
+  { name: "geo.placename", content: "Dubai" },
+  { name: "geo.position", content: "25.276987;55.296249" },
+  { name: "ICBM", content: "25.276987, 55.296249" },
+];
 ---
 
 <style>
@@ -217,6 +243,7 @@ const structuredData = {
   title={title}
   description={description}
   sd={structuredData}
+  canonical={canonicalUrl}
 
 >
   <main>

@@ -118,12 +118,43 @@ const structuredData = {
     },
   ],
 };
+const metaTags = [
+  { 
+    name: "pageTitle", 
+    content: `${pageTitle} | Buy Toshiba Surveillance HDDs in Bulk in UAE` 
+  },
+  {
+    name: "description",
+    content: `${description} | Official Toshiba Surveillance Storage Distributor in UAE with Enterprise-Grade Solutions`,
+  },
+  {
+    name: "keywords",
+    content: "Toshiba surveillance HDD, CCTV storage UAE, Toshiba S300 Surveillance, enterprise storage solutions, 24/7 video recording, RAID-ready drives, NAS systems Dubai, security camera storage Saudi Arabia, Middle East distributor, GCC data storage solutions",
+  },
+  { name: "robots", content: "index, follow" },
+  { property: "og:type", content: "product" },
+  { property: "og:locale", content: "en_AE" },
+  { property: "og:locale:alternate", content: "ar_AE" },
+  { property: "og:title", content: "Toshiba Surveillance Storage Solutions | UAE Enterprise Distributor" },
+  { property: "og:description", content: description },
+  { property: "og:image", content: `${Astro.url.origin}/pictures/Brand Profile/2.jpg` },
+  { property: "og:image:alt", content: "Toshiba Surveillance HDD Product Lineup - Enterprise Storage Solutions" },
+  { name: "twitter:card", content: "summary_large_image" },
+  { name: "twitter:title", content: "Toshiba Surveillance Drives UAE | Bulk Storage Solutions" },
+  { name: "twitter:description", content: description },
+  { name: "twitter:image", content: `${Astro.url.origin}/pictures/Brand Profile/2.jpg` },
+  { name: "geo.region", content: "AE" },
+  { name: "geo.position", content: "25.276987;55.296249" },
+  { name: "ICBM", content: "25.276987, 55.296249" },
+];
 ---
 
 <MainLayout 
   title={pageTitle} 
   description={description} 
   sd={structuredData} 
+
+  canonical={canonicalURL}
  
 >
   <main>

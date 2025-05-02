@@ -16,7 +16,7 @@ interface Card {
   features?: string[];
   publishedTime: string;
 }
-
+const canonicalUrl = new URL('/westerdigital', Astro.site).toString();
 const content = await getCollection("westerdigital");
 const cards: Card[] = content.map((item) => ({
   id: item.data.id,
@@ -118,18 +118,33 @@ const description =
     },
   ],
 };
-// Add these meta tags in your MainLayout component
 const metaTags = [
+  { 
+    name: "title", 
+    content: `${pageTitle} | Buy Western Digital Surveillance Drives in Dubai` 
+  },
+  {
+    name: "description",
+    content: `${description} | Official WD Purple Series Distributor in UAE with 3-Year Warranty`,
+  },
   {
     name: "keywords",
-    content:
-      "Western Digital, surveillance hard drive, CCTV storage, security camera storage, WD Purple, UAE distributor, Saudi Arabia, Dubai, Middle East",
+    content: "WD Purple UAE, surveillance HDD Dubai, 24/7 CCTV storage, WD AV-GP drives, NAS storage solutions, VMS-optimized drives, bulk storage Saudi Arabia, Middle East WD distributor, enterprise video retention",
   },
   { name: "robots", content: "index, follow" },
   { property: "og:type", content: "product" },
   { property: "og:locale", content: "en_AE" },
   { property: "og:locale:alternate", content: "ar_AE" },
+  { property: "og:title", content: "WD Surveillance Drives Dubai | Enterprise CCTV Storage Solutions" },
+  { property: "og:description", content: description },
+  { property: "og:image", content: `${Astro.url.origin}/pictures/Brand Profile/8.jpg` },
+  { property: "og:image:alt", content: "Western Digital Purple Series Drives for 24/7 Surveillance" },
+  { name: "twitter:card", content: "summary_large_image" },
+  { name: "twitter:title", content: "WD Purple Surveillance Drives UAE | Bulk Pricing Available" },
+  { name: "twitter:description", content: description },
+  { name: "twitter:image", content: `${Astro.url.origin}/pictures/Brand Profile/8.jpg` },
   { name: "geo.region", content: "AE" },
+  { name: "geo.placename", content: "Dubai" },
   { name: "geo.position", content: "25.276987;55.296249" },
   { name: "ICBM", content: "25.276987, 55.296249" },
 ];
@@ -143,6 +158,7 @@ const wdContent = await getCollection("westerdigital");
   description={description}
   sd={structuredData}
   metaTags={metaTags}
+  canonical={canonicalUrl}
 >
   <main>
     <section

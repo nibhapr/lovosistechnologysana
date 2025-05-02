@@ -32,6 +32,7 @@ const cards: Card[] = content.map((item) => ({
   publishedTime: item.data.publishedTime,
 }));
 
+const canonicalUrl = new URL("/alhua", Astro.site).toString();
 const pageTitle: string =
   "Dahua distributor in Dubai | Lovosis Technology L.L.C";
 const description =
@@ -116,13 +117,40 @@ const description =
     },
   ],
 };
+const metaTags = [
+{ name: "pageTitle", content: `${pageTitle} | Dahua distributor in Dubai` },
+  {
+    name: "description",
+    content: `${description} | Official Dahua distributor in Dubai with professional installation and support`,
+  },
+  {
+    name: "keywords",
+    content: `Dahua security cameras, Dahua DVR, Dahua NVR, IP cameras Dubai, CCTV installation Dubai, security systems UAE, professional surveillance, business security solutions`,
+  },
+  { name: "robots", content: "index, follow" },
+  { property: "og:title", content: pageTitle },
+  { property: "og:description", content: description },
+  { property: "og:image", content: `${Astro.url.origin}/pictures/Brand Profile/1.jpg` },
+  { property: "og:type", content: "website" },
+  { property: "og:locale", content: "en_AE" },
+  { property: "og:locale:alternate", content: "ar_AE" },
+  { name: "twitter:card", content: "summary_large_image" },
+  { name: "twitter:title", content: pageTitle },
+  { name: "twitter:description", content: description },
+  { name: "twitter:image", content: `${Astro.url.origin}/pictures/Brand Profile/1.jpg` },
+  { name: "geo.region", content: "AE" },
+  { name: "geo.placename", content: "Dubai" },
+  { name: "geo.position", content: "25.276987;55.296249" },
+  { name: "ICBM", content: "25.276987, 55.296249" },
+];
 ---
 
 <MainLayout 
   title={pageTitle} 
   description={description} 
   sd={structuredData} 
-  
+  metaTags={metaTags}
+  canonical={canonicalUrl}
 ><div>
     <section
       class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"

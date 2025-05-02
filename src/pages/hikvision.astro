@@ -17,6 +17,7 @@ interface Card {
   publishedTime: string;
 }
 
+
 const content = await getCollection("hikvision");
 const cards: Card[] = content.map((item) => ({
   id: item.data.id,
@@ -37,12 +38,33 @@ const descriptions = "Hikvision wholesale dealer in UAE offering top-quality CCT
 const canonicalUrl = new URL('/hikvision', Astro.site).toString();
 
 // Props interface last
-interface Props {
-  title: string;
-  description?: string;  // Changed to singular
-  benefits?: string[];
-  canonical?: string;
-}
+
+const metaTags = [
+{ name: "pageTitle", content: `${pageTitle} | Hikvision wholesale dealer in U.A.E` },
+  {
+    name: "description",
+    content: `${descriptions} | Official Hikvision Wholesale Distributor in UAE with Bulk Pricing Options`,
+  },
+  {
+    name: "keywords",
+    content: `Hikvision wholesale UAE, CCTV cameras bulk purchase, access control systems Dubai, security solutions Dubai, Hikvision distributor UAE, bulk pricing security systems, professional installation Dubai`,
+  },
+  { name: "robots", content: "index, follow" },
+  { property: "og:title", content: pageTitle },
+  { property: "og:description", content: descriptions },
+  { property: "og:image", content: `${Astro.url.origin}/pictures/Brand Profile/5.jpg` },
+  { property: "og:type", content: "website" },
+  { property: "og:locale", content: "en_AE" },
+  { property: "og:locale:alternate", content: "ar_AE" },
+  { name: "twitter:card", content: "summary_large_image" },
+  { name: "twitter:title", content: pageTitle },
+  { name: "twitter:description", content: descriptions },
+  { name: "twitter:image", content: `${Astro.url.origin}/pictures/Brand Profile/5.jpg` },
+  { name: "geo.region", content: "AE" },
+  { name: "geo.placename", content: "Dubai" },
+  { name: "geo.position", content: "25.276987;55.296249" },
+  { name: "ICBM", content: "25.276987, 55.296249" },
+];
 
   const structuredData = {
   "@context": "https://schema.org",
@@ -205,7 +227,7 @@ interface Props {
   }
 </style>
 
-<MainLayout title={pageTitle} sd={structuredData} description={descriptions}>
+<MainLayout title={pageTitle} sd={structuredData} description={descriptions} canonical={canonicalUrl} metaTags={metaTags}>
 
   <section
       class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
