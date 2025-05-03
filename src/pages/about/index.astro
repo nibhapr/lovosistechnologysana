@@ -9,6 +9,7 @@ const pageTitle: string =
 const description: string =
   "Lovosis Technology is a highly experienced security system supplier and exporter, providing top-tier UNV, Hikvision, and Dahua solutions across the Middle East. Trusted for quality and reliability, we deliver advanced security systems tailored to your needs";
 const NAME = "Lovosis Technology";
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 
 const {
   title = ["Why Choose Lovosis?"],
@@ -49,6 +50,7 @@ const ListItemMarker: string = `<svg fill="none" viewBox="0 0 24 24" stroke-widt
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
+    // Original slug1 Organization (unchanged)
     {
       "@type": "Organization",
       "@id": "https://lovosis.com/#organization",
@@ -61,6 +63,8 @@ const structuredData = {
         "https://twitter.com/lovosis",
       ],
     },
+
+    // Original slug1 WebSite with added potentialAction
     {
       "@type": "WebSite",
       "@id": "https://lovosis.com/#website",
@@ -68,7 +72,11 @@ const structuredData = {
       name: "Lovosis Technology",
       publisher: { "@id": "https://lovosis.com/#organization" },
       inLanguage: "en-US",
+      // Added from slug2
+     
     },
+
+    // Original slug1 ImageObject (unchanged)
     {
       "@type": "ImageObject",
       "@id": "https://lovosis.com/pictures/lovosis.jpg",
@@ -77,6 +85,8 @@ const structuredData = {
       height: 200,
       inLanguage: "en-US",
     },
+
+    // Original slug1 BreadcrumbList (unchanged)
     {
       "@type": "BreadcrumbList",
       "@id": "https://lovosis.com/#breadcrumb",
@@ -99,6 +109,8 @@ const structuredData = {
         },
       ],
     },
+
+    // Original slug1 WebPage with added description and breadcrumb
     {
       "@type": "WebPage",
       "@id": "https://lovosis.com/about/#webpage",
@@ -110,12 +122,30 @@ const structuredData = {
       isPartOf: { "@id": "https://lovosis.com/#website" },
       primaryImageOfPage: { "@id": "https://lovosis.com/pictures/lovosis.jpg" },
       inLanguage: "en-US",
+      // Added from slug2
+      description: "Learn about Lovosis Technology's expertise in security systems and solutions",
+      breadcrumb: { "@id": "https://lovosis.com/#breadcrumb" }
     },
+
+    // Added AboutPage from slug2
+    {
+      "@type": "AboutPage",
+      "@id": "https://lovosis.com/about/#aboutpage",
+      url: "https://lovosis.com/about",
+      name: "About Lovosis Technology - Security Solutions Provider",
+      description: "Professional security system solutions provider in UAE and Middle East",
+      isPartOf: { "@id": "https://lovosis.com/about/#webpage" },
+      inLanguage: "en-US"
+    },
+
+    // Original slug1 Person with added jobTitle
     {
       "@type": "Person",
       "@id": "https://lovosis.com/about/#person",
       name: "Gafoor T.C",
       url: "https://lovosis.com/about",
+      // Added from slug2
+      jobTitle: "CEO & Founder",
       image: {
         "@type": "ImageObject",
         "@id": "https://lovosis.com/pictures/team/profile%20Gafoor.jpg",
@@ -123,17 +153,31 @@ const structuredData = {
         caption: "Gafoor TC",
         inLanguage: "en-US",
       },
-      sameAs: [
-        "https://www.linkedin.com/in/gafoor",
-        "https://twitter.com/gafoor",
-      ],
+    
       worksFor: { "@id": "https://lovosis.com/#organization" },
     },
+
+    // Added ItemList from slug2
+    {
+      "@type": "ItemList",
+      itemListElement: [{
+        "@type": "ListItem",
+        position: 1,
+        item: {
+          "@type": "Person",
+          name: "Gafoor T.C",
+          jobTitle: "CEO & Founder",
+          image: "https://lovosis.com/pictures/team/profile%20Gafoor.jpg",
+          worksFor: { "@id": "https://lovosis.com/#organization" }
+        }
+      }]
+    },
+
+    // Original slug1 Article (unchanged)
     {
       "@type": "Article",
       headline: "About Lovosis Technology - Leading Security System Supplier",
-      keywords:
-        "security systems, UNV, Hikvision, Dahua, Dubai, UAE, Middle East",
+      keywords: "security systems, UNV, Hikvision, Dahua, Dubai, UAE, Middle East",
       datePublished: "2024-02-05T11:26:39+00:00",
       dateModified: "2025-12-12T19:17:19+00:00",
       author: {
@@ -141,8 +185,7 @@ const structuredData = {
         name: "Johns Abraham",
       },
       publisher: { "@id": "https://lovosis.com/#organization" },
-      description:
-        "Lovosis Technology is a trusted supplier and exporter of UNV, Hikvision, and Dahua security systems across the Middle East. Learn more about our expertise and solutions.",
+      description: "Lovosis Technology is a trusted supplier and exporter of UNV, Hikvision, and Dahua security systems across the Middle East. Learn more about our expertise and solutions.",
       name: "About Lovosis Technology",
       "@id": "https://lovosis.com/about/#richSnippet",
       isPartOf: { "@id": "https://lovosis.com/about/#webpage" },
@@ -201,7 +244,7 @@ const structuredData = {
   }
 </style>
 
-<MainLayout title={pageTitle} sd={structuredData} description={description}>
+<MainLayout title={pageTitle} sd={structuredData} description={description} canonical={canonicalUrl} >
   <section
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   >
