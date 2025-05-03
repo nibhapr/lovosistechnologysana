@@ -12,7 +12,37 @@ const description =
 const abtitle: string = "UNV Smart Interactive Display";
 const absubTitle: string =
   "Experience the future of interactive learning with our UNV smart interactive display models";
+  const canonicalUrl = new URL('/unidisplay', Astro.site).toString();
+  const metaTags = [
+  // Basic SEO
+  { name: "title", content: pageTitle },
+  { name: "description", content: description },
+  {
+    name: "keywords",
+    content: "Uniarch Dubai Price, Bulk CCTV UAE, Commercial Security Dubai, AI Surveillance UAE, Night Vision Cameras Dubai, Access Control Systems, Wholesale Security Middle East"
+  },
+  { name: "robots", content: "index, follow" },
 
+  // Open Graph/Facebook
+
+  // Geo Tags
+  { name: "geo.region", content: "AE-DU" },
+  { name: "geo.placename", content: "Dubai" },
+  { name: "geo.position", content: "25.276987;55.296249" },
+  { name: "ICBM", content: "25.276987, 55.296249" },
+
+  // Canonical
+  { name: "canonical", content: `${Astro.url.origin}/uniarch` },
+
+
+  // Contact Information
+  { name: "contact", content: "sales@lovosis.com" },
+  { name: "telephone", content: "+971509162488" },
+  
+  // Publisher Information
+  { name: "author", content: "Lovosis Technology L.L.C" },
+  { name: "publisher", content: "Lovosis Technology L.L.C" }
+];
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
@@ -97,6 +127,7 @@ const structuredData = {
     },
   ],
 };
+
 ---
 
 <style>
@@ -146,7 +177,7 @@ const structuredData = {
   }
 </style>
 
-<MainLayout title={pageTitle} sd={structuredData} description={description}>
+<MainLayout title={pageTitle} sd={structuredData} metaTags={metaTags}  description={description} canonical={canonicalUrl} >
   <section
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   >

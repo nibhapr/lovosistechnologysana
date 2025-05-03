@@ -13,6 +13,7 @@ const description =
 const abtitle: string = "UniArch Security Cameras in Dubai";
 const absubTitle: string =
   "Discover Lovosis, Dubai's authorized supplier of premium UniArch surveillance solutions.";
+  const canonicalUrl = new URL('/uniarch', Astro.site).toString();
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -68,19 +69,62 @@ const structuredData = {
         },
       ],
     },
-    cameraData.map((p) => {
-      return {
-        "@type": "ImageObject",
-        contentUrl: Astro.url + p.image,
-        creditText: p.title,
-        creator: {
-          "@type": "Person",
-          name: "Digiimpact",
+    {
+      "@type": "ItemList",
+      itemListElement: cameraData.map((p) => ({
+        "@type": "ListItem",
+        position: p.title,
+        item: {
+          "@type": "Product",
+          name: p.title,
+          description: p.description,
+          image: `${Astro.url}${p.image}`,
+          review: {
+            "@type": "Review",
+            author: {
+              "@type": "Person",
+              name: p.author,
+            },
+            reviewRating: {
+              "@type": "Rating",
+              ratingValue: 4,
+              bestRating: 5,
+            },
+          },
+          brand: {
+            "@type": "Brand",
+            name: "UNV",
+          },
         },
-      };
-    }),
+      })),
+    },
+   
   ],
 };
+const metaTags = [
+  // Basic SEO
+  { name: "title", content: pageTitle },
+  { name: "description", content: description },
+  {
+    name: "keywords",
+    content: "Uniarch Dubai Price, Bulk CCTV UAE, Commercial Security Dubai, AI Surveillance UAE, Night Vision Cameras Dubai, Access Control Systems, Wholesale Security Middle East"
+  },
+  { name: "robots", content: "index, follow" },
+  // Geo Tags
+  { name: "geo.region", content: "AE-DU" },
+  { name: "geo.placename", content: "Dubai" },
+  { name: "geo.position", content: "25.276987;55.296249" },
+  { name: "ICBM", content: "25.276987, 55.296249" },
+
+
+
+  { name: "contact", content: "sales@lovosis.com" },
+  { name: "telephone", content: "+971509162488" },
+  
+  
+  { name: "author", content: "Lovosis Technology L.L.C" },
+  { name: "publisher", content: "Lovosis Technology L.L.C" }
+];
 ---
 
 <style>
@@ -130,7 +174,7 @@ const structuredData = {
   }
 </style>
 
-<MainLayout title={pageTitle} sd={structuredData}>
+<MainLayout title={pageTitle} sd={structuredData} metaTags={metaTags} canonical={canonicalUrl}>
   <section
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   >

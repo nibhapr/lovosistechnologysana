@@ -11,7 +11,7 @@ const absubTitle: string =
 const NAME = "Lovosis Technology L.L.C U.A.E";
 const IMAGE = lovosis;
 const LOGO = logo;
-
+const canonicalUrl = new URL('/contact', Astro.site).toString();
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
@@ -156,7 +156,7 @@ const structuredData = {
     }
   }
 </style>
-<MainLayout title={pageTitle} sd={structuredData}>
+<MainLayout title={pageTitle} sd={structuredData} canonical={canonicalUrl}>
   <section
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   >

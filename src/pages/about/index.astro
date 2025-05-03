@@ -195,6 +195,59 @@ const structuredData = {
     },
   ],
 };
+const metaTags = [
+  // Primary Meta Tags
+  { 
+    name: "title", 
+    content: pageTitle 
+  },
+  {
+    name: "description",
+    content: `${description} Explore our 7,000+ successful installations and Dubai Police-approved solutions.`, },
+  {
+    name: "keywords",
+    content: "About Lovosis, Security Company UAE, Dubai CCTV Experts, Hikvision Partner Dubai, Dahua Installers UAE, UNV Thermal Solutions, Security System Exporters, Middle East Surveillance, Dubai Police Approved CCTV"
+  },
+
+
+  { 
+    property: "og:type", 
+    content: "profile" 
+  },
+  { 
+    property: "og:image:alt", 
+    content: "Lovosis Technology Team and Security Solutions Showcase"
+  },
+  { 
+    name: "twitter:image:alt", 
+    content: "Lovosis Leadership Team and Security System Installations"
+  },
+
+  { 
+    name: "business:contact_data:locality", 
+    content: "Dubai" 
+  },
+  { 
+    name: "business:contact_data:country_name", 
+    content: "United Arab Emirates" 
+  },
+  { 
+    name: "business:contact_data:website", 
+    content: "https://lovosis.com/" 
+  },
+  { 
+    name: "og:profile:username", 
+    content: "Gafoor T.C" 
+  },
+  { 
+    name: "og:profile:role", 
+    content: "CEO & Founder" 
+  },
+  { 
+    name: "og:profile:gender", 
+    content: "male" 
+  }
+];
 ---
 
 <style>
@@ -244,7 +297,7 @@ const structuredData = {
   }
 </style>
 
-<MainLayout title={pageTitle} sd={structuredData} description={description} canonical={canonicalUrl} >
+<MainLayout title={pageTitle} sd={structuredData} description={description} metaTags={metaTags} canonical={canonicalUrl} >
   <section
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   >
