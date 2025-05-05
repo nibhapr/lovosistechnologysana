@@ -4,6 +4,8 @@ import { SITE } from "@data/constants";
 import { Picture } from "astro:assets";
 import { ParseStatus } from "astro:schema";
 
+const canonicalUrl = new URL("/careers", Astro.site).toString();
+
 const baseClasses =
   "group relative inline-flex items-center justify-center gap-x-2 transform overflow-hidden rounded-lg px-6 py-3 text-sm font-bold text-white ring-zinc-500 transition-all duration-300 focus-visible:ring outline-none";
 
@@ -155,22 +157,222 @@ const structuredData = {
     };
   }),
 };
----
+const metaTags = [
+  // Basic SEO
+  {
+    name: "title",
+    content: "Careers at Lovosis Technology - Job Opportunities",
+  },
+  {
+    name: "description",
+    content:
+      "Explore career opportunities at Lovosis Technology LLC. Find job postings for various positions in the tech industry with competitive benefits.",
+  },
+  {
+    name: "keywords",
+    content:
+      "Tech Careers, IT Jobs, Software Engineering Positions, Lovosis Careers, Technology Jobs, Bengaluru Opportunities, Karnataka IT Jobs",
+  },
+  {
+    name: "robots",
+    content: "index, follow",
+  },
 
+  // Geo Tags (Note: Currently mixing UAE contact with IN location - verify preferred targeting)
+  {
+    name: "geo.region",
+    content: "IN-KA", // Karnataka, India (from your jobLocation)
+  },
+  {
+    name: "geo.placename",
+    content: "Bengaluru", // Match your jobLocation addressLocality
+  },
+  {
+    name: "geo.position",
+    content: "12.971599;77.594566", // Bengaluru coordinates
+  },
+  {
+    name: "ICBM",
+    content: "12.971599, 77.594566",
+  },
+
+  // Contact Information
+  {
+    name: "contact",
+    content: "info@lovosis.com",
+  },
+  {
+    name: "telephone",
+    content: "+971509162488",
+  },
+
+  // Organization Info
+  {
+    name: "author",
+    content: "Lovosis Technology LLC",
+  },
+  {
+    name: "publisher",
+    content: "Lovosis Technology LLC",
+  },
+
+  // Recommended additional tags
+  {
+    property: "og:type",
+    content: "website",
+  },
+  {
+    property: "og:image",
+    content: "https://lovosis.com/pictures/logo.png",
+  },
+];
+---
 <MainLayout title={pageTitle} sd={structuredData} description={description}>
-  <section
-    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
-  >
+  <style is:global>
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+    .animate-fade-in-up {
+      animation: fadeInUp 1.5s ease-out forwards;
+    }
+  
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  
+    .animate-fade-in-left {
+      animation: fadeInLeft 1.5s ease-out forwards;
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .animate-fade-in-right {
+      animation: fadeInRight 1.5s ease-out forwards;
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .animate-scale-in {
+      animation: scaleIn 1s ease-out forwards;
+    }
+
+    /* Scroll animation classes */
+    .scroll-animate {
+      opacity: 0;
+      transition: all 0.8s ease-out;
+    }
+
+    .scroll-animate.animate {
+      opacity: 1;
+      transform: translateY(0) !important;
+    }
+
+    .scroll-slide-up {
+      transform: translateY(50px);
+    }
+
+    .scroll-slide-left {
+      transform: translateX(-50px);
+    }
+
+    .scroll-slide-right {
+      transform: translateX(50px);
+    }
+
+    .scroll-scale-in {
+      transform: scale(0.95);
+    }
+
+    .scroll-rotate-in {
+      transform: rotate(-5deg) scale(0.95);
+    }
+
+    .delay-100 {
+      transition-delay: 100ms;
+    }
+
+    .delay-200 {
+      transition-delay: 200ms;
+    }
+
+    .delay-300 {
+      transition-delay: 300ms;
+    }
+
+    .delay-400 {
+      transition-delay: 400ms;
+    }
+
+    .delay-500 {
+      transition-delay: 500ms;
+    }
+  </style>
+
+<script>
+  // Intersection Observer for scroll animations
+  document.addEventListener('DOMContentLoaded', () => {
+    const animateOnScroll = (entries: any[], observer: { unobserve: (arg0: any) => void; }) => {
+      entries.forEach((entry: { isIntersecting: any; target: { classList: { add: (arg0: string) => void; }; }; }) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver(animateOnScroll, observerOptions);
+
+    document.querySelectorAll('.scroll-animate').forEach(el => {
+      observer.observe(el);
+    });
+  });
+</script>
+
+  <section class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full">
     <!-- Hero Section -->
-    <div
-      class="mb-20 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-700 p-5 text-center md:p-16"
-    >
-      <h1
-        class="animate-fade-in-left text-balance text-3xl font-bold tracking-tight dark:text-white md:text-6xl md:leading-tight"
-      >
+    <div class="mb-20 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-700 p-5 text-center md:p-16">
+      <h1 class="animate-fade-in-left text-balance text-3xl font-bold tracking-tight dark:text-white md:text-6xl md:leading-tight">
         Join Our Team
       </h1>
-      <p class="mx-auto mt-4 max-w-2xl text-xl text-white/90 dark:text-white">
+      <p class="mx-auto mt-4 max-w-2xl animate-fade-in-up text-xl text-white/90 animation-delay-300 dark:text-white">
         Be part of something extraordinary. Help us shape the future of
         technology in Dubai and beyond.
       </p>
@@ -178,112 +380,117 @@ const structuredData = {
 
     <!-- Current Openings -->
     <div class="mt-20">
-      <h2 class="mb-12 text-center text-3xl font-bold dark:text-white">
+      <h2 class="mb-12 scroll-animate scroll-slide-up text-center text-3xl font-bold dark:text-white">
         Current Opportunities
       </h2>
-      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {
-          careers.map((job) => (
-            <div class="rounded-xl bg-white p-6 shadow-lg transition-shadow hover:shadow-xl dark:bg-neutral-800">
-              <h3 class="text-xl font-semibold text-gray-800 dark:text-white">
-                {job.title}
-              </h3>
-              <div class="mt-2 flex items-center gap-2 text-gray-600 dark:text-gray-300">
-                <span>{job.type}</span>
-                <span>•</span>
-                <span>{job.location}</span>
-              </div>
-              <div class="mt-4 flex flex-wrap gap-2">
-                {job.skills.map((skill) => (
-                  <span class="bg-blue-100 text-blue-800 dark:bg-blue-900 rounded-full px-3 py-1 text-sm dark:text-white">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-              <div class="mt-4">
-                <h4 class="font-medium text-gray-700 dark:text-gray-300">
-                  Qualifications:
-                </h4>
-                <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                  {job.qualifications}
-                </p>
-              </div>
-              <a
-  class={`${baseClasses} ${borderClasses} ${bgColorClasses} ${disableClasses} ${fontSizeClasses} ${ringClasses} ${beforeEffect} mt-6 h-9 block w-full rounded-lg bg-gradient-to-r from-orange-500 to-indigo-600 text-center text-white transition-colors text-sm`}
-  href={`mailto:${job.email}?subject=Job Application - ${job.title}`}
->
-<span class="text-sm font-sans font-normal">Apply Now</span>
-
-
-</a>
-
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-8">
+        {careers.map((job, index) => (
+          <div 
+            class="scroll-animate scroll-slide-up relative rounded-xl bg-white p-4 shadow-lg transition-all duration-300 ease-in-out 
+                    transform hover:scale-[1.02] hover:shadow-xl hover:z-10 
+                    dark:bg-neutral-800 dark:hover:shadow-neutral-700/30
+                    sm:p-6"
+            style={`transition-delay: ${index * 100}ms`}
+          >
+            <h3 class="text-lg font-semibold text-gray-800 dark:text-white sm:text-xl">
+              {job.title}
+            </h3>
+            
+            <div class="mt-2 flex flex-col gap-1 text-gray-600 dark:text-gray-300 sm:flex-row sm:items-center sm:gap-2">
+              <span class="text-sm sm:text-base">{job.type}</span>
+              <span class="hidden sm:inline">•</span>
+              <span class="text-sm sm:text-base">{job.location}</span>
             </div>
-          ))
-        }
+      
+            <div class="mt-4 flex flex-wrap gap-2">
+              {job.skills.map((skill) => (
+                <span class="bg-blue-100 text-blue-800 dark:bg-blue-900 
+                           rounded-full px-2.5 py-0.5 text-xs sm:px-3 sm:py-1 sm:text-sm 
+                           dark:text-white/90 transition-colors">
+                  {skill}
+                </span>
+              ))}
+            </div>
+      
+            <div class="mt-4">
+              <h4 class="text-base font-medium text-gray-700 dark:text-gray-300 sm:text-sm">
+                Qualifications:
+              </h4>
+              <p class="mt-1 text-sm text-gray-600 line-clamp-3 dark:text-gray-400">
+                {job.qualifications}
+              </p>
+            </div>
+      
+            <a
+              class={`${baseClasses} ${borderClasses} ${bgColorClasses} ${disableClasses} 
+                     ${fontSizeClasses} ${ringClasses} ${beforeEffect}
+                     mt-6 block h-9 w-full rounded-lg 
+                     bg-gradient-to-r from-orange-500 to-indigo-600 
+                     text-center text-sm text-white transition-colors`}
+              href={`mailto:${job.email}?subject=Job Application - ${job.title}`}
+            >
+              <span class="font-sans text-sm font-normal">Apply Now</span>
+            </a>
+          </div>
+        ))}
       </div>
     </div>
 
     <!-- Benefits Section -->
     <div class="relative mt-32">
-      <div
-        class="absolute inset-0 -z-10 bg-gradient-to-b from-gray-50/50 to-white dark:from-neutral-900/50 dark:to-neutral-900"
-      >
-      </div>
+      <div class="absolute inset-0 -z-10 bg-gradient-to-b from-gray-50/50 to-white dark:from-neutral-900/50 dark:to-neutral-900" />
       <div class="container mx-auto px-4">
         <div class="mx-auto mb-16 max-w-2xl text-center">
-          <h2 class="mb-4 text-4xl font-bold text-black dark:text-white">
+          <h2 class="mb-4 scroll-animate scroll-slide-up text-4xl font-bold text-black dark:text-white delay-100">
             Why Join Lovosis?
           </h2>
-
-          <p class="text-gray-600 dark:text-gray-400">
+          <p class="scroll-animate scroll-slide-up text-gray-600 dark:text-gray-400 delay-200">
             We offer more than just a job - we provide a career with growth
             opportunities and fantastic benefits
           </p>
         </div>
 
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {
-            benefits.map((benefit) => (
-              <div class="group relative mb-10 overflow-hidden rounded-xl bg-white p-8 shadow-md transition-shadow duration-300 hover:shadow-lg dark:bg-neutral-800">
-                <div
-                  class={`absolute left-0 top-0 h-full w-2 ${benefit.bgColor} rounded-l-xl bg-gradient-to-b`}
-                />
-                <div class="relative">
-                  <div class="dark:text-blue-400 mb-6 text-blue-600 transition-transform duration-300 group-hover:scale-110">
-                    <Fragment set:html={benefit.icon} />
-                  </div>
-                  <h3 class="mb-3 text-xl font-bold text-gray-900 dark:text-white">
-                    {benefit.title}
-                  </h3>
-                  <p class="text-gray-600 dark:text-gray-300">
-                    {benefit.description}
-                  </p>
+          {benefits.map((benefit, index) => (
+            <div 
+              class="scroll-animate scroll-scale-in group relative mb-10 overflow-hidden rounded-xl bg-white p-8 shadow-md transition-all duration-300 hover:shadow-lg dark:bg-neutral-800"
+              style={`transition-delay: ${index * 100 + 200}ms`}
+            >
+              <div
+                class={`absolute left-0 top-0 h-full w-2 ${benefit.bgColor} rounded-l-xl bg-gradient-to-b`}
+              />
+              <div class="relative">
+                <div class="dark:text-blue-400 mb-6 text-blue-600 transition-transform duration-300 group-hover:scale-110">
+                  <Fragment set:html={benefit.icon} />
                 </div>
+                <h3 class="mb-3 text-xl font-bold text-gray-900 dark:text-white">
+                  {benefit.title}
+                </h3>
+                <p class="text-gray-600 dark:text-gray-300">
+                  {benefit.description}
+                </p>
               </div>
-            ))
-          }
+            </div>
+          ))}
         </div>
       </div>
     </div>
 
-    <!-- Call to Action -->
-    <div class="mt-32 text-center">
-      <h2
-  class="mb-6 inline-block text-4xl font-bold text-black dark:text-white md:text-5xl"
->
-  Don't see a role that fits?
-</h2>
+    
+    
 
-      <p
-        class="mx-auto mb-12 max-w-2xl text-lg text-gray-600 dark:text-gray-300 md:text-xl"
-      >
+    <!-- Call to Action -->
+    <div class="mt-32 text-center scroll-animate scroll-scale-in delay-300">
+      <h2 class="mb-6 inline-block text-4xl font-bold text-black dark:text-white md:text-5xl">
+        Don't see a role that fits?
+      </h2>
+      <p class="mx-auto mb-12 max-w-2xl text-lg text-gray-600 dark:text-gray-300 md:text-xl">
         We're always looking for talented individuals who are passionate about
         technology and innovation. Share your story with us, and let's explore
         how we can grow together.
       </p>
-
       <a
-        class={`${baseClasses} ${borderClasses} ${bgColorClasses} ${disableClasses} ${fontSizeClasses} ${ringClasses} ${beforeEffect}`}
+        class={`${baseClasses} ${borderClasses} ${bgColorClasses} ${disableClasses} ${fontSizeClasses} ${ringClasses} ${beforeEffect} scroll-animate scroll-slide-up `}
         href="mailto:sales@lovosis.com?subject=Job Application - Resume Submission"
       >
         Send Your Resume

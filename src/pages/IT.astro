@@ -8,24 +8,75 @@ interface Props {
   subTitle?: string;
   benefits?: Array<string>;
 }
-
+const canonicalUrl = new URL("/IT", Astro.site).toString();
 const abtitle: string = "IT Solution In Dubai";
 const absubTitle: string ="Discover Lovosis, Dubai's authorized supplier of top-quality Surveillance & IT Solution."
-const structuredData={
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": "https://lovosis.com/about",
-    "url": "https://lovosis.com/about",
-    "name": "IT Solution | Lovosis",
-    "description": "Discover Lovosis, Dubai's authorized supplier of top-quality Surveillance & IT Solution. Learn about our commitment to excellence in the UAE construction industry.",
-    "isPartOf": {
-      "@type": "WebSite",
-      "url": "https://lovosis.com",
-      "name": "Lovosis",
-      "description": "Custom Fabrication & Surveillance Solution Provider In Dubai, United Arab Emirates."
-    },
-    "inLanguage": "en-US"
+// Enhanced Structured Data
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "ITService"],
+  "@id": "https://lovosis.com/IT",
+  "url": canonicalUrl,
+  "name": "Lovosis IT Solutions Dubai",
+  "description": "Dubai's premier provider of enterprise IT solutions & managed services. Expert network security, cloud solutions & IT infrastructure support in UAE.",
+  "logo": "https://lovosis.com/pictures/logo.png",
+  "telephone": "+971-50-916-2488",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Satellite Market Naif Deira, Baghlaf Building Showroom No.5",
+    "addressLocality": "Dubai",
+    "addressRegion": "Dubai",
+    "postalCode": "123421",
+    "addressCountry": "AE"
+  },
+  "priceRange": "$$-$$$",
+  "areaServed": ["Dubai", "UAE"],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "IT Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Cloud Solutions",
+          "description": "Secure cloud migration & management services"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Network Security",
+          "description": "Enterprise-grade cybersecurity solutions"
+        }
+      }
+    ]
   }
+};
+
+// Updated Meta Tags
+const metaTags = [
+  { 
+    name: "title", 
+    content: pageTitle 
+  },
+  { 
+    name: "description", 
+    content: "Dubai's leading IT service provider offering custom solutions, cloud services & 24/7 support. Enhance your business technology with certified experts." 
+  },
+  { 
+    name: "keywords", 
+    content: "IT Solutions Dubai, Managed IT Services, Cloud Solutions UAE, Network Security Dubai, Tech Support Dubai, IT Infrastructure, Cybersecurity UAE" 
+  },
+  { name: "robots", content: "index, follow" },
+  { name: "geo.region", content: "AE-DU" },
+  { name: "geo.placename", content: "Dubai" },
+  { name: "ICBM", content: "25.276987, 55.296249" },
+  { name: "contact", content: "sales@lovosis.com" },
+  { name: "telephone", content: "+971509162488" },
+  { name: "author", content: "Lovosis Technology L.L.C" }
+];
 ---
 
 <style>
@@ -79,7 +130,7 @@ const structuredData={
 
 <MainLayout
   title={pageTitle} sd={structuredData}
-
+  meta={metaTags} canonical={canonicalUrl}
 >
 
 
