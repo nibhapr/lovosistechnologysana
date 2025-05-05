@@ -14,6 +14,7 @@ const events: CollectionEntry<"event">[] = (await getCollection("event")).sort(
     a.data.id - b.data.id
 );
 const { event } = Astro.props as { event: CollectionEntry<"event"> };
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString();
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -75,6 +76,37 @@ const structuredData = {
     },
   ],
 };
+const metaTags = [
+  { 
+    name: "pageTitle", 
+    content: `${event.data.title} | Dahua Diamond Partner Event` 
+  },
+  {
+    name: "description",
+    content: `${event.data.description} | Official Dahua Technology Diamond Partnership ceremony in Dubai with exclusive product showcase`,
+  },
+  {
+    name: "keywords",
+    content: `Dahua event, security conference Dubai, surveillance technology exhibition, Dahua partnership, Lovosis event, security solutions UAE, professional surveillance conference, business security showcase`,
+  },
+  { name: "robots", content: "index, follow" },
+  { property: "og:title", content: event.data.title },
+  { property: "og:description", content: event.data.description },
+  { property: "og:image", content: event.data.eventImage.src },
+  { property: "og:type", content: "website" },
+  { property: "og:locale", content: "en_AE" },
+  { property: "og:locale:alternate", content: "ar_AE" },
+  { property: "og:url", content: new URL(Astro.url.pathname, Astro.site).toString() },
+  { name: "twitter:card", content: "summary_large_image" },
+  { name: "twitter:title", content: event.data.title },
+  { name: "twitter:description", content: event.data.description },
+  { name: "twitter:image", content: event.data.eventImage.src },
+  { name: "geo.region", content: "AE" },
+  { name: "geo.placename", content: "Dubai" },
+  { name: "geo.position", content: "25.276987;55.296249" },
+  { name: "ICBM", content: "25.276987, 55.296249" },
+];
+
 ---
 
 <style>
@@ -131,6 +163,8 @@ const structuredData = {
   title={event.data.title}
   description={event.data.description}
   sd={structuredData}
+  metaTags={metaTags}
+  canonical={canonicalUrl}
 >
   <main class="bg-white dark:bg-neutral-900">
     <section

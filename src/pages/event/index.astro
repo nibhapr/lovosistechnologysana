@@ -10,40 +10,108 @@ const eventsPost: CollectionEntry<"event">[] = (
   (a: CollectionEntry<"event">, b: CollectionEntry<"event">) =>
     b.data.startDate.valueOf() - a.data.startDate.valueOf()
 );
-
+const pageTitle = "Lovosis Technology L.L.C | Events | Official Dahua Distributor in Dubai";
+const description = "Upcoming events from Lovosis Technology, official Dahua distributor in Dubai. Professional CCTV installation, security system workshops, and technology exhibitions.";
+const canonicalUrl = `${Astro.url.origin}/events`;
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  itemListElement: eventsPost.map((p: CollectionEntry<"event">) => {
-    return {
-      "@type": "ListItem",
-      position: p.data.id,
-      url: `${Astro.url.origin}/event/${p.slug} `,
-      description: p.data.description,
-      startDate: p.data.startDate,
-      endDate: p.data.endDate,
-      name: p.data.title,
-      image: "name",
-      location: {
-        "@type": "Place",
-        name: p.data.location,
-        address: p.data.address,
-      },
-
-      offers: {
-        "@type": "Offer",
-        priceCurrency: "AE",
-        availability: "https://schema.org/InStock",
-      },
-    };
-  }),
+  itemListElement: eventsPost.map((p: CollectionEntry<"event">) => ({
+    "@type": "ListItem",
+    position: p.data.id,
+    url: `${Astro.url.origin}/event/${p.slug}`,
+    description: p.data.description,
+    startDate: p.data.startDate,
+    endDate: p.data.endDate,
+    name: p.data.title,
+    image: `${Astro.url.origin}/images/events/${p.slug}.jpg`,
+    location: {
+      "@type": "Place",
+      name: p.data.location,
+      address: p.data.address,
+    },
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "AED",
+      availability: "https://schema.org/InStock",
+    },
+  })),
+   
 };
+const metaTags = [
+  // === Basic Meta Tags ===
+  {
+    name: "pageTitle",
+    content: `${pageTitle} | Dahua distributor in Dubai`
+  },
+  {
+    name: "description",
+    content: `${description} | Official Dahua distributor in Dubai with professional installation and support`
+  },
+  {
+    name: "keywords",
+    content: `Dahua security cameras, Dahua DVR, Dahua NVR, IP cameras Dubai, CCTV installation Dubai, security systems UAE, professional surveillance, business security solutions`
+  },
+  {
+    name: "robots",
+    content: "index, follow"
+  },
+
+  // === OpenGraph (Facebook/LinkedIn) ===
+  {
+    property: "og:title",
+    content: pageTitle
+  },
+  {
+    property: "og:description",
+    content: description
+  },
+  {
+    property: "og:image",
+    content: `${Astro.url.origin}/pictures/dahua-partner.jpg`
+  },
+  {
+    property: "og:type",
+    content: "website"
+  },
+  {
+    property: "og:locale",
+    content: "en_AE"
+  },
+  {
+    property: "og:locale:alternate",
+    content: "ar_AE"
+  },
+
+
+
+
+  {
+    name: "geo.region",
+    content: "AE"
+  },
+  {
+    name: "geo.placename",
+    content: "Dubai"
+  },
+  {
+    name: "geo.position",
+    content: "25.276987;55.296249"
+  },
+  {
+    name: "ICBM",
+    content: "25.276987, 55.296249"
+  }
+];
 ---
-<MainLayout
-  title="Lovosis Technology L.L.C | Events"
-  description="Lovosis Technology L.L.C Events"
-  sd={structuredData}
->
+<MainLayout 
+  title={pageTitle} 
+  description={description} 
+  sd={structuredData} 
+  metaTags={metaTags}
+  canonical={canonicalUrl}
+ >
+
   <style is:global>
     /* Animation for the entire grid */
     .events-grid {
