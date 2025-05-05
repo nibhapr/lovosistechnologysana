@@ -83,7 +83,7 @@ const { title, subTitle } = Astro.props;
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.style.filter = 'blur(0)';
+          (entry.target as HTMLElement).style.filter = 'blur(0)';
         }
       });
     });
