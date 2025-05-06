@@ -55,20 +55,31 @@ const isBrandsActive = brandPaths.some(path => pathname.includes(path));
 
         <!-- DAHUA -->
         <a
-          class={`group flex flex-col items-center gap-x-5 rounded-lg border border-blue-600 p-2 ${pathname === '/dahua' ? 'bg-blue-50 text-blue-600 dark:bg-neutral-700' : 'hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10'} md:p-4`}
-          href="/alhua"
-          onmouseover="hoverDetails('/pictures/logo.png', 'solution2')"
-        >
-          <img
-            src="/pictures/Brand Logo/dahua.png"
-            alt="DAHUA"
-            class="h-6 w-20 md:w-32"
-          />
-          <p class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === '/dahua' ? 'text-blue-600' : 'text-blue-600 decoration-2 hover:underline dark:text-teal-600'} md:mt-3`}>
-            Learn more
-            <Icon name="arrowRight" />
-          </p>
-        </a>
+        class={`group flex flex-col items-center gap-x-5 rounded-lg border border-blue-600 p-2 ${pathname === '/westerdigital' ? 'bg-blue-50 text-blue-600 dark:bg-neutral-700' : 'hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10'} md:p-4`}
+        href="/westerdigital"
+        onmouseover="hoverDetails('/pictures/p1.png', 'solution1')"
+      >
+      <div class="logo-container">
+        <img 
+          src="/pictures/Brand Logo/Western Digital (4).png"
+          alt="Western Digital" 
+          class="h-auto w-full md:w-32 logo-light"
+          
+        />
+        <img 
+          src="/pictures/Brand Logo/westerndark.png"
+          alt="Western Digital" 
+          class="h-auto w-full md:w-32 logo-dark"
+          
+        />
+        <p class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === '/westerdigital' ? 'text-blue-600' : 'text-blue-600 decoration-2 hover:underline dark:text-teal-600'} md:mt-3`}>
+          Learn more
+          <Icon name="arrowRight" />
+        </p>
+      </div>
+       
+      </a>
+
 
         <!-- Repeat similar pattern for other brand links -->
         <!-- IMOU -->
@@ -113,7 +124,7 @@ const isBrandsActive = brandPaths.some(path => pathname.includes(path));
         >
         <div class="logo-container">
           <img 
-            src="/pictures/Brand Logo/western4.png"
+            src="/pictures/Brand Logo/Western Digital (4).png"
             alt="Western Digital" 
             class="h-auto w-full md:w-32 logo-light"
             
