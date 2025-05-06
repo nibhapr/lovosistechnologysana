@@ -36,16 +36,43 @@ const { title, subTitle } = Astro.props;
   </h2>
 </div>
 <div class="mx-auto mb-12 w-full space-y-1 text-center md:hidden">
-  <h2 class="autoBLur fade-in-up text-balance text-5xl font-bold leading-tight text-neutral-800 dark:text-neutral-200">
+  <h2 class="animate-staggered-bounce text-balance text-5xl font-bold leading-tight text-neutral-800 opacity-0 dark:text-neutral-200">
     Meet
   </h2>
-  <h2 class="autoBLur fade-in-up text-balance text-5xl font-bold leading-tight text-neutral-800 dark:text-neutral-200">
+  <h2 class="animate-staggered-bounce text-balance text-5xl font-bold leading-tight text-neutral-800 opacity-0 dark:text-neutral-200">
     Our
   </h2>
-  <h2 class="autoBLur fade-in-up text-balance text-5xl font-bold leading-tight text-neutral-800 dark:text-neutral-200">
+  <h2 class="animate-staggered-bounce text-balance text-5xl font-bold leading-tight text-neutral-800 opacity-0 dark:text-neutral-200">
     Brands
   </h2>
 </div>
+
+<style>
+  @keyframes staggered-bounce {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    60% {
+      transform: translateY(-10px);
+    }
+    80% {
+      transform: translateY(5px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-staggered-bounce {
+    animation: staggered-bounce 0.8s ease-out forwards;
+  }
+
+  .animate-staggered-bounce:nth-child(1) { animation-delay: 0.2s; }
+  .animate-staggered-bounce:nth-child(2) { animation-delay: 0.4s; }
+  .animate-staggered-bounce:nth-child(3) { animation-delay: 0.6s; }
+</style>
 
 <div class="mt-5 grid gap-8 lg:mt-16 lg:grid-cols-2 lg:gap-6">
   <div class="w-full lg:col-span-1">
