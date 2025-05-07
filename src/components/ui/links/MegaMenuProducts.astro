@@ -31,13 +31,13 @@ const isBrandsActive = brandPaths.some(path => pathname.includes(path));
   </button>
 
   <div
-    class="hs-dropdown-menu start-0 top-full z-10 hidden w-full min-w-60 rounded-2xl bg-neutral-50 py-2 opacity-0 transition-[opacity,margin] duration-300 ease-in-out before:absolute before:-top-5 before:start-0 before:h-5 before:w-full hs-dropdown-open:opacity-100 dark:divide-neutral-700 dark:bg-neutral-800 md:top-16 md:p-4 md:shadow-2xl md:duration-300"
+    class="hs-dropdown-menu start-0 top-full z-10 hidden w-full min-w-60 rounded-2xl bg-neutral-50 py-2 px-2 opacity-0 transition-[opacity,margin] duration-300 ease-in-out before:absolute before:-top-5 before:start-0 before:h-5 before:w-full hs-dropdown-open:opacity-100 dark:divide-neutral-700 dark:bg-neutral-800 md:top-16 md:p-4 md:shadow-2xl md:duration-300"
   >
     <div class="gap-4 items-center md:grid md:grid-cols-1 lg:grid-cols-1">
-      <div class="mx-1 grid grid-cols-2 sm:grid-cols-3 gap-2 md:mx-0 md:flex md:flex-wrap md:gap-3">
+      <div class="mx-1 grid grid-cols-3 grid-rows-3 gap-2 md:mx-0 md:flex md:flex-wrap md:gap-3">
         <!-- UNIVIEW -->
         <a
-          class={`group flex flex-col items-center gap-x-3 rounded-lg border border-blue-600 p-2 ${pathname === '/uniview' ? 'bg-blue-50 text-blue-600 dark:bg-neutral-700' : 'hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10'} md:p-4`}
+          class={`group flex flex-col items-center justify-center gap-x-3 rounded-lg border border-blue-600 p-1 ${pathname === '/uniview' ? 'bg-blue-50 text-blue-600 dark:bg-neutral-700' : 'hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10'} md:p-4`}
           title="UNV authorized distributor in U.A.E"
           href="/uniview"
           onmouseover="hoverDetails('/pictures/Brand Logo/unv2.png', 'solution2')"
