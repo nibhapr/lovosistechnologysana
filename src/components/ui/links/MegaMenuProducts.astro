@@ -34,10 +34,10 @@ const isBrandsActive = brandPaths.some(path => pathname.includes(path));
     class="hs-dropdown-menu start-0 top-full z-10 hidden w-full min-w-60 rounded-2xl bg-neutral-50 py-2 opacity-0 transition-[opacity,margin] duration-300 ease-in-out before:absolute before:-top-5 before:start-0 before:h-5 before:w-full hs-dropdown-open:opacity-100 dark:divide-neutral-700 dark:bg-neutral-800 md:top-16 md:p-4 md:shadow-2xl md:duration-300"
   >
     <div class="gap-4 items-center md:grid md:grid-cols-1 lg:grid-cols-1">
-      <div class="mx-1 grid grid-cols-3 gap-2 md:mx-0 md:flex md:flex-wrap md:gap-3">
+      <div class="mx-1 grid grid-cols-2 sm:grid-cols-3 gap-2 md:mx-0 md:flex md:flex-wrap md:gap-3">
         <!-- UNIVIEW -->
         <a
-          class={`group flex flex-col items-center gap-x-5 rounded-lg border border-blue-600 p-2 ${pathname === '/uniview' ? 'bg-blue-50 text-blue-600 dark:bg-neutral-700' : 'hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10'} md:p-4`}
+          class={`group flex flex-col items-center gap-x-3 rounded-lg border border-blue-600 p-2 ${pathname === '/uniview' ? 'bg-blue-50 text-blue-600 dark:bg-neutral-700' : 'hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10'} md:p-4`}
           title="UNV authorized distributor in U.A.E"
           href="/uniview"
           onmouseover="hoverDetails('/pictures/Brand Logo/unv2.png', 'solution2')"
@@ -45,9 +45,9 @@ const isBrandsActive = brandPaths.some(path => pathname.includes(path));
           <img
             src="/pictures/Brand Logo/unv2.png"
             alt="UNIVIEW"
-            class="h-6 w-6 md:w-32"
+            class="h-5 w-16 md:h-6 md:w-32"
           />
-          <p class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === '/uniview' ? 'text-blue-600' : 'text-blue-600 decoration-2 hover:underline dark:text-teal-600'} md:mt-3`}>
+          <p class={`mt-1 inline-flex items-center gap-x-1 text-xs md:text-sm font-medium ${pathname === '/uniview' ? 'text-blue-600' : 'text-blue-600 decoration-2 hover:underline dark:text-teal-600'} md:mt-3`}>
             Learn more
             <Icon name="arrowRight" />
           </p>
@@ -55,7 +55,7 @@ const isBrandsActive = brandPaths.some(path => pathname.includes(path));
 
         <!-- DAHUA -->
         <a
-        class={`group flex flex-col items-center gap-x-5 rounded-lg border border-blue-600 p-2 ${pathname === '/alhua' ? 'bg-blue-50 text-blue-600 dark:bg-neutral-700' : 'hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10'} md:p-4`}
+        class={`group flex flex-col items-center gap-x-3 rounded-lg border border-blue-600 p-2 ${pathname === '/alhua' ? 'bg-blue-50 text-blue-600 dark:bg-neutral-700' : 'hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10'} md:p-4`}
         href="/alhua"
         onmouseover="hoverDetails('/pictures/p1.png', 'solution1')"
       >
@@ -63,16 +63,14 @@ const isBrandsActive = brandPaths.some(path => pathname.includes(path));
         <img 
           src="/pictures/Brand Logo/dahua.png"
           alt="Western Digital" 
-          class="h-6 w-6 md:w-32 logo-light"
-          
+          class="h-5 w-16 md:h-6 md:w-32 logo-light"
         />
         <img 
           src="/pictures/Brand Logo/dahuanightmode.png"
           alt="Western Digital" 
-          class="h-6 w-6 md:w-32 logo-dark"
-          
+          class="h-5 w-16 md:h-6 md:w-32 logo-dark"
         />
-        <p class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === '/westerdigital' ? 'text-blue-600' : 'text-blue-600 decoration-2 hover:underline dark:text-teal-600'} md:mt-3`}>
+        <p class={`mt-1 inline-flex items-center gap-x-1 text-xs md:text-sm font-medium ${pathname === '/westerdigital' ? 'text-blue-600' : 'text-blue-600 decoration-2 hover:underline dark:text-teal-600'} md:mt-3`}>
           Learn more
           <Icon name="arrowRight" />
         </p>
@@ -84,16 +82,16 @@ const isBrandsActive = brandPaths.some(path => pathname.includes(path));
         <!-- Repeat similar pattern for other brand links -->
         <!-- IMOU -->
         <a
-          class={`group flex flex-col items-center gap-x-5 rounded-lg border border-blue-600 p-2 ${pathname === '/imou' ? 'bg-blue-50 text-blue-600 dark:bg-neutral-700' : 'hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10'} md:p-4`}
+          class={`group flex flex-col items-center gap-x-3 rounded-lg border border-blue-600 p-2 ${pathname === '/imou' ? 'bg-blue-50 text-blue-600 dark:bg-neutral-700' : 'hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10'} md:p-4`}
           href="/imou"
           onmouseover="hoverDetails('/pictures/UNV.png', 'solution2')"
         >
           <img
             src="/pictures/Brand Logo/Imou.png"
             alt="IMOU"
-            class="h-6 w-6 md:w-32"
+            class="h-5 w-16 md:h-6 md:w-32"
           />
-          <p class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === '/imou' ? 'text-blue-600' : 'text-blue-600 decoration-2 hover:underline dark:text-teal-600'} md:mt-3`}>
+          <p class={`mt-1 inline-flex items-center gap-x-1 text-xs md:text-sm font-medium ${pathname === '/imou' ? 'text-blue-600' : 'text-blue-600 decoration-2 hover:underline dark:text-teal-600'} md:mt-3`}>
             Learn more
             <Icon name="arrowRight" />
           </p>
@@ -101,16 +99,16 @@ const isBrandsActive = brandPaths.some(path => pathname.includes(path));
 
         <!-- HIKVISION -->
         <a
-          class={`group flex flex-col items-center gap-x-5 rounded-lg border border-blue-600 p-2 ${pathname === '/hikvision' ? 'bg-blue-50 text-blue-600 dark:bg-neutral-700' : 'hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10'} md:p-4`}
+          class={`group flex flex-col items-center gap-x-3 rounded-lg border border-blue-600 p-2 ${pathname === '/hikvision' ? 'bg-blue-50 text-blue-600 dark:bg-neutral-700' : 'hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10'} md:p-4`}
           href="/hikvision"
           onmouseover="hoverDetails('/pictures/Brand Logo/hikvision.png', 'solution1')"
         >
           <img
             src="/pictures/Brand Logo/logo.png"
             alt="HIKVISION"
-            class="h-6 w-6  md:w-32"
+            class="h-5 w-16 md:h-6 md:w-32"
           />
-          <p class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === '/hikvision' ? 'text-blue-600' : 'text-blue-600 decoration-2 hover:underline dark:text-teal-600'} md:mt-3`}>
+          <p class={`mt-1 inline-flex items-center gap-x-1 text-xs md:text-sm font-medium ${pathname === '/hikvision' ? 'text-blue-600' : 'text-blue-600 decoration-2 hover:underline dark:text-teal-600'} md:mt-3`}>
             Learn more
             <Icon name="arrowRight" />
           </p>
@@ -118,7 +116,7 @@ const isBrandsActive = brandPaths.some(path => pathname.includes(path));
 
         <!-- WESTERN DIGITAL -->
         <a
-          class={`group flex flex-col items-center gap-x-5 rounded-lg border border-blue-600 p-2 ${pathname === '/westerdigital' ? 'bg-blue-50 text-blue-600 dark:bg-neutral-700' : 'hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10'} md:p-4`}
+          class={`group flex flex-col items-center gap-x-3 rounded-lg border border-blue-600 p-2 ${pathname === '/westerdigital' ? 'bg-blue-50 text-blue-600 dark:bg-neutral-700' : 'hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10'} md:p-4`}
           href="/westerdigital"
           onmouseover="hoverDetails('/pictures/p1.png', 'solution1')"
         >
@@ -126,16 +124,14 @@ const isBrandsActive = brandPaths.some(path => pathname.includes(path));
           <img 
             src="/pictures/Brand Logo/Western Digital (4).png"
             alt="Western Digital" 
-            class="h-10 w-20 md:w-32 logo-light"
-            
+            class="h-5 w-16 md:h-10 md:w-32 logo-light"
           />
           <img 
             src="/pictures/Brand Logo/westerndark.png"
             alt="Western Digital" 
-            class="h-6 w-6 md:w-32 logo-dark"
-            
+            class="h-5 w-16 md:h-6 md:w-32 logo-dark"
           />
-          <p class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === '/westerdigital' ? 'text-blue-600' : 'text-blue-600 decoration-2 hover:underline dark:text-teal-600'} md:mt-3`}>
+          <p class={`mt-1 inline-flex items-center gap-x-1 text-xs md:text-sm font-medium ${pathname === '/westerdigital' ? 'text-blue-600' : 'text-blue-600 decoration-2 hover:underline dark:text-teal-600'} md:mt-3`}>
             Learn more
             <Icon name="arrowRight" />
           </p>
@@ -145,16 +141,16 @@ const isBrandsActive = brandPaths.some(path => pathname.includes(path));
 
         <!-- TOSHIBA -->
         <a
-          class={`group flex flex-col items-center gap-x-5 rounded-lg border border-blue-600 p-2 ${pathname === '/toshiba' ? 'bg-blue-50 text-blue-600 dark:bg-neutral-700' : 'hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10'} md:p-4`}
+          class={`group flex flex-col items-center gap-x-3 rounded-lg border border-blue-600 p-2 ${pathname === '/toshiba' ? 'bg-blue-50 text-blue-600 dark:bg-neutral-700' : 'hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10'} md:p-4`}
           href="/toshiba"
           onmouseover="hoverDetails('/pictures/logo.png', 'solution2')"
         >
           <img
             src="/pictures/Brand Logo/toshiba1.png"
             alt="TOSHIBA"
-            class="h-6 w-6 md:w-28"
+            class="h-5 w-16 md:h-6 md:w-28"
           />
-          <p class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === '/toshiba' ? 'text-blue-600' : 'text-blue-600 decoration-2 hover:underline dark:text-teal-600'} md:mt-3`}>
+          <p class={`mt-1 inline-flex items-center gap-x-1 text-xs md:text-sm font-medium ${pathname === '/toshiba' ? 'text-blue-600' : 'text-blue-600 decoration-2 hover:underline dark:text-teal-600'} md:mt-3`}>
             Learn more
             <Icon name="arrowRight" />
           </p>
@@ -162,16 +158,16 @@ const isBrandsActive = brandPaths.some(path => pathname.includes(path));
 
         <!-- SEAGATE -->
         <a
-          class={`group flex flex-col items-center gap-x-5 rounded-lg border border-blue-600 p-2 ${pathname === '/seagate' ? 'bg-blue-50 text-blue-600 dark:bg-neutral-700' : 'hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10'} md:p-4`}
+          class={`group flex flex-col items-center gap-x-3 rounded-lg border border-blue-600 p-2 ${pathname === '/seagate' ? 'bg-blue-50 text-blue-600 dark:bg-neutral-700' : 'hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10'} md:p-4`}
           href="/seagate"
           onmouseover="hoverDetails('/pictures/Brand Logo/seagate.png', 'solution1')"
         >
           <img
             src="/pictures/Brand Logo/seagate.png"
             alt="SEAGATE"
-            class="h-6 w-6 md:w-32"
+            class="h-5 w-16 md:h-6 md:w-32"
           />
-          <p class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === '/seagate' ? 'text-blue-600' : 'text-blue-600 decoration-2 hover:underline dark:text-teal-600'} md:mt-3`}>
+          <p class={`mt-1 inline-flex items-center gap-x-1 text-xs md:text-sm font-medium ${pathname === '/seagate' ? 'text-blue-600' : 'text-blue-600 decoration-2 hover:underline dark:text-teal-600'} md:mt-3`}>
             Learn more
             <Icon name="arrowRight" />
           </p>
@@ -179,16 +175,16 @@ const isBrandsActive = brandPaths.some(path => pathname.includes(path));
 
         <!-- UNIARCH -->
         <a
-          class={`group flex flex-col items-center gap-x-5 rounded-lg border border-blue-600 p-2 ${pathname === '/uniarch' ? 'bg-blue-50 text-blue-600 dark:bg-neutral-700' : 'hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10'} md:p-4`}
+          class={`group flex flex-col items-center gap-x-3 rounded-lg border border-blue-600 p-2 ${pathname === '/uniarch' ? 'bg-blue-50 text-blue-600 dark:bg-neutral-700' : 'hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10'} md:p-4`}
           href="/uniarch"
           onmouseover="hoverDetails('/pictures/Brand Logo/hikvision.png', 'solution1')"
         >
           <img
             src="/pictures/Brand Logo/uniarch.png"
             alt="UNIARCH"
-            class="h-6 w-6 md:w-32"
+            class="h-5 w-16 md:h-6 md:w-32"
           />
-          <p class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === '/uniarch' ? 'text-blue-600' : 'text-blue-600 decoration-2 hover:underline dark:text-teal-600'} md:mt-3`}>
+          <p class={`mt-1 inline-flex items-center gap-x-1 text-xs md:text-sm font-medium ${pathname === '/uniarch' ? 'text-blue-600' : 'text-blue-600 decoration-2 hover:underline dark:text-teal-600'} md:mt-3`}>
             Learn more
             <Icon name="arrowRight" />
           </p>
@@ -196,16 +192,16 @@ const isBrandsActive = brandPaths.some(path => pathname.includes(path));
 
         <!-- UNVDISPLAY -->
         <a
-          class={`group flex flex-col items-center gap-x-5 rounded-lg border border-blue-600 p-2 ${pathname === '/unvdisplay' ? 'bg-blue-50 text-blue-600 dark:bg-neutral-700' : 'hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10'} md:p-4`}
+          class={`group flex flex-col items-center gap-x-3 rounded-lg border border-blue-600 p-2 ${pathname === '/unvdisplay' ? 'bg-blue-50 text-blue-600 dark:bg-neutral-700' : 'hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-500/10'} md:p-4`}
           href="/unvdisplay"
           onmouseover="hoverDetails('/pictures/Brand Logo/unvdisplay.png', 'solution1')"
         >
           <img
             src="/pictures/Brand Logo/unvdisplay.png"
             alt="UNVDISPLAY"
-            class="h-6 w-6 md:w-32"
+            class="h-5 w-16 md:h-6 md:w-32"
           />
-          <p class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === '/unvdisplay' ? 'text-blue-600' : 'text-blue-600 decoration-2 hover:underline dark:text-teal-600'} md:mt-3`}>
+          <p class={`mt-1 inline-flex items-center gap-x-1 text-xs md:text-sm font-medium ${pathname === '/unvdisplay' ? 'text-blue-600' : 'text-blue-600 decoration-2 hover:underline dark:text-teal-600'} md:mt-3`}>
             Learn more
             <Icon name="arrowRight" />
           </p>
@@ -238,8 +234,10 @@ const isBrandsActive = brandPaths.some(path => pathname.includes(path));
   document.addEventListener('DOMContentLoaded', () => {
     // Hover details function
     window.hoverDetails = function(proSrc, proTitle) {
-      document.getElementById("products-img").src = proSrc;
-      document.getElementById("products-title").textContent = proTitle;
+      const productsImg = document.getElementById("products-img");
+      const productsTitle = document.getElementById("products-title");
+      if (productsImg) productsImg.src = proSrc;
+      if (productsTitle) productsTitle.textContent = proTitle;
     };
 
     // Brand path detection
@@ -262,6 +260,26 @@ const isBrandsActive = brandPaths.some(path => pathname.includes(path));
       attributes: true,
       attributeFilter: ['class']
     });
+    
+    // Additional mobile-specific handler
+    function handleMobileLayout() {
+      const isMobile = window.innerWidth < 768;
+      const brandLinks = document.querySelectorAll('.hs-dropdown-menu a');
+      
+      if (isMobile) {
+        brandLinks.forEach(link => {
+          // Ensure proper spacing and alignment on mobile
+          link.classList.add('justify-center');
+        });
+      } else {
+        brandLinks.forEach(link => {
+          link.classList.remove('justify-center');
+        });
+      }
+    }
+    
+    // Run on load and resize
+    handleMobileLayout();
+    window.addEventListener('resize', handleMobileLayout);
   });
 </script>
-
