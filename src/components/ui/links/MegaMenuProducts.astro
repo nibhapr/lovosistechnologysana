@@ -240,138 +240,180 @@ const isBrandsActive = brandPaths.some((path) => pathname.includes(path));
     </div>
 
     <!-- Mobile Version (hidden on PC) -->
-  <!-- Mobile Version Only - Optimized for High Resolution Displays -->
-<div class="block md:hidden">
-  <div class="grid grid-cols-3 gap-3 p-3">
-    <!-- UNIVIEW -->
-    <a class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10 transition-colors duration-200" href="/uniview">
-      <picture>
-        <source srcset="/pictures/Brand Logo/unv2@2x.png 2x, /pictures/Brand Logo/unv2.png 1x">
-        <img src="/pictures/Brand Logo/unv2.png" alt="UNIVIEW" class="h-10 w-10 object-contain" loading="lazy">
-      </picture>
-      <p class="mt-1 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 md:mt-3">
-        Learn more
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-        </svg>
-      </p>
-    </a>
+    <!-- Mobile Version Only -->
+    <div class="block md:hidden">
+      <div class="grid grid-cols-3 gap-2 p-2">
+        <!-- UNIVIEW -->
+        <a
+          class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
+          href="/uniview"
+        >
+          <img
+            src="/pictures/Brand Logo/unv2.png"
+            alt="UNIVIEW"
+            class="h-8 w-8"
+          />
+          <p
+            class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === "/uniview" ? "text-blue-600" : "text-blue-600 decoration-2 hover:underline dark:text-teal-600"} md:mt-3`}
+          >
+            Learn more
+            <Icon name="arrowRight" />
+          </p>
+        </a>
 
-    <!-- DAHUA -->
-    <a class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10 transition-colors duration-200" href="/alhua">
-      <picture>
-        <source srcset="/pictures/Brand Logo/dahuanightmode@2x.png 2x" media="(prefers-color-scheme: dark)">
-        <source srcset="/pictures/Brand Logo/dahua@2x.png 2x" media="(prefers-color-scheme: light)">
-        <img src="/pictures/Brand Logo/dahua.png" alt="DAHUA" class="h-10 w-10 object-contain" loading="lazy">
-      </picture>
-      <p class="mt-1 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 md:mt-3">
-        Learn more
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-        </svg>
-      </p>
-    </a>
+        <!-- DAHUA -->
+        <a
+          class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
+          href="/alhua"
+        >
+          <picture>
+            <source
+              srcset="/pictures/Brand Logo/dahuanightmode.png"
+              media="(prefers-color-scheme: dark)"
+            />
+            <img
+              src="/pictures/Brand Logo/dahua.png"
+              alt="DAHUA"
+              class="h-8 w-8"
+            />
+          </picture>
+          <p
+            class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === "/alhua" ? "text-blue-600" : "text-blue-600 decoration-2 hover:underline dark:text-teal-600"} md:mt-3`}
+          >
+            Learn more
+            <Icon name="arrowRight" />
+          </p>
+        </a>
 
-    <!-- IMOU -->
-    <a class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10 transition-colors duration-200" href="/imou">
-      <picture>
-        <source srcset="/pictures/Brand Logo/Imou@2x.png 2x, /pictures/Brand Logo/Imou.png 1x">
-        <img src="/pictures/Brand Logo/Imou.png" alt="IMOU" class="h-10 w-10 object-contain" loading="lazy">
-      </picture>
-      <p class="mt-1 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 md:mt-3">
-        Learn more
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-        </svg>
-      </p>
-    </a>
+        <!-- IMOU -->
+        <a
+          class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
+          href="/imou"
+        >
+          <img src="/pictures/Brand Logo/Imou.png" alt="IMOU" class="h-8 w-8" />
+          <p
+            class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === "/imou" ? "text-blue-600" : "text-blue-600 decoration-2 hover:underline dark:text-teal-600"} md:mt-3`}
+          >
+            Learn more
+            <Icon name="arrowRight" />
+          </p>
+        </a>
 
-    <!-- HIKVISION -->
-    <a class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10 transition-colors duration-200" href="/hikvision">
-      <picture>
-        <source srcset="/pictures/Brand Logo/logo@2x.png 2x, /pictures/Brand Logo/logo.png 1x">
-        <img src="/pictures/Brand Logo/logo.png" alt="HIKVISION" class="h-10 w-10 object-contain" loading="lazy">
-      </picture>
-      <p class="mt-1 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 md:mt-3">
-        Learn more
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-        </svg>
-      </p>
-    </a>
+        <!-- HIKVISION -->
+        <a
+          class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
+          href="/hikvision"
+        >
+          <img
+            src="/pictures/Brand Logo/logo.png"
+            alt="HIKVISION"
+            class="h-8 w-8"
+          />
+          <p
+            class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === "/hikvision" ? "text-blue-600" : "text-blue-600 decoration-2 hover:underline dark:text-teal-600"} md:mt-3`}
+          >
+            Learn more
+            <Icon name="arrowRight" />
+          </p>
+        </a>
 
-    <!-- WESTERN DIGITAL -->
-    <a class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10 transition-colors duration-200" href="/westerdigital">
-      <picture>
-        <source srcset="/pictures/Brand Logo/westerndark@2x.png 2x" media="(prefers-color-scheme: dark)">
-        <source srcset="/pictures/Brand Logo/Western Digital (4)@2x.png 2x" media="(prefers-color-scheme: light)">
-        <img src="/pictures/Brand Logo/Western Digital (4).png" alt="Western Digital" class="h-10 w-20 object-contain" loading="lazy">
-      </picture>
-      <p class="mt-1 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 md:mt-3">
-        Learn more
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-        </svg>
-      </p>
-    </a>
+        <!-- WESTERN DIGITAL -->
+        <a
+          class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
+          href="/westerdigital"
+        >
+          <picture>
+            <source
+              srcset="/pictures/Brand Logo/westerndark.png"
+              media="(prefers-color-scheme: dark)"
+            />
+            <img
+              src="/pictures/Brand Logo/Western Digital (4).png"
+              alt="Western Digital"
+              class="h-8 w-16"
+            />
+          </picture>
+          <p
+            class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === "/westerdigital" ? "text-blue-600" : "text-blue-600 decoration-2 hover:underline dark:text-teal-600"} md:mt-3`}
+          >
+            Learn more
+            <Icon name="arrowRight" />
+          </p>
+        </a>
 
-    <!-- TOSHIBA -->
-    <a class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10 transition-colors duration-200" href="/toshiba">
-      <picture>
-        <source srcset="/pictures/Brand Logo/toshiba1@2x.png 2x, /pictures/Brand Logo/toshiba1.png 1x">
-        <img src="/pictures/Brand Logo/toshiba1.png" alt="TOSHIBA" class="h-10 w-10 object-contain" loading="lazy">
-      </picture>
-      <p class="mt-1 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 md:mt-3">
-        Learn more
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-        </svg>
-      </p>
-    </a>
+        <!-- TOSHIBA -->
+        <a
+          class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
+          href="/toshiba"
+        >
+          <img
+            src="/pictures/Brand Logo/toshiba1.png"
+            alt="TOSHIBA"
+            class="h-8 w-8"
+          />
+          <p
+            class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === "/toshiba" ? "text-blue-600" : "text-blue-600 decoration-2 hover:underline dark:text-teal-600"} md:mt-3`}
+          >
+            Learn more
+            <Icon name="arrowRight" />
+          </p>
+        </a>
 
-    <!-- SEAGATE - Optimized with high-res versions -->
-    <a class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10 transition-colors duration-200" href="/seagate">
-      <picture>
-        <source srcset="/pictures/Brand Logo/seagate@2x.png 2x, /pictures/Brand Logo/seagate.png 1x">
-        <img src="/pictures/Brand Logo/seagate.png" alt="SEAGATE" class="h-10 w-10 object-contain" loading="lazy">
-      </picture>
-      <p class="mt-1 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 md:mt-3">
-        Learn more
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-        </svg>
-      </p>
-    </a>
+        <!-- SEAGATE -->
+        <a
+          class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
+          href="/seagate"
+        >
+          <img
+            src="/pictures/Brand Logo/seagate.png"
+            alt="SEAGATE"
+            class="h-8 w-8"
+          />
+          <p
+            class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === "/seagate" ? "text-blue-600" : "text-blue-600 decoration-2 hover:underline dark:text-teal-600"} md:mt-3`}
+          >
+            Learn more
+            <Icon name="arrowRight" />
+          </p>
+        </a>
 
-    <!-- UNIARCH -->
-    <a class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10 transition-colors duration-200" href="/uniarch">
-      <picture>
-        <source srcset="/pictures/Brand Logo/uniarch@2x.png 2x, /pictures/Brand Logo/uniarch.png 1x">
-        <img src="/pictures/Brand Logo/uniarch.png" alt="UNIARCH" class="h-10 w-10 object-contain" loading="lazy">
-      </picture>
-      <p class="mt-1 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 md:mt-3">
-        Learn more
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-        </svg>
-      </p>
-    </a>
+        <!-- UNIARCH -->
+        <a
+          class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
+          href="/uniarch"
+        >
+          <img
+            src="/pictures/Brand Logo/uniarch.png"
+            alt="UNIARCH"
+            class="h-8 w-8"
+          />
+          <p
+            class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === "/uniarch" ? "text-blue-600" : "text-blue-600 decoration-2 hover:underline dark:text-teal-600"} md:mt-3`}
+          >
+            Learn more
+            <Icon name="arrowRight" />
+          </p>
+        </a>
 
-    <!-- UNVDISPLAY -->
-    <a class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10 transition-colors duration-200" href="/unvdisplay">
-      <picture>
-        <source srcset="/pictures/Brand Logo/unvdisplay@2x.png 2x, /pictures/Brand Logo/unvdisplay.png 1x">
-        <img src="/pictures/Brand Logo/unvdisplay.png" alt="UNVDISPLAY" class="h-10 w-10 object-contain" loading="lazy">
-      </picture>
-      <p class="mt-1 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600 md:mt-3">
-        Learn more
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-        </svg>
-      </p>
-    </a>
-  </div>
-</div>
+        <!-- UNVDISPLAY -->
+        <a
+          class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
+          href="/unvdisplay"
+        >
+          <img
+            src="/pictures/Brand Logo/unvdisplay.png"
+            alt="UNVDISPLAY"
+            class="h-8 w-8"
+          />
+          <p
+            class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === "/unvdisplay" ? "text-blue-600" : "text-blue-600 decoration-2 hover:underline dark:text-teal-600"} md:mt-3`}
+          >
+            Learn more
+            <Icon name="arrowRight" />
+          </p>
+        </a>
+      </div>
+    </div>
   </div>
 </div>
 <script is:inline>
