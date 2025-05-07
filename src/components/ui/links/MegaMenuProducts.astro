@@ -208,17 +208,18 @@ const isBrandsActive = brandPaths.some(path => pathname.includes(path));
 
     <!-- Mobile Version (hidden on PC) -->
     <div class="block md:hidden">
-      <div class="grid grid-cols-3 gap-2 p-2">
+      <div class="grid grid-cols-3 gap-3 p-2">
         <!-- UNIVIEW -->
         <a
           class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
           href="/uniview"
         >
-          <img
-            src="/pictures/Brand Logo/unv2.png"
-            alt="UNIVIEW"
-            class="h-full w-auto"
-          />
+        <img
+        src="/pictures/Brand Logo/UNV.png"
+        alt="HIKVISION"
+        class="h-9 w-full"
+      />
+      
           <p class="mt-1 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600">
             Learn more
             <Icon name="arrowRight" />
@@ -227,37 +228,35 @@ const isBrandsActive = brandPaths.some(path => pathname.includes(path));
 
         <!-- DAHUA -->
         <a
-          class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
-          href="/alhua"
-        >
-          <picture>
-            <source
-              srcset="/pictures/Brand Logo/dahuanightmode.png"
-              media="(prefers-color-scheme: dark)"
-            />
-            <img
-              src="/pictures/Brand Logo/dahua.png"
-              alt="DAHUA"
-              class="h-full w-auto"
-            />
-          </picture>
-          <p class="mt-1 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600">
-            Learn more
-            <Icon name="arrowRight" />
-          </p>
-        </a>
+        class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
+        href="/alhua"
+      >
+        <img
+          src="/pictures/Brand Logo/dahua.png"
+          alt="Dahua"
+          class="h-full w-auto"
+        />
+        <p class="mt-1 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600">
+          Learn more
+          <Icon name="arrowRight" />
+        </p>
+      </a>
 
         <!-- IMOU -->
         <a
-          class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
-          href="/imou"
-        >
-          <img src="/pictures/Brand Logo/Imou.png" alt="IMOU" class="h-full w-auto" />
-          <p class="mt-1 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600">
-            Learn more
-            <Icon name="arrowRight" />
-          </p>
-        </a>
+        class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
+        href="/imou"
+      >
+        <img
+          src="/pictures/Brand Logo/Imou.png"
+          alt="Imou"
+          class="h-full w-auto"
+        />
+        <p class="mt-1 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600">
+          Learn more
+          <Icon name="arrowRight" />
+        </p>
+      </a>
 
         <!-- HIKVISION -->
         <a
