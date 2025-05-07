@@ -243,176 +243,176 @@ const isBrandsActive = brandPaths.some((path) => pathname.includes(path));
     <!-- Mobile Version Only -->
     <div class="block md:hidden">
       <div class="grid grid-cols-3 gap-2 p-2">
-        <!-- UNIVIEW -->
-        <a
-          class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
-          href="/uniview"
-        >
-          <img
-            src="/pictures/Brand Logo/unv2.png"
-            alt="UNIVIEW"
-            class="h-8 w-8"
-          />
-          <p
-            class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === "/uniview" ? "text-blue-600" : "text-blue-600 decoration-2 hover:underline dark:text-teal-600"} md:mt-3`}
-          >
-            Learn more
-            <Icon name="arrowRight" />
-          </p>
-        </a>
+      <!-- UNIVIEW -->
+      <a
+      class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
+      href="/uniview"
+    >
+      <img
+        src="/pictures/Brand Logo/unv2.png"
+        alt="UNIVIEW"
+        class="h-full w-auto"
+      />
+      <p
+        class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === "/uniview" ? "text-blue-600" : "text-blue-600 decoration-2 hover:underline dark:text-teal-600"} md:mt-3`}
+      >
+        Learn more
+        <Icon name="arrowRight" />
+      </p>
+    </a>
 
-        <!-- DAHUA -->
-        <a
-          class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
-          href="/alhua"
-        >
-          <picture>
-            <source
-              srcset="/pictures/Brand Logo/dahuanightmode.png"
-              media="(prefers-color-scheme: dark)"
-            />
-            <img
-              src="/pictures/Brand Logo/dahua.png"
-              alt="DAHUA"
-              class="h-8 w-8"
-            />
-          </picture>
-          <p
-            class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === "/alhua" ? "text-blue-600" : "text-blue-600 decoration-2 hover:underline dark:text-teal-600"} md:mt-3`}
-          >
-            Learn more
-            <Icon name="arrowRight" />
-          </p>
-        </a>
+    <!-- DAHUA -->
+    <a
+      class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
+      href="/alhua"
+    >
+      <picture>
+        <source
+          srcset="/pictures/Brand Logo/dahuanightmode.png"
+          media="(prefers-color-scheme: dark)"
+        />
+        <img
+          src="/pictures/Brand Logo/dahua.png"
+          alt="DAHUA"
+          class="mt-3 h-full w-auto"
+        />
+      </picture>
+      <p
+        class={`mt-3 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === "/alhua" ? "text-blue-600" : "text-blue-600 decoration-2 hover:underline dark:text-teal-600"} md:mt-3`}
+      >
+        Learn more
+        <Icon name="arrowRight" />
+      </p>
+    </a>
 
-        <!-- IMOU -->
-        <a
-          class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
-          href="/imou"
-        >
-          <img src="/pictures/Brand Logo/Imou.png" alt="IMOU" class="h-8 w-8" />
-          <p
-            class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === "/imou" ? "text-blue-600" : "text-blue-600 decoration-2 hover:underline dark:text-teal-600"} md:mt-3`}
-          >
-            Learn more
-            <Icon name="arrowRight" />
-          </p>
-        </a>
+    <!-- IMOU -->
+    <a
+      class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
+      href="/imou"
+    >
+      <img src="/pictures/Brand Logo/Imou.png" alt="IMOU" class=" h-full w-auto" />
+      <p
+        class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === "/imou" ? "text-blue-600" : "text-blue-600 decoration-2 hover:underline dark:text-teal-600"} md:mt-3`}
+      >
+        Learn more
+        <Icon name="arrowRight" />
+      </p>
+    </a>
 
-        <!-- HIKVISION -->
-        <a
-          class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
-          href="/hikvision"
-        >
-          <img
-            src="/pictures/Brand Logo/logo.png"
-            alt="HIKVISION"
-            class="h-8 w-8"
-          />
-          <p
-            class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === "/hikvision" ? "text-blue-600" : "text-blue-600 decoration-2 hover:underline dark:text-teal-600"} md:mt-3`}
-          >
-            Learn more
-            <Icon name="arrowRight" />
-          </p>
-        </a>
+    <!-- HIKVISION -->
+    <a
+      class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
+      href="/hikvision"
+    >
+      <img
+        src="/pictures/Brand Logo/logo.png"
+        alt="HIKVISION"
+        class=" h-full w-auto"
+      />
+      <p
+        class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === "/hikvision" ? "text-blue-600" : "text-blue-600 decoration-2 hover:underline dark:text-teal-600"} md:mt-3`}
+      >
+        Learn more
+        <Icon name="arrowRight" />
+      </p>
+    </a>
 
-        <!-- WESTERN DIGITAL -->
-        <a
-          class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
-          href="/westerdigital"
-        >
-          <picture>
-            <source
-              srcset="/pictures/Brand Logo/westerndark.png"
-              media="(prefers-color-scheme: dark)"
-            />
-            <img
-              src="/pictures/Brand Logo/Western Digital (4).png"
-              alt="Western Digital"
-              class="h-8 w-16"
-            />
-          </picture>
-          <p
-            class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === "/westerdigital" ? "text-blue-600" : "text-blue-600 decoration-2 hover:underline dark:text-teal-600"} md:mt-3`}
-          >
-            Learn more
-            <Icon name="arrowRight" />
-          </p>
-        </a>
+    <!-- WESTERN DIGITAL -->
+    <a
+      class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
+      href="/westerdigital"
+    >
+      <picture>
+        <source
+          srcset="/pictures/Brand Logo/westerndark.png"
+          media="(prefers-color-scheme: dark)"
+        />
+        <img
+          src="/pictures/Brand Logo/Western Digital (4).png"
+          alt="Western Digital"
+          class=" h-full w-auto"
+        />
+      </picture>
+      <p
+        class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === "/westerdigital" ? "text-blue-600" : "text-blue-600 decoration-2 hover:underline dark:text-teal-600"} md:mt-3`}
+      >
+        Learn more
+        <Icon name="arrowRight" />
+      </p>
+    </a>
 
-        <!-- TOSHIBA -->
-        <a
-          class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
-          href="/toshiba"
-        >
-          <img
-            src="/pictures/Brand Logo/toshiba1.png"
-            alt="TOSHIBA"
-            class="h-8 w-8"
-          />
-          <p
-            class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === "/toshiba" ? "text-blue-600" : "text-blue-600 decoration-2 hover:underline dark:text-teal-600"} md:mt-3`}
-          >
-            Learn more
-            <Icon name="arrowRight" />
-          </p>
-        </a>
+    <!-- TOSHIBA -->
+    <a
+      class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
+      href="/toshiba"
+    >
+      <img
+        src="/pictures/Brand Logo/toshiba1.png"
+        alt="TOSHIBA"
+        class=" h-full w-auto"
+      />
+      <p
+        class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === "/toshiba" ? "text-blue-600" : "text-blue-600 decoration-2 hover:underline dark:text-teal-600"} md:mt-3`}
+      >
+        Learn more
+        <Icon name="arrowRight" />
+      </p>
+    </a>
 
-        <!-- SEAGATE -->
-        <a
-          class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
-          href="/seagate"
-        >
-          <img
-            src="/pictures/Brand Logo/seagate.png"
-            alt="SEAGATE"
-            class="h-8 w-8"
-          />
-          <p
-            class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === "/seagate" ? "text-blue-600" : "text-blue-600 decoration-2 hover:underline dark:text-teal-600"} md:mt-3`}
-          >
-            Learn more
-            <Icon name="arrowRight" />
-          </p>
-        </a>
+    <!-- SEAGATE -->
+    <a
+      class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
+      href="/seagate"
+    >
+      <img
+        src="/pictures/Brand Logo/seagate.png"
+        alt="SEAGATE"
+        class=" h-full w-auto"
+      />
+      <p
+        class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === "/seagate" ? "text-blue-600" : "text-blue-600 decoration-2 hover:underline dark:text-teal-600"} md:mt-3`}
+      >
+        Learn more
+        <Icon name="arrowRight" />
+      </p>
+    </a>
 
-        <!-- UNIARCH -->
-        <a
-          class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
-          href="/uniarch"
-        >
-          <img
-            src="/pictures/Brand Logo/uniarch.png"
-            alt="UNIARCH"
-            class="h-8 w-8"
-          />
-          <p
-            class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === "/uniarch" ? "text-blue-600" : "text-blue-600 decoration-2 hover:underline dark:text-teal-600"} md:mt-3`}
-          >
-            Learn more
-            <Icon name="arrowRight" />
-          </p>
-        </a>
+    <!-- UNIARCH -->
+    <a
+      class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
+      href="/uniarch"
+    >
+      <img
+        src="/pictures/Brand Logo/uniarch.png"
+        alt="UNIARCH"
+        class=" h-full w-auto"
+      />
+      <p
+        class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === "/uniarch" ? "text-blue-600" : "text-blue-600 decoration-2 hover:underline dark:text-teal-600"} md:mt-3`}
+      >
+        Learn more
+        <Icon name="arrowRight" />
+      </p>
+    </a>
 
-        <!-- UNVDISPLAY -->
-        <a
-          class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
-          href="/unvdisplay"
-        >
-          <img
-            src="/pictures/Brand Logo/unvdisplay.png"
-            alt="UNVDISPLAY"
-            class="h-8 w-8"
-          />
-          <p
-            class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === "/unvdisplay" ? "text-blue-600" : "text-blue-600 decoration-2 hover:underline dark:text-teal-600"} md:mt-3`}
-          >
-            Learn more
-            <Icon name="arrowRight" />
-          </p>
-        </a>
-      </div>
+    <!-- UNVDISPLAY -->
+    <a
+      class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
+      href="/unvdisplay"
+    >
+      <img
+        src="/pictures/Brand Logo/unvdisplay.png"
+        alt="UNVDISPLAY"
+        class=" h-full w-auto"
+      />
+      <p
+        class={`mt-1 inline-flex items-center gap-x-1 text-sm font-medium ${pathname === "/unvdisplay" ? "text-blue-600" : "text-blue-600 decoration-2 hover:underline dark:text-teal-600"} md:mt-3`}
+      >
+        Learn more
+        <Icon name="arrowRight" />
+      </p>
+    </a>
+  </div>
     </div>
   </div>
 </div>
