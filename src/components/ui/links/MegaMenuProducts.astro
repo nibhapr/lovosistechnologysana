@@ -231,11 +231,19 @@ const isBrandsActive = brandPaths.some(path => pathname.includes(path));
         class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
         href="/alhua"
       >
-        <img
+      <div class="logo-container">
+        <img 
           src="/pictures/Brand Logo/dahua.png"
-          alt="Dahua"
-          class="h-7 w-full"
+          alt="Western Digital" 
+          class="h-6 w-full  logo-light"
         />
+        <img 
+          src="/pictures/Brand Logo/dahuanightmode.png"
+          alt="Western Digital" 
+          class="h-7 w-full logo-dark"
+        />
+      
+      </div>
         <p class="mt-1 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600">
           Learn more
           <Icon name="arrowRight" />
@@ -279,17 +287,19 @@ const isBrandsActive = brandPaths.some(path => pathname.includes(path));
           class="flex flex-col items-center rounded-lg border border-blue-600 p-2 hover:bg-neutral-100 dark:hover:bg-neutral-500/10"
           href="/westerdigital"
         >
-          <picture>
-            <source
-              srcset="/pictures/Brand Logo/westerndark.png"
-              media="(prefers-color-scheme: dark)"
-            />
-            <img
-              src="/pictures/Brand Logo/Western Digital (4).png"
-              alt="Western Digital"
-              class="h-7 w-full logo-light"
-            />
-          </picture>
+        <div class="logo-container">
+          <img 
+            src="/pictures/Brand Logo/Western Digital (4).png"
+            alt="Western Digital" 
+            class="h-6 w-full  logo-light"
+          />
+          <img 
+            src="/pictures/Brand Logo/westerndark.png"
+            alt="Western Digital" 
+            class="h-6 w-full logo-dark"
+          />
+        
+        </div>
           <p class="mt-1 inline-flex items-center gap-x-1 text-sm font-medium text-blue-600 decoration-2 hover:underline dark:text-teal-600">
             Learn more
             <Icon name="arrowRight" />
