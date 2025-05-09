@@ -85,14 +85,20 @@ const { title, subTitle } = Astro.props;
             </div>
           </div>
         </div>
-        <a href="/alhua">
-          <img
-            src="/pictures/Dahua logo.png"
-            alt="hero-image"
-            class="h-auto w-full bg-cover"
-            title="Learn more about Dahua technology"
-          />
-        </a>
+       <a href="/alhua">
+  <img
+    src="/pictures/Dahua logo.png"
+    alt="Dahua logo - light mode"
+    class="h-auto w-full bg-cover dark:hidden"
+    title="Learn more about Dahua technology"
+  />
+  <img
+    src="/pictures/Brand Logo/dahuanightmode.png"
+    alt="Dahua logo - dark mode"
+    class="h-auto w-full bg-cover hidden dark:block"
+    title="Learn more about Dahua technology"
+  />
+</a>
       </div>
 
       <!-- Hikvision Card -->
