@@ -190,7 +190,7 @@ export const alhuanewData = [
     
   },
   {
-    title: "Advanced Motion Detection & Smart Analytics",
+    title: "Advanced Motion & Smart Analytics",
     description:
       "Dahua cameras are equipped with advanced analytics features such as face detection, perimeter protection, and line crossing detection. These smart analytics help reduce false alarms and improve the overall efficiency of your surveillance system. Additionally, their cameras utilize AI-driven analytics for enhanced object classification, ensuring that you receive only the most relevant alerts.",
     image: "/pictures/1.jpg",
