@@ -14,7 +14,6 @@ const abtitle: string = "UniArch Security Cameras in Dubai";
 const absubTitle: string =
   "Discover Lovosis, Dubai's authorized supplier of premium UniArch surveillance solutions.";
   const canonicalUrl = new URL('/uniarch', Astro.site).toString();
-
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
@@ -46,7 +45,6 @@ const structuredData = {
       url: "https://lovosis.com/uniarch",
       description: description,
     },
-
     {
       "@type": "BreadcrumbList",
       "@id": "https://lovosis.com/#breadcrumb",
@@ -79,6 +77,7 @@ const structuredData = {
           name: p.title,
           description: p.description,
           image: `${Astro.url}${p.image}`,
+          productType: "Hard Drives",
           review: {
             "@type": "Review",
             author: {
@@ -98,7 +97,6 @@ const structuredData = {
         },
       })),
     },
-   
   ],
 };
 const metaTags = [
