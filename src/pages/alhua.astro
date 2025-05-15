@@ -38,7 +38,7 @@ const pageTitle: string =
 const description =
   "Buy top-quality Dahua security cameras, DVRs, NVRs & IP Cameras from Dubai's leading dealer. Expert installation, advanced tech & professional support for homes & businesses. Secure your property today";
 
-  const structuredData = {
+const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -55,7 +55,8 @@ const description =
       telephone: "+971552929644",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "Satellite Market Naif Deira,Baghlaf Building Showroom No.5",
+        streetAddress:
+          "Satellite Market Naif Deira,Baghlaf Building Showroom No.5",
         addressLocality: "Dubai",
         addressCountry: "AE",
         addressRegion: "Dubai,United Arab Emirates",
@@ -118,7 +119,7 @@ const description =
   ],
 };
 const metaTags = [
-{ name: "pageTitle", content: `${pageTitle} | Dahua distributor in Dubai` },
+  { name: "pageTitle", content: `${pageTitle} | Dahua distributor in Dubai` },
   {
     name: "description",
     content: `${description} | Official Dahua distributor in Dubai with professional installation and support`,
@@ -130,14 +131,20 @@ const metaTags = [
   { name: "robots", content: "index, follow" },
   { property: "og:title", content: pageTitle },
   { property: "og:description", content: description },
-  { property: "og:image", content: `${Astro.url.origin}/pictures/Brand Profile/1.jpg` },
+  {
+    property: "og:image",
+    content: `${Astro.url.origin}/pictures/Brand Profile/1.jpg`,
+  },
   { property: "og:type", content: "website" },
   { property: "og:locale", content: "en_AE" },
   { property: "og:locale:alternate", content: "ar_AE" },
   { name: "twitter:card", content: "summary_large_image" },
   { name: "twitter:title", content: pageTitle },
   { name: "twitter:description", content: description },
-  { name: "twitter:image", content: `${Astro.url.origin}/pictures/Brand Profile/1.jpg` },
+  {
+    name: "twitter:image",
+    content: `${Astro.url.origin}/pictures/Brand Profile/1.jpg`,
+  },
   { name: "geo.region", content: "AE" },
   { name: "geo.placename", content: "Dubai" },
   { name: "geo.position", content: "25.276987;55.296249" },
@@ -145,13 +152,13 @@ const metaTags = [
 ];
 ---
 
-<MainLayout 
-  title={pageTitle} 
-  description={description} 
-  sd={structuredData} 
+<MainLayout
+  title={pageTitle}
+  description={description}
+  sd={structuredData}
   metaTags={metaTags}
   canonical={canonicalUrl}
-><div>
+  ><div>
     <section
       class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
     >
@@ -447,8 +454,8 @@ const metaTags = [
         opacity 0.5s ease,
         transform 0.5s ease;
     }
-  </style>
-  <div class="fadeInUps mb-5 mt-32 rounded-2xl text-center">
+    </style>
+     <div class="fadeInUps mb-5 mt-32 rounded-2xl text-center">
     <h2
       class="animate-fade-in-left text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-100 md:text-4xl md:leading-tight"
     >

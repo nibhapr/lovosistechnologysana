@@ -5,7 +5,7 @@ import Card from "@/components/sections/Card.astro";
 import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
 
 export async function getStaticPaths() {
-  const contentEntries = await getCollection("uniview");
+  const contentEntries = await getCollection("uniarch");
   return contentEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
@@ -35,7 +35,7 @@ const structuredData = [
     "name": title,
     "image": new URL(imageUrl, Astro.site).toString(),
     "description": desc,
-    "productType": "Cameras",
+     "productType": "Cameras", // Hardcoded product type
     "offers": {
       "@type": "Offer",
       "priceCurrency": "AED",
@@ -59,7 +59,7 @@ const structuredData = [
       {
         "@type": "PropertyValue",
         "name": "Features",
-        "value": features?.join(", ") || "" // Handle undefined case
+        "value": features?.join(", ") || "" 
       },
       {
         "@type": "PropertyValue",
@@ -71,7 +71,7 @@ const structuredData = [
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": ratingValue,
-        "reviewCount": "10" // Update with actual count
+        "reviewCount": "10" 
       }
     } : {}),
     "review": {
@@ -85,7 +85,7 @@ const structuredData = [
       "reviewRating": {
         "@type": "Rating",
         "ratingValue": ratingValue,
-        "bestRating": "8"
+        "bestRating": "8",
       }
     }
   },
@@ -102,8 +102,8 @@ const structuredData = [
       {
         "@type": "ListItem",
         "position": 2,
-        "name": "Uniview",
-        "item": new URL("/uniview", Astro.site).toString()
+        "name": "Uniarch",
+        "item": new URL("/uniarch", Astro.site).toString()
       },
       {
         "@type": "ListItem",
@@ -115,32 +115,33 @@ const structuredData = [
   }
 ];
 const metaTags = [
-  { name: "title", content: `${title} | UNV Cameras UAE` },
+  { name: "title", content: `${title} | Hikvision Cameras UAE` },
   {
     name: "description",
     content: `${desc} - 3 Year Warranty. Available in UAE, Saudi Arabia, Dubai, and across Middle East.`,
   },
   {
   name: "keywords",
-  content: "UNV Security Cameras, 4K IP Surveillance UAE, AI-Powered CCTV Systems, UNV Thermal Cameras, Night Vision Security Dubai, NDAA-Compliant Surveillance, Professional CCTV Solutions, Middle East Video Recorders, UNV 3-Year Warranty"
+  content: "Hikvision Dubai Price, Wireless CCTV UAE, Dubai Police CCTV, 4K Security Saudi, Night Vision Home UAE, AI Security Dubai, Outdoor Cameras Middle East"
 },
 { name: "robots", content: "index, follow" },
-    { property: "og:title", content: title },
-    { property: "og:description", content: desc },
-    { property: "og:image", content: `${Astro.url.origin}/${imageUrl}` },
-    { property: "og:type", content: "product" },
-    { property: "og:locale", content: "en_AE" },
-    { property: "og:locale:alternate", content: "ar_AE" },
-    { name: "geo.region", content: "AE" },
-    { name: "geo.placename", content: "Dubai" },
-    { name: "geo.position", content: "25.276987;55.296249" },
-    { name: "ICBM", content: "25.276987, 55.296249" },
-  
+  { property: "og:title", content: title },
+  { property: "og:description", content: desc },
+  { property: "og:image", content: `${Astro.url.origin}/${imageUrl}` },
+  { property: "og:type", content: "product" },
+  { property: "og:locale", content: "en_AE" },
+  { property: "og:locale:alternate", content: "ar_AE" },
+  { name: "geo.region", content: "AE" },
+  { name: "geo.placename", content: "Dubai" },
+  { name: "geo.position", content: "25.276987;55.296249" },
+  { name: "ICBM", content: "25.276987, 55.296249" },
 ];
 
 ---
 
-<MainLayout title={title} sd={structuredData} canonical={canonicalUrl}>
+<MainLayout title={title} sd={structuredData} canonical={canonicalUrl}
+metaTags={metaTags}
+>
   <main class="container mx-auto px-4 py-8">
     <!-- Hero Section with Parallax Effect -->
     <section class="hero-section relative mb-8 overflow-hidden">
@@ -161,7 +162,7 @@ const metaTags = [
 
     <!-- Navigation with animation -->
     <div class="navigation-container mb-6">
-      <a href="/uniview" class="back-button bg-transparent dark:border-none dark:bg-neutral-900 dark:text-white dark:hover:bg-neutral-500 dark:hover:text-white"
+      <a href="/hikvision" class="back-button bg-transparent dark:border-none dark:bg-neutral-900 dark:text-white dark:hover:bg-neutral-500 dark:hover:text-white"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -851,7 +852,7 @@ const metaTags = [
     width: 100%;
     height: 150%;
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)),
-      url("/pictures/unv/unvbanner1.png");
+    url("/pictures/Hikvision.jpg");
     background-size: cover;
     background-position: center;
     transform: translateY(0);
@@ -860,7 +861,7 @@ const metaTags = [
   @media (max-width: 768px) {
   .parallax-bg {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)),
-      url("/pictures/mobileview/UNV Mobile View.jpg");
+      url("/pictures/mobileview/Hikvision Mobile View.png");
   }
 }
   > .hero-section::after {
