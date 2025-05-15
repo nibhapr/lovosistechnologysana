@@ -38,12 +38,14 @@ const description =
   "Looking for reliable UNV security cameras in the UAE? Lovosis Technology is your trusted distributor, offering top-quality surveillance solutions for all needs.";
 
 const canonicalUrl = new URL("/uniview", Astro.site).toString();
+
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
+    // Organization Schema
     {
       "@type": "Organization",
-      name: "Lovosis Technology L.L.C",
+      name: pageTitle,
       url: "https://lovosis.com",
       logo: "https://lovosis.com/pictures/logo.png",
       description: description,
@@ -52,7 +54,7 @@ const structuredData = {
         "https://www.instagram.com/_lovosis_group_of_companies_/reels/",
       ],
       email: "sales@lovosis.com",
-      telephone: "+971509162488",
+      telephone: "+971552929644",
       address: {
         "@type": "PostalAddress",
         streetAddress:
@@ -63,56 +65,58 @@ const structuredData = {
         postalCode: "123421",
       },
     },
+    // WebPage Schema
     {
       "@type": "WebPage",
-      name: "Uniview Display | Lovosis Technology",
-      url: "https://lovosis.com/unvdisplay",
+      name: "Uniview | Lovosis Technology",
+      url: "https://lovosis.com/uniview",
       description: description,
     },
+    // Breadcrumb Schema
     {
       "@type": "BreadcrumbList",
-      "@id": "https://lovosis.com/#breadcrumb",
       itemListElement: [
         {
           "@type": "ListItem",
           position: 1,
-          item: {
-            "@id": "https://lovosis.com",
-            name: "Home",
-          },
+          name: "Home",
+          item: "https://lovosis.com",
         },
         {
           "@type": "ListItem",
           position: 2,
-          item: {
-            "@id": "https://lovosis.com/unvdisplay",
-            name: "Uniview Display",
-          },
+          name: "Uniview",
+          item: "https://lovosis.com/uniview",
         },
       ],
     },
+    // Product List Schema
     {
       "@type": "ItemList",
-      itemListElement: unvData.map((p) => ({
+      itemListElement: cards.map((product, index) => ({
         "@type": "ListItem",
-        position: p.title,
+        position: index + 1,
         item: {
           "@type": "Product",
-          name: p.title,
-          description: p.description,
-          image: `${Astro.url}${p.image}`,
-          productType: "Display",
-          review: {
-            "@type": "Review",
-            reviewRating: {
-              "@type": "Rating",
-              ratingValue: 4,
-              bestRating: 5,
-            },
+          name: product.title,
+          description: product.desc,
+          image: new URL(product.img, Astro.site).toString(),
+          url: new URL(`/uniview/${product.slug}`, Astro.site).toString(),
+          offers: {
+            "@type": "Offer",
+            priceCurrency: "AED",
+            price: "0.00", // Update with actual price if available
+            availability: "https://schema.org/InStock",
+            itemCondition: "https://schema.org/NewCondition",
+          },
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: product.ratingValue.toString() || "4.5",
+            reviewCount: "10", // Update with actual review count if available
           },
           brand: {
             "@type": "Brand",
-            name: "Uniview",
+            name: "Uiview",
           },
         },
       })),
