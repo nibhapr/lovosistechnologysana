@@ -173,6 +173,25 @@ const uniarchCollection = defineCollection({
       features: z.array(z.string()).optional()
     }),
 });
+
+const unvdisplayCollection = defineCollection({
+  type: "content",
+  schema: ({ image }) =>
+    z.object({
+      id: z.number(),
+      title: z.string(),
+      desc: z.string(),
+      img: image(),
+      images: z.array(image()),
+      alt: z.string(),
+      author: z.string(),
+      reviewBody: z.string(),
+      ratingValue: z.number(),
+      publishedTime: z.string(),
+      modifiedTime: z.string().optional(),
+      features: z.array(z.string()).optional()
+    }),
+});
 const lovosisCollection = defineCollection({
   type: "content",
   schema: ({ image }) =>
@@ -279,5 +298,6 @@ export const collections = {
   seagate: seagateCollection,
   alhua: alhuaCollection,
   hikvision:hikvisionCollection,
-  uniarch: uniarchCollection
+  uniarch: uniarchCollection,
+  unvdisplay:unvdisplayCollection
 };

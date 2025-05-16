@@ -1,31 +1,30 @@
 export const cameraData = [
   {
     author: "Gafoor.TC",
-    title: "Uho-P2A-M3F4D",
-    description:
-      "High quality image with 3MP, 1/3,2304*1296@20fps in the main stream,Built-in Mic & Speaker, support two-way audio, offer better interaction,Support sound and light warning, makes warning and alarming more noticeable",
-    image: "/pictures/Uho-P2A-M3F4D.png",
+    title: "Uho-P1A-M3F4D",
+    description:"High-quality 3MP, 1/2.8 CMOS sensor delivers 2304×1296@20fps video with Ultra265 and H.26 compression. Supports digital WDR for balanced lighting and smart IR up to 30m plus 10m warm light for versatile scenes. Built-in mic and speaker enable two-way audio for enhanced interaction. Wi-Fi connectivity and easy installation. IP66-rated for weather resistance. Features sound and light alarms for noticeable warnings. Front face made of graphene for superior heat dissipation and eco-friendly design.",
+    image: "/src/assets/camera/Uniarch/Uniarch.png",
   },
   {
     author: "Shihabb.p",
-    title: "Uho-P3C-M5F4",
+    title: "Uho-S3E-M3",
     description:
-      "High quality image with 5MP, 1/1.8,5MP (2880*1620)@25/20fps; 4MP (2560*1440)@25/20fps; 3MP (2304*1296)@30/25fps; 2MP (1920*1080)@30/25fps;H.264,-Colorhunter%20with%20Wise,Colorhunter with Wise-ISP technology ensures 24-hour full-color images,Support digital WDR (Wide Dynamic Range)",
-    image: "/pictures/Uho-P3C-M5F4.png",
+      "High-quality 3MP, 1/3 CMOS sensor supports multiple resolutions: 3MP@25/20fps, 2MP@30/25fps, and 720P@30/25fps. Supports Ultra265, H.265, and H.264 compression. Built-in mic and speaker enable two-way audio for better interaction. IR night vision up to 10m (33ft). Supports up to 256GB Micro SD storage. Wi-Fi connectivity and easy installation.",
+    image: "/src/assets/camera/Uniarch/Uniarch2.png",
   },
   {
     author: "Roshan Aqther",
-    title: "Uho-S3S-M33D",
+    title: "UHO-S2",
     description:
-      "Fixed camera and PT camera integration, dual channels with one IP, look at overall situation and consider details at the same time,Ultra 265, H.265, H.264,Support digital WDR (Wide Dynamic Range),Built-in Mic & Speaker, support two-way audio, offer better interaction",
-    image: "/pictures/Uho-S3S-M33D.png",
+      "High-quality 2MP, 1/3 CMOS sensor with 2MP@25/20fps and 720P@25/20fps resolutions. Supports Ultra265, H.265, and H.264 compression. Built-in mic and speaker enable two-way audio for enhanced interaction. IR night vision up to 10m (33ft). Supports up to 256GB Micro SD card. Wi-Fi connectivity and easy installation.",
+    image: "/src/assets/camera/Uniarch/Uniarch4.png",
   },
   {   
      author: "Zameel",
-    title: "Uho-B2D-M5F3D",
+    title: "NVR-104LS-P4",
     description:
-      "High quality image with 5MP, 1/3,Ultra 265, H.265, H.264, MJPEG,Smart IR, up to 20m (66ft) IR distance,Support 128 G Micro SD card",
-    image: "/pictures/uniarchcamera.png",
+      "Supports Ultra265, H.265, and H.264 video formats. Features 4-channel input with Plug & Play via 4 independent PoE network interfaces. Compatible with third-party IP cameras through ONVIF (Profiles S, G, T). Offers 1 HDMI and 1 VGA port with simultaneous output. Records up to 5MP resolution. Includes 1 SATA HDD slot supporting up to 6TB storage. Supports cloud firmware upgrades.",
+    image: "/src/assets/camera/Uniarch/Uniarch11.png",
   },
 ];
 export const univiewData = [
@@ -158,26 +157,26 @@ export const dahuaData = [
 export const unvdisplaydata = [
   {
     id: 1,
-    title: "MW7880-FO-D",
+    title: "MW3565-U-E2",
     description:
-      "Energy saving voltage division design and high conversion efficiency power supply reduce the power consumption of the whole device by 30%.High refresh rate, high brightness, wide viewing angle, no glare, and low attenuation offer better visual experience.High grayscale image delivers more details.Supports 360°arc splicing screen for naked-eye 3D display effect.Aluminum alloy cabinet, each only weights 24.5kg.",
-    image: "/pictures/unv/MW7857-FO-D.jpg",
+      "4K UHD anti-glare display with zero lamination for reduced light refraction and sharper visuals. Ultra-narrow bezel and minimalist geometric design for elegant aesthetics. Optional 4K HD camera and 8-mic array enable immersive collaboration. Dual Wi-Fi and Bluetooth 5.2 ensure seamless connectivity. Dual treble and bass channels deliver cinematic audio. Infrared 50-point touch and Android 13.0 with smart tools enhance interactivity. Supports wireless screen mirroring, fast QR code file transfers, OTA upgrades, and NFC screen projection.",
+    image: "/src/assets/camera/Unvdisplay/Unvdisplay.png",
     author: "Mural Krishna",
   },
   {
     id: 2,
-    title: "MW78XX-FI",
+    title: "MW7815-FI-EB",
     description:
-      "Industrial-grade panel, highly reliable integrated structure design, continuous stable operation.Direct-lit LED backlight provides high brightness uniformity without border shadows.Ultra-narrow 1.7 mm seam.Supports white balance adjustment, delivering delicate and colorful images.Wide 178 viewing angles.Built-in image splicing function.Support anti-burn technology, landscape and portrait installation.Supports delayed boot after power on.Advanced direct-lit local dimming technology with low power consumption, saving energy",
-    image: "/pictures/unv/lcdw.png",
+      "Advanced grayscale for lifelike detail and seamless image splicing with no black lines. Slim, compact design with a stylish appearance and space-saving installation. High brightness, contrast, and ultra-wide viewing angle ensure vivid visuals from any angle. High refresh rate eliminates ghosting and smearing. Features front maintenance, long lifespan, low failure rate, and minimal maintenance cost. Wide voltage input power supply with strong adaptability. Supports wall mounting without clearance and offers optional dual power and dual receiving card configurations.",
+    image: "/src/assets/camera/Unvdisplay/MW2.png",
     author: "Thomas",
   },
   {
     id: 3,
-    title: "MW7818-FI-EB",
+    title:"MW7809-FI-CF",
     description:
-      "Advanced grayscale gives detailed and realistic images.Seamlessly splices images without black lines on the screen.Simple and stylish appearance, easy to install.High brightness and contrast provide optimal imagesTakes up less space with a slim and compact design.Long lifetime.Low heat, excellent heat dissipation, no noise.Low failure rate and maintenance cost.Ultra-wide viewing angle ensures satisfactory viewing experience from diversified angles.High refresh rate and frame frequency provide high image quality without ghosting or smearing",
-    image: "/pictures/unv/MW7818-FI-EB.jpg",
+      "COB technology with IP65 front protection ensures waterproof and anti-collision durability. Flip-chip design eliminates wire bonding for stable, energy-efficient, high-luminance performance. Advanced grayscale delivers detailed, realistic images with seamless splicing and no black lines. Modular magnetic suction installation offers a sleek look and easy setup. Supports front maintenance, wall mounting, and ultra-slim space-saving design. Features long lifespan, low heat with excellent dissipation, silent operation, and low failure and maintenance costs.",
+    image: "/src/assets/camera/Unvdisplay/MW1.png",
     author: "Sanam Rehman",
   },
 ];
