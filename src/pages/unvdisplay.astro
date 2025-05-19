@@ -90,8 +90,7 @@ const structuredData = {
       telephone: "+971509162488",
       address: {
         "@type": "PostalAddress",
-        streetAddress:
-          "Satellite Market Naif Deira,Baghlaf Building Showroom No.5",
+        streetAddress: "Satellite Market Naif Deira,Baghlaf Building Showroom No.5",
         addressLocality: "Dubai",
         addressCountry: "AE",
         addressRegion: "Dubai,United Arab Emirates",
@@ -126,32 +125,36 @@ const structuredData = {
         },
       ],
     },
-    {
+    // First Product List (UNV Displays)
+   
+    // Second Product List (Another Category)
+     {
       "@type": "ItemList",
-      itemListElement: unvdisplaydata.map((p) => ({
+      itemListElement: cards.map((product, index) => ({
         "@type": "ListItem",
-        position: p.id,
+        position: index + 1,
         item: {
           "@type": "Product",
-          name: p.title,
-          description: p.description,
-          image: `${Astro.url}${p.image}`,
-          productType: "Display",
-          review: {
-            "@type": "Review",
-            author: {
-              "@type": "Person",
-              name: p.author,
-            },
-            reviewRating: {
-              "@type": "Rating",
-              ratingValue: 4,
-              bestRating: 5,
-            },
+          name: product.title,
+          description: product.desc,
+          image: new URL(product.img, Astro.site).toString(),
+         
+          url: new URL(`/unvdisplay/${product.slug}`, Astro.site).toString(),
+          offers: {
+            "@type": "Offer",
+            priceCurrency: "AED",
+            price: "0.00",
+            availability: "https://schema.org/InStock",
+            itemCondition: "https://schema.org/NewCondition",
+          },
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: product.ratingValue.toString() || "4.5",
+            reviewCount: "10",
           },
           brand: {
             "@type": "Brand",
-            name: "UNV",
+            name: "UNV Display",
           },
         },
       })),
@@ -254,7 +257,7 @@ const structuredData = {
           MW7815-FI-EB
         </p>
       </div>
-      <div class="bg-gray-100 shadow-xl dark:bg-neutral-500">
+      <div class="bg-white shadow-xl dark:bg-neutral-500">
         <img
           src="/src/assets/camera/Unvdisplay/MW1.png"
           ,
@@ -273,7 +276,7 @@ const structuredData = {
           class="h-full w-full object-contain"
         />
         <p class="mt-4 text-center text-2xl font-bold dark:text-white">
-          "MW-A46-B1-E
+          MW-A46-B1-E
         </p>
       </div>
     </div>
@@ -518,7 +521,7 @@ const structuredData = {
                 />
               </div>
               <div class="flex flex-col items-center p-6">
-                    <h3 class="text-center text-xl font-semibold dark:text-white">
+                    <h3 class="text-center text-xl font-semibold text-black dark:text-white">
                       {card.title}
                     </h3>
                     <p class="mb-4 mt-3 text-center text-gray-600 dark:text-gray-300">

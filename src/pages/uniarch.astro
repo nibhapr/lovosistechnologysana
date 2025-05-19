@@ -97,28 +97,30 @@ const structuredData = {
         },
       ],
     },
-    {
+   
+     {
       "@type": "ItemList",
-      itemListElement: cameraData.map((p) => ({
+      itemListElement: cards.map((product, index) => ({
         "@type": "ListItem",
-        position: p.title,
+        position: index + 1,
         item: {
           "@type": "Product",
-          name: p.title,
-          description: p.description,
-          image: `${Astro.url}${p.image}`,
-          productType: "Hard Drives",
-          review: {
-            "@type": "Review",
-            author: {
-              "@type": "Person",
-              name: p.author,
-            },
-            reviewRating: {
-              "@type": "Rating",
-              ratingValue: 4,
-              bestRating: 5,
-            },
+          name: product.title,
+          description: product.desc,
+          image: new URL(product.img, Astro.site).toString(),
+       
+          url: new URL(`/uniarch/${product.slug}`, Astro.site).toString(),
+          offers: {
+            "@type": "Offer",
+            priceCurrency: "AED",
+            price: "0.00",
+            availability: "https://schema.org/InStock",
+            itemCondition: "https://schema.org/NewCondition",
+          },
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: product.ratingValue.toString() || "4.5",
+            reviewCount: "10",
           },
           brand: {
             "@type": "Brand",
