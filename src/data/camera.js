@@ -3,28 +3,28 @@ export const cameraData = [
     author: "Gafoor.TC",
     title: "Uho-P1A-M3F4D",
     description:"High-quality 3MP, 1/2.8 CMOS sensor delivers 2304×1296@20fps video with Ultra265 and H.26 compression. Supports digital WDR for balanced lighting and smart IR up to 30m plus 10m warm light for versatile scenes. Built-in mic and speaker enable two-way audio for enhanced interaction. Wi-Fi connectivity and easy installation. IP66-rated for weather resistance. Features sound and light alarms for noticeable warnings. Front face made of graphene for superior heat dissipation and eco-friendly design.",
-    image: "/src/assets/camera/Uniarch/Uniarch.png",
+    image: "/pictures/Uniarch/Uniarch.png",
   },
   {
     author: "Shihabb.p",
     title: "Uho-S3E-M3",
     description:
       "High-quality 3MP, 1/3 CMOS sensor supports multiple resolutions: 3MP@25/20fps, 2MP@30/25fps, and 720P@30/25fps. Supports Ultra265, H.265, and H.264 compression. Built-in mic and speaker enable two-way audio for better interaction. IR night vision up to 10m (33ft). Supports up to 256GB Micro SD storage. Wi-Fi connectivity and easy installation.",
-    image: "/src/assets/camera/Uniarch/Uniarch2.png",
+    image: "/pictures/Uniarch/Uniarch2.png",
   },
   {
     author: "Roshan Aqther",
     title: "UHO-S2",
     description:
       "High-quality 2MP, 1/3 CMOS sensor with 2MP@25/20fps and 720P@25/20fps resolutions. Supports Ultra265, H.265, and H.264 compression. Built-in mic and speaker enable two-way audio for enhanced interaction. IR night vision up to 10m (33ft). Supports up to 256GB Micro SD card. Wi-Fi connectivity and easy installation.",
-    image: "/src/assets/camera/Uniarch/Uniarch4.png",
+    image: "/pictures/Uniarch/Uniarch4.png",
   },
   {   
      author: "Zameel",
     title: "NVR-104LS-P4",
     description:
       "Supports Ultra265, H.265, and H.264 video formats. Features 4-channel input with Plug & Play via 4 independent PoE network interfaces. Compatible with third-party IP cameras through ONVIF (Profiles S, G, T). Offers 1 HDMI and 1 VGA port with simultaneous output. Records up to 5MP resolution. Includes 1 SATA HDD slot supporting up to 6TB storage. Supports cloud firmware upgrades.",
-    image: "/src/assets/camera/Uniarch/Uniarch11.png",
+    image: "/pictures/Uniarch/Uniarch11.png",
   },
 ];
 export const univiewData = [
@@ -160,7 +160,7 @@ export const unvdisplaydata = [
     title: "MW3565-U-E2",
     description:
       "4K UHD anti-glare display with zero lamination for reduced light refraction and sharper visuals. Ultra-narrow bezel and minimalist geometric design for elegant aesthetics. Optional 4K HD camera and 8-mic array enable immersive collaboration. Dual Wi-Fi and Bluetooth 5.2 ensure seamless connectivity. Dual treble and bass channels deliver cinematic audio. Infrared 50-point touch and Android 13.0 with smart tools enhance interactivity. Supports wireless screen mirroring, fast QR code file transfers, OTA upgrades, and NFC screen projection.",
-    image: "/src/assets/camera/Unvdisplay/Unvdisplay.png",
+    image: "/pictures/Unvdisplay/Unvdisplay.png",
     author: "Mural Krishna",
   },
   {
@@ -168,7 +168,7 @@ export const unvdisplaydata = [
     title: "MW7815-FI-EB",
     description:
       "Advanced grayscale for lifelike detail and seamless image splicing with no black lines. Slim, compact design with a stylish appearance and space-saving installation. High brightness, contrast, and ultra-wide viewing angle ensure vivid visuals from any angle. High refresh rate eliminates ghosting and smearing. Features front maintenance, long lifespan, low failure rate, and minimal maintenance cost. Wide voltage input power supply with strong adaptability. Supports wall mounting without clearance and offers optional dual power and dual receiving card configurations.",
-    image: "/src/assets/camera/Unvdisplay/MW2.png",
+    image: "/pictures/Unvdisplay/MW2.png",
     author: "Thomas",
   },
   {
@@ -176,7 +176,7 @@ export const unvdisplaydata = [
     title:"MW7809-FI-CF",
     description:
       "COB technology with IP65 front protection ensures waterproof and anti-collision durability. Flip-chip design eliminates wire bonding for stable, energy-efficient, high-luminance performance. Advanced grayscale delivers detailed, realistic images with seamless splicing and no black lines. Modular magnetic suction installation offers a sleek look and easy setup. Supports front maintenance, wall mounting, and ultra-slim space-saving design. Features long lifespan, low heat with excellent dissipation, silent operation, and low failure and maintenance costs.",
-    image: "/src/assets/camera/Unvdisplay/MW1.png",
+    image: "/pictures/Unvdisplay/MW1.png",
     author: "Sanam Rehman",
   },
 ];
